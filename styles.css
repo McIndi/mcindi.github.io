@@ -279,6 +279,16 @@ section {
   color: var(--muted);
 }
 
+.notice {
+  background: hwb(0 72% 7%);
+  border: 1px solid hwb(0 100% 0%);
+  padding: 16px 20px;
+  border-radius: 12px;
+  color: hwb(351 2% 6%);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
 /* Cards Grid */
 .grid {
   display: grid;
