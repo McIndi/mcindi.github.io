@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Untitled — McIndi Solutions LLC</title>
+  <meta name="description" content="" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Untitled — McIndi Solutions LLC" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://mcindi.github.io/blog/tutorial-001.html" />
+  <meta property="og:image" content="/og.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../McINDI_logo.png" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./syntax-highlighting.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav" id="nav">
+      <a href="/" class="brand" aria-label="McIndi Solutions Home">
+        <img src="../McINDI_logo.png" alt="McIndi Solutions Logo" width="64" height="59"/>
+        <div class="brand-title">McIndi Solutions LLC</div>
+      </a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu" id="menuBtn">Menu</button>
+      <ul id="menu" aria-label="Primary" role="navigation">
+        <li><a href="/index.html#services">Services</a></li>
+        <li><a href="/index.html#pillars">Expertise</a></li>
+        <li><a href="/index.html#case-studies">Case Studies</a></li>
+        <li><a href="/index.html#process">Our Process</a></li>
+        <li><a href="/index.html#software">Software</a></li>
+        <li><a href="/index.html#about">About</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+        <li><a href="/blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top" class="stack">
+    <!-- Article Header -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">General</div>
+          <h1>Untitled</h1>
+          
+          <p class="blog-meta">
+            <strong>Published January 05, 2026</strong><br/>
+            <em>By Staff</em><br/>
+            <em>Brought to you by McIndi Solutions, LLC</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="container">
+      <div class="article-content">
+<h1 id="building-a-django-saas-app-template">Building a Django SaaS App Template</h1>
+<p>Or The Django SaaS Mega-Tutorial</p>
+<h2 id="from-scratch-to-subscription-ready-part-1">From Scratch to Subscription-Ready (Part 1)</h2>
+<p><strong>Published December 30, 2025</strong>
+<em>By Cliff</em>
+<em>Brought to you by McIndi Solutions, LLC</em></p>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<p>This tutorial walks through building a <strong>clean, production-minded Django SaaS starter</strong> from scratch. You’ll set up environment-based settings, implement an email-first custom user model, wire authentication flows, and build a responsive Bootstrap UI. By the end, you’ll have a runnable local application suitable for free-tier users and ready to evolve into a paid SaaS.</p>
+<p>Production deployment and subscription billing are intentionally deferred to later tutorials.</p>
+<hr />
+<h2 id="who-this-is-for">Who This Is For</h2>
+<p>This guide is written for:</p>
+<ul>
+<li><strong>Solo founders</strong> who want a solid SaaS starting point</li>
+<li><strong>Developers</strong> who want fewer shortcuts and more correctness</li>
+<li><strong>Technical leaders</strong> evaluating Django as a SaaS platform</li>
+</ul>
+<p>You don’t need deep Django expertise, but you should be comfortable reading Python and using the command line.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Python 3.10 or newer</li>
+<li>Basic familiarity with Git and virtual environments</li>
+<li>Estimated time: <strong>30–90 minutes</strong></li>
+</ul>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li>Environment setup and project initialization</li>
+<li>Email-based custom user model</li>
+<li>Authentication views, forms, and templates</li>
+<li>Core app and shared UI</li>
+<li>Testing and local verification</li>
+<li>Project structure and flow diagrams</li>
+<li>Production notes and gotchas</li>
+</ul>
+<hr />
+<h2 id="one-page-quick-reference">One-Page Quick Reference</h2>
+<h3 id="key-commands">Key Commands</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Create and activate a virtual environment (Windows)</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+
+<span class="c1"># macOS / Linux</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># Install dependencies</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Create project and apps</span>
+django-admin<span class="w"> </span>startproject<span class="w"> </span>config<span class="w"> </span>.
+python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>accounts
+
+<span class="c1"># Migrations and local run</span>
+python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations
+python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+
+<h3 id="key-files">Key Files</h3>
+<ul>
+<li><code>config/settings.py</code> — environment loading, security, auth model</li>
+<li><code>accounts/models.py</code> — custom user model</li>
+<li><code>accounts/forms.py</code> — Bootstrap-styled auth forms</li>
+<li><code>accounts/views.py</code> — registration and login flows</li>
+<li><code>core/templates/core/base.html</code> — shared layout and navigation</li>
+</ul>
+<hr />
+<h2 id="why-django-for-saas">Why Django for SaaS?</h2>
+<p>Django’s strength is not that it’s “simple,” but that it’s <strong>complete</strong>.</p>
+<p>Authentication, admin tooling, ORM, migrations, and security primitives are all first-class. For SaaS products, this matters more than novelty. You want predictable behavior, strong defaults, and a framework that scales with complexity rather than fighting it.</p>
+<p>This tutorial reflects that philosophy. We avoid shortcuts that feel convenient early but cause friction later, especially around authentication, settings, and structure.</p>
+<hr />
+<h2 id="step-1-environment-setup-and-project-initialization">Step 1: Environment Setup and Project Initialization</h2>
+<h3 id="goals">Goals</h3>
+<p>In this step, you will:</p>
+<ul>
+<li>Create an isolated Python environment</li>
+<li>Install minimal dependencies</li>
+<li>Initialize a Django project with environment-based settings</li>
+</ul>
+<h3 id="virtual-environment">Virtual Environment</h3>
+<p>Always start with isolation. It prevents dependency conflicts and makes builds reproducible.</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</code></pre></div>
+
+<p>Activate it:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Windows</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+
+<span class="c1"># macOS / Linux</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+
+<hr />
+<h3 id="dependencies">Dependencies</h3>
+<p>Create a <code>requirements.txt</code> file:</p>
+<div class="codehilite"><pre><span></span><code>django
+django-environ
+</code></pre></div>
+
+<p>Install:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+
+<p><strong>Why these?</strong></p>
+<ul>
+<li><code>django</code> — the framework</li>
+<li><code>django-environ</code> — structured, explicit environment management</li>
+</ul>
+<p>We keep dependencies minimal on purpose.</p>
+<hr />
+<h3 id="create-the-project">Create the Project</h3>
+<div class="codehilite"><pre><span></span><code>django-admin<span class="w"> </span>startproject<span class="w"> </span>config<span class="w"> </span>.
+</code></pre></div>
+
+<p>Using <code>config</code> as the project name keeps the structure clean and avoids semantic confusion later when adding domain-specific apps.</p>
+<hr />
+<h3 id="environment-based-settings">Environment-Based Settings</h3>
+<p>Edit <code>config/settings.py</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">environ</span>
+
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">Env</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">read_env</span><span class="p">(</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s1">&#39;.env&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Replace hardcoded values:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s1">&#39;DJANGO_SECRET_KEY&#39;</span><span class="p">)</span>
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">bool</span><span class="p">(</span><span class="s1">&#39;DJANGO_DEBUG&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="s1">&#39;DJANGO_ALLOWED_HOSTS&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[])</span>
+</code></pre></div>
+
+<p>Create <code>.env</code>:</p>
+<div class="codehilite"><pre><span></span><code>DJANGO_SECRET_KEY=replace-me-with-a-real-secret
+DJANGO_DEBUG=True
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
+</code></pre></div>
+
+<p><strong>Why this matters</strong></p>
+<p>Hardcoded secrets leak. Environment variables scale cleanly from local dev to CI to production. <code>.env.example</code> doubles as documentation for collaborators and automation.</p>
+<p>Validate early:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>check
+</code></pre></div>
+
+<hr />
+<h2 id="step-2-custom-user-model-email-first">Step 2: Custom User Model (Email-First)</h2>
+<p>Email-based authentication is the norm for SaaS. Django allows this cleanly, but <strong>only if you do it early</strong>.</p>
+<h3 id="create-the-accounts-app">Create the Accounts App</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>accounts
+</code></pre></div>
+
+<hr />
+<h3 id="custom-user-model">Custom User Model</h3>
+<p><code>accounts/models.py</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">AbstractBaseUser</span><span class="p">,</span> <span class="n">BaseUserManager</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomUserManager</span><span class="p">(</span><span class="n">BaseUserManager</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Email is required&quot;</span><span class="p">)</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize_email</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">using</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_db</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_superuser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">is_staff</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">using</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_db</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomUser</span><span class="p">(</span><span class="n">AbstractBaseUser</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">date_joined</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">is_active</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">is_staff</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">is_superuser</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">CustomUserManager</span><span class="p">()</span>
+
+    <span class="n">USERNAME_FIELD</span> <span class="o">=</span> <span class="s1">&#39;email&#39;</span>
+    <span class="n">REQUIRED_FIELDS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
+</code></pre></div>
+
+<p>Register it in <code>config/settings.py</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;accounts&#39;</span><span class="p">]</span>
+<span class="n">AUTH_USER_MODEL</span> <span class="o">=</span> <span class="s1">&#39;accounts.CustomUser&#39;</span>
+</code></pre></div>
+
+<blockquote>
+<p>⚠️ <strong>Important</strong>
+<code>AUTH_USER_MODEL</code> must be set <strong>before</strong> initial migrations. Changing it later is painful and error-prone.</p>
+</blockquote>
+<p>Run migrations:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations<span class="w"> </span>accounts
+python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</code></pre></div>
+
+<hr />
+<h2 id="step-3-authentication-views-forms-and-templates">Step 3: Authentication Views, Forms, and Templates</h2>
+<p>This step wires user registration, login, logout, and profile views.</p>
+<h3 id="forms-with-bootstrap-styling">Forms with Bootstrap Styling</h3>
+<p><code>accounts/forms.py</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django</span><span class="w"> </span><span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth.forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserCreationForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_user_model</span>
+
+<span class="n">User</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomUserCreationForm</span><span class="p">(</span><span class="n">UserCreationForm</span><span class="p">):</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="s2">&quot;Required. Enter a valid email address.&quot;</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">EmailInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}),</span>
+    <span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;password1&#39;</span><span class="p">,</span> <span class="s1">&#39;password2&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">,</span> <span class="s1">&#39;placeholder&#39;</span><span class="p">:</span> <span class="s1">&#39;Enter your username&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;password1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">,</span> <span class="s1">&#39;placeholder&#39;</span><span class="p">:</span> <span class="s1">&#39;Enter your password&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;password2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">,</span> <span class="s1">&#39;placeholder&#39;</span><span class="p">:</span> <span class="s1">&#39;Confirm your password&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;password1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;Your password must contain at least 8 characters.&#39;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;password2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">help_text</span> <span class="o">=</span> <span class="s1">&#39;Enter the same password as above.&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">commit</span><span class="p">:</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">user</span>
+</code></pre></div>
+
+<p><strong>Why use UserCreationForm?</strong></p>
+<p>Django&rsquo;s built-in <code>UserCreationForm</code> provides critical functionality that you shouldn&rsquo;t rebuild from scratch:</p>
+<ul>
+<li><strong>Password validation</strong>: Automatically enforces Django&rsquo;s password validators (minimum length, common passwords, similarity checks)</li>
+<li><strong>Password confirmation</strong>: Built-in <code>password1</code> and <code>password2</code> fields with matching validation</li>
+<li><strong>Security best practices</strong>: Properly hashes passwords using Django&rsquo;s password hashers</li>
+<li><strong>Error messaging</strong>: Pre-built error messages for validation failures</li>
+</ul>
+<p>By inheriting from <code>UserCreationForm</code>, we get all this functionality while adding our custom email field and Bootstrap styling.</p>
+<p><strong>Guideline:</strong>
+Add layout classes only. Avoid hardcoded colors that will clash with theming later.</p>
+<hr />
+<h3 id="views-and-urls">Views and URLs</h3>
+<p>Use Django’s built-in auth views where possible. They are secure, tested, and boring in the best way.</p>
+<ul>
+<li>Class-based views for registration</li>
+<li>Built-ins for login/logout/reset</li>
+<li>Function views only when simplicity wins</li>
+</ul>
+<p>Templates live under <code>accounts/templates/accounts/</code> and extend a shared base.</p>
+<hr />
+<h2 id="step-4-core-app-and-shared-ui">Step 4: Core App and Shared UI</h2>
+<p>Create a <code>core</code> app for non-auth pages:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>core
+</code></pre></div>
+
+<p>This app owns:</p>
+<ul>
+<li>The homepage</li>
+<li>Shared layout (<code>base.html</code>)</li>
+<li>Navigation and theme toggle</li>
+</ul>
+<h3 id="base-template">Base Template</h3>
+<p>Use Bootstrap 5 and a single shared navbar. Authentication state controls visible links. Logout is a POST form to avoid side effects from browser caching and to follow HTTP conventions (state-changing operations should use POST, not GET).</p>
+<p>Theme toggling is client-side and minimal:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">toggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;theme-toggle&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">toggle</span><span class="o">?</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">theme</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;light&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<hr />
+<h2 id="deep-dive-shared-base-template-and-authentication-pages">Deep Dive: Shared Base Template and Authentication Pages</h2>
+<p>At this point in the tutorial, we’ve referenced a shared base template and several authentication pages without looking at them in detail. This section fills that gap.</p>
+<p>These templates are intentionally simple, explicit, and boring. That’s a feature, not a bug. SaaS applications benefit from predictability and clarity, especially around authentication flows.</p>
+<hr />
+<h2 id="the-shared-base-template-corebasehtml">The Shared Base Template (<code>core/base.html</code>)</h2>
+<p>This file defines the global layout, navigation, Bootstrap inclusion, and light/dark theme toggle. Every page in the app extends it.</p>
+<h3 id="full-listing-coretemplatescorebasehtml">Full Listing: <code>core/templates/core/base.html</code></h3>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}My SaaS App{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">link</span>
+        <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot;</span>
+        <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+        <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB&quot;</span>
+        <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span>
+    <span class="p">&gt;</span>
+
+    {% block extra_head %}{% endblock %}
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-expand-lg bg-light navbar-light&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-fluid&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;index&#39; %}&quot;</span><span class="p">&gt;</span>My SaaS App<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">button</span>
+                <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler&quot;</span>
+                <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+                <span class="na">data-bs-toggle</span><span class="o">=</span><span class="s">&quot;collapse&quot;</span>
+                <span class="na">data-bs-target</span><span class="o">=</span><span class="s">&quot;#navbarNav&quot;</span>
+                <span class="na">aria-controls</span><span class="o">=</span><span class="s">&quot;navbarNav&quot;</span>
+                <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+                <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Toggle navigation&quot;</span>
+            <span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navbarNav&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav me-auto&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;index&#39; %}&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+
+                    {% if user.is_authenticated %}
+                    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;profile&#39; %}&quot;</span><span class="p">&gt;</span>Profile<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    {% endif %}
+                <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav&quot;</span><span class="p">&gt;</span>
+                    {% if user.is_authenticated %}
+                        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{% url &#39;logout&#39; %}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline;&quot;</span><span class="p">&gt;</span>
+                                {% csrf_token %}
+                                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-link nav-link&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;border: none; padding: 0; background: none; cursor: pointer;&quot;</span><span class="p">&gt;</span>Logout<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                            <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    {% else %}
+                        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;login&#39; %}&quot;</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;register&#39; %}&quot;</span><span class="p">&gt;</span>Register<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                    {% endif %}
+
+                    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">button</span>
+                            <span class="na">id</span><span class="o">=</span><span class="s">&quot;theme-toggle&quot;</span>
+                            <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-link nav-link&quot;</span>
+                            <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+                        <span class="p">&gt;</span>
+                            🌙
+                        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container mt-4&quot;</span><span class="p">&gt;</span>
+        {% block content %}{% endblock %}
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js&quot;</span>
+        <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI&quot;</span>
+        <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span>
+    <span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">themeToggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;theme-toggle&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">;</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">navbar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.navbar&#39;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentTheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;theme&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;light&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">html</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;data-bs-theme&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">currentTheme</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">updateNavbar</span><span class="p">();</span>
+<span class="w">            </span><span class="nx">updateIcon</span><span class="p">();</span>
+
+<span class="w">            </span><span class="nx">themeToggle</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">newTheme</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                    </span><span class="nx">html</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-bs-theme&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span>
+<span class="w">                        </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;light&#39;</span>
+<span class="w">                        </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="p">;</span>
+
+<span class="w">                </span><span class="nx">html</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;data-bs-theme&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">newTheme</span><span class="p">);</span>
+<span class="w">                </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">newTheme</span><span class="p">);</span>
+<span class="w">                </span><span class="nx">updateNavbar</span><span class="p">();</span>
+<span class="w">                </span><span class="nx">updateIcon</span><span class="p">();</span>
+<span class="w">            </span><span class="p">});</span>
+
+<span class="w">            </span><span class="kd">function</span><span class="w"> </span><span class="nx">updateNavbar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">isDark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">html</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-bs-theme&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="p">;</span>
+<span class="w">                </span><span class="nx">navbar</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">&#39;bg-light&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="nx">isDark</span><span class="p">);</span>
+<span class="w">                </span><span class="nx">navbar</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">&#39;bg-dark&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">isDark</span><span class="p">);</span>
+<span class="w">                </span><span class="nx">navbar</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">&#39;navbar-light&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="nx">isDark</span><span class="p">);</span>
+<span class="w">                </span><span class="nx">navbar</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">&#39;navbar-dark&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">isDark</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="kd">function</span><span class="w"> </span><span class="nx">updateIcon</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">const</span><span class="w"> </span><span class="nx">isDark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">html</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-bs-theme&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="p">;</span>
+<span class="w">                </span><span class="nx">themeToggle</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">isDark</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;☀️&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;🌙&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+    {% block extra_js %}{% endblock %}
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h3 id="why-this-template-works-well">Why This Template Works Well</h3>
+<p>A few intentional choices worth calling out:</p>
+<ul>
+<li><strong>Single responsibility</strong>: layout, navigation, and theme only</li>
+<li><strong>No inline business logic</strong>: only auth-aware conditionals</li>
+<li><strong>Client-side theme toggle</strong>: no database writes, no sessions</li>
+<li><strong>Bootstrap via CDN</strong>: simple for tutorials, easy to replace later</li>
+</ul>
+<p>This template is stable enough to survive early SaaS growth without becoming a dumping ground for unrelated concerns.</p>
+<hr />
+<h2 id="authentication-template-example-login-page">Authentication Template Example: Login Page</h2>
+<p>The login template demonstrates a reusable pattern you’ll see across all auth-related pages: centered card layout, form iteration, and consistent error handling.</p>
+<h3 id="full-listing-accountsloginhtml">Full Listing: <code>accounts/login.html</code></h3>
+<div class="codehilite"><pre><span></span><code>{% extends &#39;core/base.html&#39; %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-center&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-6 col-lg-4&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-body&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-title text-center&quot;</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="p">&gt;</span>
+                            {{ form.non_field_errors }}
+                        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    {% endif %}
+
+                    {% for field in form %}
+                        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-3&quot;</span><span class="p">&gt;</span>
+                            {{ field.label_tag }}
+                            {{ field }}
+
+                            {% if field.help_text %}
+                                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-text&quot;</span><span class="p">&gt;</span>
+                                    {{ field.help_text }}
+                                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                            {% endif %}
+
+                            {% if field.errors %}
+                                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-danger&quot;</span><span class="p">&gt;</span>
+                                    {{ field.errors }}
+                                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                            {% endif %}
+                        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    {% endfor %}
+
+                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-grid&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>
+                            Login
+                        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mt-3 text-center&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;password_reset&#39; %}&quot;</span><span class="p">&gt;</span>
+                            Forgot password?
+                        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+                        Don&#39;t have an account?
+                        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;register&#39; %}&quot;</span><span class="p">&gt;</span>Register here<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{% endblock %}
+</code></pre></div>
+
+<h3 id="design-notes">Design Notes</h3>
+<ul>
+<li><strong>Field iteration</strong> keeps templates resilient to form changes</li>
+<li><strong>Explicit CSRF token</strong> reinforces security habits</li>
+<li><strong>No custom JavaScript</strong> required for validation</li>
+<li><strong>Consistent spacing</strong> via Bootstrap utilities only</li>
+</ul>
+<p>This pattern repeats cleanly for password reset and registration pages.</p>
+<hr />
+<h2 id="authenticated-page-example-profile">Authenticated Page Example: Profile</h2>
+<p>The profile page shows how authenticated data is surfaced safely and readably.</p>
+<h3 id="full-listing-accountsprofilehtml">Full Listing: <code>accounts/profile.html</code></h3>
+<div class="codehilite"><pre><span></span><code>{% extends &#39;core/base.html&#39; %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-12&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Welcome to your profile, {{ user.username }}!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-body&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h5</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-title&quot;</span><span class="p">&gt;</span>Your Information<span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Username:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {{ user.username }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {{ user.email }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Member since:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {{ user.date_joined|date:&quot;F j, Y&quot; }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Last login:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {{ user.last_login|date:&quot;F j, Y, g:i a&quot; }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Staff status:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+                    {% if user.is_staff %}Yes{% else %}No{% endif %}
+                <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Superuser status:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+                    {% if user.is_superuser %}Yes{% else %}No{% endif %}
+                <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mt-3&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;index&#39; %}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-secondary&quot;</span><span class="p">&gt;</span>
+                Back to Home
+            <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{% url &#39;logout&#39; %}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline;&quot;</span><span class="p">&gt;</span>
+                {% csrf_token %}
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-danger ms-2&quot;</span><span class="p">&gt;</span>Logout<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{% endblock %}
+</code></pre></div>
+
+<h3 id="why-this-matters">Why This Matters</h3>
+<p>This page is intentionally simple:</p>
+<ul>
+<li>It proves authentication is wired correctly</li>
+<li>It validates the custom user model</li>
+<li>It provides a natural landing page after login</li>
+</ul>
+<p>In later tutorials, this page becomes the obvious place to surface subscription status, billing links, and feature access.</p>
+<hr />
+<h2 id="password-reset-templates-brief-note">Password Reset Templates (Brief Note)</h2>
+<p>The remaining password reset templates (<code>password_reset_email.html</code>, <code>password_reset_confirm.html</code>, etc.) follow the same structural patterns:</p>
+<ul>
+<li>Extend <code>core/base.html</code></li>
+<li>Centered card layout</li>
+<li>Clear success and error messaging</li>
+</ul>
+<p>They are intentionally thin wrappers around Django’s built-in password reset views, which is exactly what you want for security-sensitive flows.</p>
+<hr />
+<h2 id="closing-note-on-templates">Closing Note on Templates</h2>
+<p>These templates are not flashy. They are:</p>
+<ul>
+<li><strong>Readable</strong></li>
+<li><strong>Predictable</strong></li>
+<li><strong>Easy to reason about</strong></li>
+<li><strong>Safe to extend</strong></li>
+</ul>
+<p>That combination is far more valuable in a SaaS foundation than clever abstractions or premature design systems.</p>
+<hr />
+<h2 id="step-5-testing-and-local-verification">Step 5: Testing and Local Verification</h2>
+<p>Create an admin user:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</code></pre></div>
+
+<p>Run the app:</p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</code></pre></div>
+
+<p>Verify:</p>
+<ul>
+<li>Registration</li>
+<li>Login / logout</li>
+<li>Profile access</li>
+<li>Admin panel</li>
+</ul>
+<p>At this point, the app is fully runnable and coherent.</p>
+<hr />
+<h2 id="production-notes-preview-only">Production Notes (Preview Only)</h2>
+<p>Deployment, scaling, and billing are covered later. For now, keep these principles in mind:</p>
+<ul>
+<li><code>.env</code> stays out of Git</li>
+<li>Use Postgres in production</li>
+<li>Run <code>collectstatic</code></li>
+<li>Disable <code>DEBUG</code></li>
+<li>Serve via Gunicorn + Nginx</li>
+<li>Add logging and monitoring before launch</li>
+</ul>
+<hr />
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>This tutorial intentionally avoids shortcuts. The goal is not to impress with cleverness, but to create a <strong>boring, reliable SaaS foundation</strong> that survives growth.</p>
+<p>In the next tutorials, we’ll layer on:</p>
+<ul>
+<li>Stripe subscriptions</li>
+<li>Feature gating</li>
+<li>Production deployment</li>
+<li>CI and operational hardening</li>
+</ul>
+<p>Start free. Build trust. Monetize later.</p>
+<p>That’s how SaaS actually works.</p>
+      </div>
+    </article>
+
+    <!-- CTA Section -->
+    <section id="blog-cta" class="work">
+      <div class="container">
+        <div class="card" style="text-align: center;">
+          <h3>Want to learn more?</h3>
+          <p>Have questions or ready to discuss your project? We'd love to hear from you.</p>
+          <div class="cta-row" style="justify-content: center;">
+            <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Blog Inquiry">Get in Touch</a>
+            <a class="btn btn-ghost" href="/blog/index.html">Back to Blog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="margin-top: 4rem; padding: 3rem 0; border-top: 1px solid rgba(148, 163, 184, .2); text-align: center; color: var(--muted); font-size: .9rem;">
+    <div class="container">
+      <p>&copy; 2025 McIndi Solutions LLC. All rights reserved.</p>
+      <p><a href="/" style="color: var(--accent); text-decoration: none;">Back to Home</a></p>
+    </div>
+  </footer>
+
+  <!-- Navigation Script -->
+  <script src="../script.js"></script>
+</body>
+</html>

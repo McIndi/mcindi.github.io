@@ -401,3 +401,153 @@ input, textarea {
   background: rgba(2,6,23,.25);
   color: inherit;
 }
+
+/* Blog Styles */
+.blog-meta {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+#blog-listings .card a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+#blog-listings .card a:hover {
+  text-decoration: underline;
+}
+
+/* Blog Article Content */
+.article-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.article-content h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--txt);
+  border-bottom: 2px solid rgba(148, 163, 184, .2);
+  padding-bottom: 0.5rem;
+}
+
+.article-content h3 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--brand);
+}
+
+.article-content p {
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  color: var(--txt);
+}
+
+.article-content ul, .article-content ol {
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-content code {
+  background: rgba(148, 163, 184, .15);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+}
+
+.article-content pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1.25rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(148, 163, 184, .2);
+}
+
+.article-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: 0.9rem;
+}
+
+.article-content hr {
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, .25);
+  margin: 2.5rem 0;
+}
+
+.article-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(8, 145, 178, .3);
+}
+
+.article-content a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.article-content strong {
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.article-content em {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Code syntax highlighting support */
+.codehilite {
+  margin: 1.5rem 0;
+}
+
+.codehilite pre {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .article-content {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.2rem;
+  }
+}
