@@ -1,0 +1,34 @@
+# Pelican build output
+output/
+
+# Local configuration overrides
+pelicanconf_local.py
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments and tooling
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Logs
+pip-log.txt
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

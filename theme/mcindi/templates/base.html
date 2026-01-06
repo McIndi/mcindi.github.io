@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG or 'en' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}{{ SITENAME }}{% if SITESUBTITLE %} — {{ SITESUBTITLE }}{% endif %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ SITEDESCRIPTION or 'Senior technology leadership for regulated, mission-critical environments.' }}{% endblock %}" />
+
+  <meta property="og:title" content="{{ SITENAME }}" />
+  <meta property="og:description" content="{{ SITEDESCRIPTION or 'Senior technology leadership for regulated, mission-critical environments.' }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ SITEURL }}/" />
+  <meta property="og:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.svg" />
+
+  <link rel="icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.svg" />
+  <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/styles.css" />
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+  <header>
+    <div class="container nav" id="nav">
+      <a href="/" class="brand" aria-label="{{ SITENAME }} home">
+        <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.svg" alt="{{ SITENAME }} logo" width="64" height="64" />
+        <div class="brand-title">{{ SITENAME }}</div>
+      </a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu" id="menuBtn">Menu</button>
+      <ul id="menu" aria-label="Primary" role="navigation">
+        {% for label, url in MENUITEMS %}
+          <li><a href="{{ SITEURL }}{{ url }}">{{ label }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for page in pages %}
+            <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+          {% endfor %}
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+          <li><a href="{{ SITEURL }}/categories.html">Categories</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </header>
+
+  <main id="top" class="{% block main_class %}stack{% endblock %}">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> {{ SITENAME }}. All rights reserved. <a href="mailto:sales@mcindi.com?subject=Executive%20Briefing%20Request">Request a Consultation</a></small>
+    </div>
+  </footer>
+
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/script.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

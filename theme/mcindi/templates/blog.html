@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Blog — {{ SITENAME }}{% endblock %}
+{% block description %}Insights, delivery notes, and updates from McIndi Solutions.{% endblock %}
+
+{% block content %}
+<section id="blog-listings">
+  <div class="container">
+    <div class="section-head">
+      <h2>Blog</h2>
+      <p>Delivery patterns, security notes, and modernization playbooks.</p>
+    </div>
+
+    <!-- Taxonomy Navigation -->
+    <div class="card" style="margin-bottom: 24px;">
+      <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">
+        <strong>Explore:</strong>
+        <a href="{{ SITEURL }}/archives.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">All Posts</a>
+        <a href="{{ SITEURL }}/categories.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">Categories</a>
+        <a href="{{ SITEURL }}/tags.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">Tags</a>
+        <a href="{{ SITEURL }}/authors.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">Authors</a>
+      </p>
+    </div>
+
+    {% set listing = articles_page.object_list if articles_page else articles %}
+    {% if listing %}
+      <div class="grid">
+        {% for article in listing %}
+          <article class="card">
+            <span class="badge">{{ article.category }}</span>
+            <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+            <p class="blog-meta">{{ article.date.strftime('%b %d, %Y') if article.date else '' }}{% if article.author %} • {{ article.author }}{% endif %}</p>
+            <p>{{ (article.summary or article.metadata.get('summary') or article.content)|striptags|truncate(220) }}</p>
+            <div class="cta-row">
+              <a class="btn btn-ghost" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if articles_paginator %}
+        <div class="card" style="margin-top: 24px; text-align: center;">
+          <p style="margin: 0 0 12px 0; color: var(--muted); font-size: 0.9rem;">
+            Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}
+          </p>
+          <div class="cta-row" style="justify-content: center;">
+            {% if articles_page.has_previous() %}
+              <a class="btn btn-ghost" href="{{ SITEURL }}/{{ articles_previous_page.url }}">← Newer</a>
+            {% else %}
+              <span class="btn btn-ghost" style="opacity: 0.5; cursor: default;">← Newer</span>
+            {% endif %}
+            {% if articles_page.has_next() %}
+              <a class="btn btn-ghost" href="{{ SITEURL }}/{{ articles_next_page.url }}">Older →</a>
+            {% else %}
+              <span class="btn btn-ghost" style="opacity: 0.5; cursor: default;">Older →</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="empty-state card">
+        No posts yet. Publish your first article to light up this space.
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

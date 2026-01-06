@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tag }} — {{ SITENAME }}{% endblock %}
+{% block description %}Articles tagged {{ tag }}.{% endblock %}
+
+{% block content %}
+<section id="tag">
+  <div class="container">
+    <div class="section-head">
+      <h2>Tag: {{ tag }}</h2>
+      <p>{{ articles|length }} article{% if articles|length != 1 %}s{% endif %}.</p>
+    </div>
+    <div class="grid">
+      {% for article in articles %}
+        <article class="card">
+          <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+          <p class="blog-meta">{{ article.date.strftime('%b %d, %Y') if article.date else '' }}{% if article.author %} • {{ article.author }}{% endif %}</p>
+          <p>{{ (article.summary or article.content)|striptags|truncate(200) }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

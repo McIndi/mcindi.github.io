@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Tags — {{ SITENAME }}{% endblock %}
+{% block description %}Tag directory for articles on {{ SITENAME }}.{% endblock %}
+
+{% block content %}
+<section id="tags">
+  <div class="container">
+    <div class="section-head">
+      <h2>Tags</h2>
+      <p>Explore topics across all posts.</p>
+    </div>
+    <div class="grid">
+      {% for tag, articles in tags %}
+        <article class="card">
+          <h3><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></h3>
+          <p class="blog-meta">{{ articles|length }} article{% if articles|length != 1 %}s{% endif %}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

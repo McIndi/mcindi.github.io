@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Archives — {{ SITENAME }}{% endblock %}
+{% block description %}Browse all published articles from {{ SITENAME }}.{% endblock %}
+
+{% block content %}
+<section id="archives">
+  <div class="container">
+    <div class="section-head">
+      <h2>Archives</h2>
+      <p>All articles, newest first.</p>
+    </div>
+    <div class="card">
+      <ul>
+        {% for article in dates %}
+          <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> — {{ article.date.strftime('%b %d, %Y') if article.date else '' }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Authors — {{ SITENAME }}{% endblock %}
+{% block description %}Writers and contributors for {{ SITENAME }}.{% endblock %}
+
+{% block content %}
+<section id="authors">
+  <div class="container">
+    <div class="section-head">
+      <h2>Authors</h2>
+      <p>Who writes here.</p>
+    </div>
+    <div class="grid">
+      {% for author, articles in authors %}
+        <article class="card">
+          <h3><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
+          <p class="blog-meta">{{ articles|length }} article{% if articles|length != 1 %}s{% endif %}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

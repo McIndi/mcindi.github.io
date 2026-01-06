@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+{% block description %}{{ (article.summary or article.metadata.get('summary') or article.content)|striptags|truncate(180) }}{% endblock %}
+{% block main_class %}article{% endblock %}
+
+{% block content %}
+  <article class="article-content">
+    <p class="subtitle">{{ article.category }}{% if article.date %} • {{ article.date.strftime('%b %d, %Y') }}{% endif %}{% if article.author %} • {{ article.author }}{% endif %}</p>
+    <h1>{{ article.title }}</h1>
+    <div class="blog-meta">
+      {% if article.tags %}
+        Tags:
+        {% for tag in article.tags %}
+          <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    {{ article.content }}
+    <div class="cta-row" style="margin-top:1.5rem;">
+      <a class="btn btn-ghost" href="{{ SITEURL }}/blog/index.html">← Back to Blog</a>
+    </div>
+  </article>
+{% endblock %}

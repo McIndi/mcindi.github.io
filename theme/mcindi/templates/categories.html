@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Categories — {{ SITENAME }}{% endblock %}
+{% block description %}Browse categories of writing from {{ SITENAME }}.{% endblock %}
+
+{% block content %}
+<section id="categories">
+  <div class="container">
+    <div class="section-head">
+      <h2>Categories</h2>
+      <p>Organized topics from the blog.</p>
+    </div>
+    <div class="grid">
+      {% for category, articles in categories %}
+        <article class="card">
+          <h3><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></h3>
+          <p class="blog-meta">{{ articles|length }} article{% if articles|length != 1 %}s{% endif %}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
