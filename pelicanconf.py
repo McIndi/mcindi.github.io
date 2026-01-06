@@ -32,6 +32,13 @@ MENUITEMS = (
     ('Blog', '/blog/'),
 )
 
+# Ensure custom domain and Pages metadata get copied into output
+STATIC_PATHS = ["static", "extra/CNAME", "extra/.nojekyll"]
+EXTRA_PATH_METADATA = {
+    "extra/CNAME": {"path": "CNAME"},
+    "extra/.nojekyll": {"path": ".nojekyll"},
+}
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
