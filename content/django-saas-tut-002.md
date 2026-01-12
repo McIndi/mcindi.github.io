@@ -1,4 +1,4 @@
-Title: Building A Django SaaS Application
+Title: Building A Django SaaS Application (Part 2)
 Date: 2026-01-12 10:00
 Category: Programming
 Tags: Architecture, Python, Development, Django, Programming, Bootstrap, CI, CD, Github Actions, Security Scanning, Testing
@@ -9,7 +9,7 @@ Status: published
 # Building a Django SaaS App
 Or The Django SaaS Mega-Tutorial
 
-## From Scratch to Subscription-Ready (Part 1)
+## From Scratch to Subscription-Ready (Part 2)
 ---
 
 ## TL;DR
