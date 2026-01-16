@@ -551,3 +551,82 @@ input, textarea {
     font-size: 1.2rem;
   }
 }
+
+/* CTA Block Styles */
+.cta-block {
+  max-width: 800px;
+  margin: 3rem auto 2rem;
+  padding: 2rem;
+  background: rgba(148, 163, 184, .08);
+  border: 1px solid rgba(148, 163, 184, .2);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, .06);
+  position: relative;
+}
+
+.cta-block::before {
+  content: '>_';
+  position: absolute;
+  left: 1.5rem;
+  top: 1.75rem;
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: .7;
+}
+
+.cta-content {
+  padding-left: 2.5rem;
+}
+
+.cta-tagline {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--brand);
+  margin: 0 0 1rem;
+  line-height: 1.4;
+}
+
+.cta-description {
+  color: var(--txt);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.cta-contact {
+  margin: 0;
+  font-weight: 500;
+  color: var(--txt);
+}
+
+.cta-contact a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(8, 145, 178, .3);
+  transition: border-color .2s;
+}
+
+.cta-contact a:hover {
+  border-bottom-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .cta-block {
+    margin: 2rem 1rem 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .cta-block::before {
+    left: 1rem;
+    top: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .cta-content {
+    padding-left: 2rem;
+  }
+
+  .cta-tagline {
+    font-size: 1.05rem;
+  }
+}
