@@ -1,4 +1,5 @@
 Title: Building A Django SaaS Application (Part 1)
+Author: Cliff
 Date: 2026-01-06 10:00
 Category: Programming
 Tags: Architecture, Python, Development, Django, Programming, Bootstrap

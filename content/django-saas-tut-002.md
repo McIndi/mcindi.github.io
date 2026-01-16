@@ -1,4 +1,5 @@
 Title: Building A Django SaaS Application (Part 2)
+Author: Cliff
 Date: 2026-01-12 10:00
 Category: Programming
 Tags: Architecture, Python, Development, Django, Programming, Bootstrap, CI, CD, Github Actions, Security Scanning, Testing

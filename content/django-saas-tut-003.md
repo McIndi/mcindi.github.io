@@ -1,4 +1,5 @@
 Title: Building A Django SaaS Application (Part 3)
+Author: Cliff
 Date: 2026-01-14 10:00
 Category: Programming
 Tags: Architecture, Python, Development, Django, Programming, Bootstrap, features, redirects

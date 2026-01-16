@@ -1,4 +1,5 @@
 Title: LogSieve: A Technical Deep Dive into Building a Powerful, Offline Log Analysis Tool
+Author: Cliff
 Date: 2026-01-15 10:00
 Category: Programming
 Tags: Architecture, Development, Programming, features, javascript, ecmascript, html, css, vanilla, web worker
