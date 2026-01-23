@@ -2,8 +2,8 @@ Title: Building A Django SaaS Application (Part 1)
 Author: Cliff
 Date: 2026-01-06 10:00
 Category: Programming
-Tags: Architecture, Python, Development, Django, Programming, Bootstrap
-Summary: How to build a clean, production-minded Django SaaS starter from scratch.
+Tags: Python, Django, Development, SaaS, Bootstrap, Authentication, Tutorial, Web-Development
+Summary: Building a Django SaaS starter with email-based custom user authentication, environment-based settings, and Bootstrap UI - Part 1 of a comprehensive tutorial series.
 Slug: django-saas-tut-001
 Status: published
 

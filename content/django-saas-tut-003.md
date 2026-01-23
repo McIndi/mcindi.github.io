@@ -2,8 +2,8 @@ Title: Building A Django SaaS Application (Part 3)
 Author: Cliff
 Date: 2026-01-14 10:00
 Category: Programming
-Tags: Architecture, Python, Development, Django, Programming, Bootstrap, features, redirects
-Summary: How to build a clean, production-minded Django SaaS starter from scratch.
+Tags: Python, Django, Development, SaaS, TDD, URL-Shortener, Features, Tutorial
+Summary: Implementing a user-scoped link shortening feature in Django using TDD - creating models for Links and Clicks with CRUD operations - Part 3 of the series.
 Slug: django-saas-tut-003
 Status: published
 

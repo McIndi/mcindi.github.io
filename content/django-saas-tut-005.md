@@ -2,8 +2,8 @@ Title: Building A Django SaaS Application (Part 5)
 Author: Cliff
 Date: 2026-01-21 10:00
 Category: Programming
-Tags: Architecture, Python, Development, Django, Programming, whitenoise, logging, error-pages, health-check
-Summary: How to build a clean, production-minded Django SaaS application from scratch.
+Tags: Python, Django, Development, SaaS, WhiteNoise, Logging, Error-Handling, Health-Check, Production, Tutorial
+Summary: Production readiness essentials - static file serving with WhiteNoise, structured logging, custom error pages, and health check endpoints - Part 5 of the series.
 Slug: django-saas-tut-005
 Status: published
 

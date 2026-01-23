@@ -2,8 +2,8 @@ Title: Building A Django SaaS Application (Part 4)
 Author: Cliff
 Date: 2026-01-20 10:00
 Category: Programming
-Tags: Architecture, Python, Development, Django, Programming, Bootstrap, features, redirects
-Summary: How to build a clean, production-minded Django SaaS starter from scratch.
+Tags: Python, Django, Development, SaaS, Docker, Deployment, Production, Cheroot, Daphne, Tutorial
+Summary: Production-grade server setup with Cheroot and Daphne, Docker containerization, and docker-compose configuration for Django SaaS deployment - Part 4 of the series.
 Slug: django-saas-tut-004
 Status: published
 

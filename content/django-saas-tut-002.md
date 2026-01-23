@@ -2,8 +2,8 @@ Title: Building A Django SaaS Application (Part 2)
 Author: Cliff
 Date: 2026-01-12 10:00
 Category: Programming
-Tags: Architecture, Python, Development, Django, Programming, Bootstrap, CI, CD, Github Actions, Security Scanning, Testing
-Summary: How to build a clean, production-minded Django SaaS starter from scratch.
+Tags: Python, Django, Development, SaaS, Testing, CI, CD, GitHub-Actions, Security, MyPy, Black, Bandit, Tutorial
+Summary: Adding automated testing, code quality tools (Black, MyPy, Bandit), pre-commit hooks, and GitHub Actions CI to a Django SaaS application - Part 2 of the series.
 Slug: django-saas-tut-002
 Status: published
 

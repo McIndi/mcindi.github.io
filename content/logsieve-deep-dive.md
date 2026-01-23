@@ -2,8 +2,8 @@ Title: LogSieve: A Technical Deep Dive into Building a Powerful, Offline Log Ana
 Author: Cliff
 Date: 2026-01-15 10:00
 Category: Programming
-Tags: Architecture, Development, Programming, features, javascript, ecmascript, html, css, vanilla, web worker
-Summary: This post walks through how LogSieve works under the hood.
+Tags: JavaScript, Web-Development, Web-Worker, Log-Analysis, Browser, Vanilla-JS, Architecture, Offline-First
+Summary: A technical deep dive into building LogSieve - a powerful, privacy-focused, offline log analysis tool that runs entirely in the browser using Web Workers for performance.
 Slug: logsieve-deep-dive.md
 Status: published
 

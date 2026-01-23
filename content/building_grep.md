@@ -2,7 +2,7 @@ Title: Posix In Python Learning Series (Part 1)
 Author: Cliff
 Date: 2026-01-16 10:00
 Category: Programming
-Tags: Architecture, Python, Development, Programming, Bootstrap, linux, posix
+Tags: Python, Development, linux, posix, CLI, grep, Tutorial
 Summary: A step-by-step tutorial on building a tiny `grep` command in Python, covering argument parsing, regex compilation, file handling, and testing.
 Slug: building-grep
 Status: published
