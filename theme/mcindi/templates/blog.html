@@ -12,13 +12,13 @@
     </div>
 
     <!-- Taxonomy Navigation -->
-    <div class="card" style="margin-bottom: 24px;">
-      <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">
+    <div class="card blog-nav">
+      <p>
         <strong>Explore:</strong>
-        <a href="{{ SITEURL }}/archives.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">All Posts</a>
-        <a href="{{ SITEURL }}/categories.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">Categories</a>
-        <a href="{{ SITEURL }}/tags.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">Tags</a>
-        <a href="{{ SITEURL }}/authors.html" style="color: var(--accent); text-decoration: none; margin: 0 0.5rem;">Authors</a>
+        <a href="{{ SITEURL }}/archives.html">All Posts</a>
+        <a href="{{ SITEURL }}/categories.html">Categories</a>
+        <a href="{{ SITEURL }}/tags.html">Tags</a>
+        <a href="{{ SITEURL }}/authors.html">Authors</a>
       </p>
     </div>
 
@@ -40,20 +40,18 @@
 
       <!-- Pagination -->
       {% if articles_paginator %}
-        <div class="card" style="margin-top: 24px; text-align: center;">
-          <p style="margin: 0 0 12px 0; color: var(--muted); font-size: 0.9rem;">
-            Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}
-          </p>
-          <div class="cta-row" style="justify-content: center;">
+        <div class="card pagination-card">
+          <p>Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</p>
+          <div class="cta-row">
             {% if articles_page.has_previous() %}
               <a class="btn btn-ghost" href="{{ SITEURL }}/{{ articles_previous_page.url }}">← Newer</a>
             {% else %}
-              <span class="btn btn-ghost" style="opacity: 0.5; cursor: default;">← Newer</span>
+              <span class="btn btn-ghost btn-disabled">← Newer</span>
             {% endif %}
             {% if articles_page.has_next() %}
               <a class="btn btn-ghost" href="{{ SITEURL }}/{{ articles_next_page.url }}">Older →</a>
             {% else %}
-              <span class="btn btn-ghost" style="opacity: 0.5; cursor: default;">Older →</span>
+              <span class="btn btn-ghost btn-disabled">Older →</span>
             {% endif %}
           </div>
         </div>
