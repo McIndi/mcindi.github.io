@@ -964,9 +964,9 @@ If you're analyzing logs, give it a try. If you're building tools or evaluating 
 
 ## Get Started
 
-**Try it out**: [LogSieve Online](https://notesofcliff.github.io/logsieve/)
+**Try it out**: [LogSieve Online](https://mcindi.com/logsieve/)
 
-**Want to contribute?** [Fork the repository on GitHub](https://github.com/notesofcliff/logsieve) or [browse the issue tracker](https://github.com/notesofcliff/logsieve/issues) to find areas you can help with.
+**Want to contribute?** [Fork the repository on GitHub](https://github.com/McIndi/logsieve) or [browse the issue tracker](https://github.com/McIndi/logsieve/issues) to find areas you can help with.
 
 **Looking for similar engineering services?** I build tools like this. Things that solve real problems, run efficiently, and just work. [Reach out](mailto:sales@mcindi.com) if you need help with your project.
 
