@@ -729,7 +729,8 @@ You have a production Python app that crashed. The logs are 50MB of mixed INFO, 
 5. Use the Query Builder to narrow to errors between 10:00-10:30 AM
 6. Use the Advanced Query to search: error AND (database OR connection)
 7. Extract user_id and request_id with regex
-8. Pivot to see which users/requests had errors most frequently
+8. Sort by user_id and request_id to group users/requests errors
+9. Examine the summary stats for user_id to see if any user had multiple errors (indicating a systemic issue)
 ```
 
 ### Use Case 2: Analyzing Apache Access Logs
@@ -954,9 +955,11 @@ A 100,000-line filter takes 200ms. The user doesn't notice. But if the UI doesn'
 
 ## Conclusion
 
-LogSieve exists because I got frustrated with command-line tools. It grew because the problems I solved—multi-line events, field extraction, dynamic filtering—are real problems that others face too.
+I made LogSieve because I wanted a better way to extract multiline events from logs.
 
-The architecture is a careful balance: use Web Workers to keep the browser responsive, break large operations into chunks with progress feedback, and leverage browser APIs (`FileReader`, `localStorage`, `matchAll`) to do things that would normally require a server.
+`grep`'s -A and -B options are handy, but they are unwieldy for things like python tracebacks and java exceptions. Then I kept adding features like structured field extraction, saved filters, summary stats.
+
+The architecture is a careful balance: use Web Workers to keep the browser responsive, break large operations into chunks with progress feedback, and leverage browser APIs (`FileReader`, `localStorage`, `matchAll`) to do things that would normally require a server or local filesystem.
 
 If you're analyzing logs, give it a try. If you're building tools or evaluating engineering work, I hope this deep dive showed you what's possible with vanilla JavaScript and a clear architectural vision.
 
@@ -965,6 +968,8 @@ If you're analyzing logs, give it a try. If you're building tools or evaluating 
 ## Get Started
 
 **Try it out**: [LogSieve Online](https://mcindi.com/logsieve/)
+
+**Run into issues?** Check out the [GitHub issue tracker](https://github.com/McIndi/logsieve/issues)
 
 **Want to contribute?** [Fork the repository on GitHub](https://github.com/McIndi/logsieve) or [browse the issue tracker](https://github.com/McIndi/logsieve/issues) to find areas you can help with.
 
