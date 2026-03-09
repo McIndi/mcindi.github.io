@@ -1,7 +1,7 @@
 Title: Introducing Adapt: Your Folder Is Already a Server
 Author: Cliff
 Date: 2026-03-09 10:00
-Category: Programming
+Category: Announcements
 Tags: server, file sharing, authentication, permissions, Python, FastAPI
 Summary: An introduction to Adapt, a lightweight server that turns a folder into a secure, queryable workspace for data, documents, and media.
 Slug: introducing-adapt
