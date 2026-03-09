@@ -7,9 +7,6 @@ Summary: An introduction to Adapt, a lightweight server that turns a folder into
 Slug: introducing-adapt
 Status: published
 
-
-# Introducing Adapt: Your Folder Is Already a Server
-
 A lot of the work I do as a Software Engineer/architect/developer/wizzard-of-many-hats, produces artifacts (data exports, analysis results, documentation, recorded walkthroughs) that need to get in front of clients or teammates without ending up somewhere they shouldn't be. The usual options are clunky: shared drives with no access control, cloud storage services with complex permission models, or standing up dedicated infrastructure for what is essentially a file sharing problem.
 
 I wanted something simpler. Something I could point at a directory, configure once, and hand a URL to the right people with confidence that the wrong people couldn't get in.
