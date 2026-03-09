@@ -75,7 +75,7 @@ Things that are on the roadmap but not there yet: full-text search across all co
 
 ## Early Access and Feedback
 
-The project is open source and available on GitHub [link to come]. I'm genuinely interested in hearing from people who try it: what works, what doesn't, what use cases I haven't thought of.
+The project is open source and available on [GitHub](https://github.com/McIndi/adapt). I'm genuinely interested in hearing from people who try it: what works, what doesn't, what use cases I haven't thought of.
 
 If you're building something similar, solving a similar problem a different way, or just have thoughts on the direction, I'd welcome the conversation. Drop a comment below or reach out directly.
 
