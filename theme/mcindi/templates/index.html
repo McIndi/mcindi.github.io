@@ -1,123 +1,148 @@
 {% extends "base.html" %}
 
-{% block title %}McIndi Solutions LLC — Senior Technology Leadership for Regulated, Mission-Critical Environments{% endblock %}
-{% block description %}Senior technology leadership for regulated, mission-critical environments. Enterprise security gateways (IBM DataPower/APIC), governed Dev/Ops and automation (Ansible/Python), and cloud modernization (OpenShift/AWS/Azure/GCP). Predictable outcomes with quantifiable ROI.{% endblock %}
+{% block title %}McIndi Solutions LLC — Hands-On Engineering for Critical Infrastructure{% endblock %}
+{% block description %}We design, build, and operate enterprise security gateways, automation pipelines, and cloud platforms for healthcare, financial services, and high-security environments. 20+ years of hands-on delivery.{% endblock %}
 
 {% block content %}
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
-      <div class="hero-card">
-        <div class="eyebrow">Healthcare • Financial Services • High-Security Platforms</div>
-        <h1>Senior Technology Leadership: Regulated, Mission-Critical Environments</h1>
-        <p>20+ years delivering outcomes at scale: Complete lifecycle management of <strong>enterprise security gateways</strong> (IBM DataPower/APIC), accelerating <strong>automation</strong> (Ansible/Python), and guiding <strong>cloud/container modernization</strong> (OpenShift/AWS/Azure/GCP) for <strong>large and complex organizations</strong>. Built for executives who need <strong>predictability</strong>, <strong>compliance</strong>, and <strong>ROI</strong>.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Accelerate%20Modernization%20Consultation">Request a Consultation</a>
-          <a class="btn btn-ghost" href="#case-studies">See Results</a>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="eyebrow">Healthcare • Financial Services • High-Security Platforms</div>
+          <h1>Hands-On Engineering for Critical Infrastructure</h1>
+          <p>We design, build, and operate enterprise security gateways, automation pipelines, and cloud platforms for large, regulated organizations. From architecture through production: we deliver working systems, not just recommendations.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Start%20a%20Project">Start a Project</a>
+            <a class="btn btn-ghost" href="#case-studies">See Our Work</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-box">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">Years of enterprise delivery</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">50%</span>
+            <span class="stat-label">Reduction in deployment cycle time</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">80%</span>
+            <span class="stat-label">Less manual security intervention</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== TECH STACK ===== -->
   <section class="trust">
     <div class="container">
-      <div class="row" aria-label="Highlights">
+      <div class="row" aria-label="Technologies we deploy">
         <div class="pill">IBM DataPower &amp; API Connect</div>
         <div class="pill">RedHat OpenShift</div>
         <div class="pill">Ansible &amp; Jenkins</div>
-        <div class="pill">Python • Django/DRF</div>
-        <div class="pill">Risk &amp; Change Management</div>
-        <div class="pill">Executive Architecture</div>
+        <div class="pill">Python &amp; Django</div>
+        <div class="pill">AWS • Azure • GCP</div>
+        <div class="pill">Security Architecture</div>
       </div>
     </div>
   </section>
 
+  <!-- ===== WHAT WE BUILD ===== -->
   <section id="services">
     <div class="container">
       <div class="section-head">
-        <h2>Services</h2>
-        <p>Governed modernization for mission‑critical, high‑volume systems.</p>
+        <div>
+          <h2>What We Build &amp; Deliver</h2>
+          <p>From security gateways to cloud pipelines — we design, implement, and hand off production-ready systems.</p>
+        </div>
       </div>
       <div class="grid">
         <article class="card">
-          <span class="badge">Security Gateway</span>
-          <h3>Enterprise Security &amp; API Management</h3>
-          <p>Centralize authentication, authorization, and policy enforcement with <strong>IBM DataPower</strong> and <strong>API Connect</strong>. Reduce TCO by consolidating siloes and offloading XML/crypto to dedicated hardware.</p>
+          <span class="badge">IBM DataPower • API Connect</span>
+          <h3>Enterprise Security Gateways</h3>
+          <p>We implement hardened security gateways that enforce authentication, authorization, and policy at the enterprise perimeter. Full DataPower &amp; APIC deployments — configured, tested, and operational in your environment.</p>
         </article>
         <article class="card">
-          <span class="badge">Cloud &amp; Containers</span>
-          <h3>Cloud Modernization &amp; Architecture</h3>
-          <p>Migrate services to resilient, scalable containers on <strong>OpenShift</strong> and public clouds. Rationalize monoliths, standardize releases, and improve uptime.</p>
+          <span class="badge">OpenShift • AWS • Azure • GCP</span>
+          <h3>Cloud &amp; Container Platforms</h3>
+          <p>We migrate services to container platforms, build resilient CI/CD pipelines, and operate OpenShift environments. You get running production systems — not migration plans that end at the handoff slide.</p>
         </article>
         <article class="card">
-          <span class="badge">Automation</span>
-          <h3>Dev/Ops &amp; Automation Excellence</h3>
-          <p>Codify environments with <strong>Ansible</strong>, build CI/CD with <strong>Jenkins</strong>, and automate fleet operations with <strong>Python</strong>. Drive consistency and auditability.</p>
+          <span class="badge">Ansible • Jenkins • Python</span>
+          <h3>Automation &amp; CI/CD Engineering</h3>
+          <p>We write the Ansible playbooks, Jenkins pipelines, and Python frameworks that eliminate manual toil. Production-proven automation, peer-reviewed, and built to scale across large and complex environments.</p>
         </article>
         <article class="card">
-          <span class="badge">Leadership</span>
-          <h3>Strategic Architecture Leadership</h3>
-          <p>Translate executive objectives into roadmaps, budgets, and mentoring plans. Align engineering with finance and risk.</p>
+          <span class="badge">Architecture • Strategy</span>
+          <h3>Architecture &amp; Technical Roadmaps</h3>
+          <p>We translate complex technical requirements into concrete implementation plans, technology roadmaps, and team requirements. Executive-ready documentation backed by hands-on implementation experience.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="pillars" class="work">
+  <!-- ===== DELIVERED OUTCOMES ===== -->
+  <section id="pillars" class="work section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>Core Expertise Pillars</h2>
-        <p>Security, speed, and cost discipline for large and complex environments: expressed as measurable outcomes.</p>
+        <div>
+          <h2>Delivered Outcomes</h2>
+          <p>Measured impact from systems we've built and operations we've optimized.</p>
+        </div>
       </div>
       <div class="grid">
         <article class="card">
-          <h3>Enterprise Security Gateway</h3>
-          <p><strong>Value:</strong> Centralized perimeter defense &amp; TCO reduction.<br/>
-             <strong>Tech:</strong> IBM DataPower, WS‑Security, AAA, cryptographic offload.<br/>
-             <strong>Metric:</strong> Near wire‑speed processing.</p>
+          <span class="outcome-num">300+</span>
+          <span class="outcome-sub">appliances monitored</span>
+          <h3>Gateway Fleet Management</h3>
+          <p>Built custom Python frameworks to monitor, manage, and maintain large IBM DataPower estates across healthcare and financial services environments at global scale.</p>
         </article>
         <article class="card">
-          <h3>Cloud &amp; Container Modernization</h3>
-          <p><strong>Value:</strong> Scalable, resilient application delivery.<br/>
-             <strong>Tech:</strong> RedHat OpenShift; AWS/Azure/GCP; containerization.<br/>
-             <strong>Metric:</strong> <strong>50% reduction</strong> in deployment time.</p>
+          <span class="outcome-num">50%</span>
+          <span class="outcome-sub">faster deployment cycles</span>
+          <h3>Containerization &amp; Migration</h3>
+          <p>Migrated from monolithic releases to OpenShift containers with Ansible-driven APIC/DataPower automation at a global health insurer and retail pharmacy.</p>
         </article>
         <article class="card">
-          <h3>Dev/Ops Automation &amp; Governance</h3>
-          <p><strong>Value:</strong> Operational excellence and consistency.<br/>
-             <strong>Tech:</strong> Ansible, Jenkins, Python frameworks, MAST.<br/>
-             <strong>Metric:</strong> <strong>80% reduction</strong> in manual intervention.</p>
+          <span class="outcome-num">80%</span>
+          <span class="outcome-sub">less manual security work</span>
+          <h3>Security Automation</h3>
+          <p>Built a Django/DRF API to automate encryption updates across DataPower environments for an international financial services firm, eliminating manual governance cycles.</p>
         </article>
         <article class="card">
-          <h3>Strategic Architecture Leadership</h3>
-          <p><strong>Value:</strong> Vision, financial alignment, team development.<br/>
-             <strong>Tech:</strong> Solutions architecture, budgeting, mentoring.<br/>
-             <strong>Metric:</strong> <strong>40% reduction</strong> in MTTR.</p>
+          <span class="outcome-num">6mo→3wk</span>
+          <span class="outcome-sub">API integration timelines</span>
+          <h3>Integration Acceleration</h3>
+          <p>Delivered a low-code DataPower service framework that cut complex API integration timelines from six months to three weeks — applied across financial services integrations.</p>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- ===== DEEP EXPERTISE SPLIT ===== -->
   <section id="datapower" class="approach">
     <div class="container split">
       <div class="card">
-        <h3>Enterprise Security Gateway (IBM DataPower)</h3>
+        <h3>DataPower: Built for the Perimeter</h3>
         <ul>
-          <li><strong>Central Policy Enforcement:</strong> Author, monitor, and enforce AAA, SLM, and WS‑Security once for all backends.</li>
-          <li><strong>Perimeter‑grade Security:</strong> Purpose‑built appliance for DMZ; secure‑by‑default, embedded OS, encrypted FS, tamper evident.</li>
-          <li><strong>XML Threat Defense:</strong> Streaming validation, schema enforcement, signature verification, and decryption offload.</li>
-          <li><strong>TCO Reduction:</strong> Replace multi‑layer stacks with firmware‑based updates and consistent operations.</li>
+          <li><strong>Central Policy Enforcement:</strong> Single configuration point for AAA, SLM, and WS-Security across all backends — author once, enforce everywhere.</li>
+          <li><strong>Perimeter-Grade Security:</strong> Purpose-built appliance for the DMZ: secure-by-default, embedded OS, encrypted filesystem, tamper-evident hardware.</li>
+          <li><strong>XML Threat Defense:</strong> Streaming validation, schema enforcement, signature verification, and decryption offload at near wire-speed.</li>
+          <li><strong>TCO Reduction:</strong> Consolidate multi-layer security stacks into firmware-managed appliances with consistent, auditable operations.</li>
         </ul>
         <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Eliminate%20Security%20Siloes%20—%20DataPower%20Assessment">Eliminate Security Siloes: Talk to an Expert</a>
+          <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=DataPower%20Assessment%20Request">Assess Your Gateway Posture</a>
         </div>
       </div>
       <div class="card">
-        <h3>Dev/Ops Accelerator &amp; Cloud Path</h3>
+        <h3>From Gateway to Cloud: The Full Stack</h3>
         <ul>
-          <li><strong>CI/CD Orchestration:</strong> Ansible and Jenkins pipelines for predictable releases.</li>
-          <li><strong>Fleet Monitoring:</strong> Custom Python frameworks for large gateway estates.</li>
-          <li><strong>Secure API Development:</strong> Django/DRF services that standardize encryption and policy updates.</li>
-          <li><strong>Container Transition:</strong> OpenShift reference patterns for resilient, autoscaled services.</li>
+          <li><strong>CI/CD Pipelines:</strong> Ansible and Jenkins workflows for consistent, auditable DataPower and APIC releases across environments.</li>
+          <li><strong>Fleet-Scale Monitoring:</strong> Custom Python frameworks for 300+ appliance estates — health checks, alerting, inventory, and reporting.</li>
+          <li><strong>Secure API Services:</strong> Django/DRF micro-services that automate encryption policy updates and standardize API integration patterns.</li>
+          <li><strong>Container Modernization:</strong> OpenShift reference architecture for graduated, low-risk migration from legacy platforms.</li>
         </ul>
         <div class="cta-row">
           <a class="btn btn-ghost" href="#software">See Our Tooling</a>
@@ -126,23 +151,26 @@
     </div>
   </section>
 
-  <section id="offers">
+  <!-- ===== ENGAGEMENT OPTIONS ===== -->
+  <section id="offers" class="section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>Engagement Options</h2>
-        <p>Clear entry points aligned to your timeline, budget, and risk.</p>
+        <div>
+          <h2>Work With Us</h2>
+          <p>Two ways to engage — both designed for speed and predictability.</p>
+        </div>
       </div>
       <div class="grid">
         <article class="card">
-          <h3>One Hour Engagements</h3>
-          <p>A direct conversation with one of our experts. Use it to discuss or explore a challenge you're facing without committing to a formal engagement.</p>
+          <h3>One-Hour Technical Session</h3>
+          <p>A direct conversation with a hands-on practitioner. Bring your architectural challenge, active incident, or evaluation criteria — we'll dig in without a sales script.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="https://calendar.app.google/GY86CEC7KL7qvVaCA" target="_blank" rel="noopener noreferrer">Book with Clifford Bressette</a>
           </div>
         </article>
         <article class="card">
-          <h3>Two‑Week Discovery Plan</h3>
-          <p><strong>$5,000 flat rate • 2 weeks.</strong> Stakeholder interviews, current‑state review, and a practical <strong>implementation plan, budget, and timeline</strong>. Includes <strong>identified risks, dependencies, and roadblocks</strong> (onboarding, access, data) with mitigation steps. Fixed scope. Implementation quoted separately.</p>
+          <h3>Two-Week Discovery Plan</h3>
+          <p><strong>$5,000 flat rate • 2 weeks.</strong> Stakeholder interviews, current-state review, and a practical implementation plan with <strong>budget, timeline, and risk register</strong>. Fixed scope — the implementation is quoted and contracted separately.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Start%20a%20Two-Week%20Discovery%20Plan">Start a Discovery Plan</a>
           </div>
@@ -150,72 +178,78 @@
       </div>
 
       <div class="card card-spaced">
-        <h3>Access &amp; Onboarding Expectations</h3>
-        <p>To maintain delivery velocity and security, we align on access requirements at engagement start. Client onboarding (e.g., laptop provisioning, VPN/Citrix, SSO, least‑privilege accounts, and non‑production environments) may be required. We also support secure, contractor‑provided workstations for advisory‑only scopes, subject to client policy.</p>
+        <h3>What to Expect on Day One</h3>
+        <p>We align on access requirements at engagement start. Client onboarding — laptop provisioning, VPN/Citrix, SSO, least-privilege accounts, and non-production environments — may be required depending on scope. We also support secure, contractor-provided workstations for advisory engagements, subject to client policy.</p>
       </div>
     </div>
   </section>
 
+  <!-- ===== CASE STUDIES ===== -->
   <section id="case-studies" class="work">
     <div class="container">
       <div class="section-head">
-        <h2>Executive Case Studies</h2>
-        <p>Problem → Solution → Result, with quantifiable impact for large enterprises and upper mid-market leaders.</p>
+        <div>
+          <h2>Proven Delivery</h2>
+          <p>Real problems. Real systems built. Measurable outcomes.</p>
+        </div>
       </div>
       <div class="grid">
         <article class="card">
           <h3>IT Modernization &amp; Cloud Migration</h3>
-          <p><strong>Context:</strong> Global health insurer &amp; retail pharmacy.</p>
-          <p><strong>Problem:</strong> Monolithic releases blocked responsiveness; slow deployment cycles.</p>
-          <p><strong>Solution:</strong> Transitioned to containers on OpenShift, automated APIC/DataPower subsystems with Ansible.</p>
-          <p><strong>Result:</strong> <strong>50% reduction</strong> in deployment time; improved uptime. Built a Python framework to monitor 300+ appliances.</p>
+          <p><strong>Client:</strong> Global health insurer &amp; retail pharmacy.</p>
+          <p><strong>Problem:</strong> Monolithic releases and manual deployment processes blocked operational responsiveness.</p>
+          <p><strong>What we built:</strong> Containerized services on OpenShift; Ansible-driven APIC/DataPower config automation; Python framework monitoring 300+ appliances.</p>
+          <p><strong>Outcome:</strong> <strong>50% reduction</strong> in deployment cycle time. Improved uptime through automated health monitoring.</p>
         </article>
         <article class="card">
-          <h3>Access Control &amp; Data Protection</h3>
-          <p><strong>Context:</strong> International financial services &amp; audit.</p>
-          <p><strong>Problem:</strong> Needed stronger authentication and encryption standard governance.</p>
-          <p><strong>Solution:</strong> Django/DRF API to automate encryption updates; “low‑code” framework for DataPower services.</p>
-          <p><strong>Result:</strong> <strong>80% reduction</strong> in manual security intervention; complex API integration time cut from 6 months to 3 weeks.</p>
+          <h3>Security Automation &amp; API Integration</h3>
+          <p><strong>Client:</strong> International financial services firm.</p>
+          <p><strong>Problem:</strong> Manual encryption governance and slow API integration timelines across a complex banking environment.</p>
+          <p><strong>What we built:</strong> Django/DRF API to automate encryption updates; low-code DataPower service framework for rapid API integration.</p>
+          <p><strong>Outcome:</strong> <strong>80% reduction</strong> in manual security intervention. Integration timelines cut from <strong>6 months to 3 weeks</strong>.</p>
         </article>
         <article class="card">
           <h3>Enterprise System Interoperability</h3>
-          <p><strong>Context:</strong> Large automotive dealer services.</p>
-          <p><strong>Problem:</strong> Fragmented systems with fragile data flows.</p>
-          <p><strong>Solution:</strong> Defined integration requirements; introduced cloud‑based monitoring.</p>
-          <p><strong>Result:</strong> Prevented service interruptions; ensured continuity via proactive health monitoring.</p>
+          <p><strong>Client:</strong> National automotive dealer services.</p>
+          <p><strong>Problem:</strong> Fragmented systems with fragile, undocumented data flows creating latent service risk.</p>
+          <p><strong>What we built:</strong> Defined integration requirements; introduced cloud-based monitoring for proactive health visibility across critical data flows.</p>
+          <p><strong>Outcome:</strong> Eliminated undetected service failures. Continuous uptime through proactive monitoring and alerting.</p>
         </article>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Request%20a%20Governance%20Audit">Request a Governance Audit</a>
-        <a class="btn btn-ghost" href="#process">See Our Process</a>
+        <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Project%20Inquiry">Start a Project</a>
+        <a class="btn btn-ghost" href="#process">How We Deliver</a>
       </div>
     </div>
   </section>
 
-  <section id="software">
+  <!-- ===== SOFTWARE ===== -->
+  <section id="software" class="section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>Software We Support</h2>
-        <p>Field‑tested tools we implement, maintain, and support to accelerate secure delivery and reduce operational risk.</p>
+        <div>
+          <h2>Tools We Build &amp; Maintain</h2>
+          <p>Production-grade tools we've built in-house — commercially supported and actively maintained.</p>
+        </div>
       </div>
 
       <div class="grid">
         <article class="card">
-          <span class="badge">Browser‑Native Productivity</span>
-          <h3>WebUtils — Single‑File, Privacy‑First Tools</h3>
-          <p>A growing suite of opensource, browser‑native productivity apps delivered as standalone HTML files. Every tool runs locally with no backend, no account requirements, and no telemetry — designed for offline use, data ownership, and long‑term portability.</p>
+          <span class="badge">Browser-Native • OSS</span>
+          <h3>WebUtils — Privacy-First Productivity Tools</h3>
+          <p>A growing suite of open-source, browser-native utilities delivered as standalone HTML files. Every tool runs locally with no backend, no accounts, and no telemetry — built for offline use, data ownership, and long-term portability.</p>
           <div class="cta-row">
             <a class="btn btn-ghost" href="https://www.mcindi.com/webutils/index.html" target="_blank" rel="noopener noreferrer">Live App</a>
-            <a class="btn btn-primary" href="https://github.com/McIndi/webutils" target="_blank" rel="noopener noreferrer">Repo</a>
+            <a class="btn btn-primary" href="https://github.com/McIndi/webutils" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
           </div>
         </article>
 
         <article class="card">
           <span class="badge">DataPower • API Connect</span>
-          <h3>MAST — IBM DataPower Operations Toolkit</h3>
-          <p>Automation‑first management for DataPower/APIC: <strong>policy deployment, configuration promotion, backup/restore</strong>, and <strong>environment provisioning</strong> via CI‑ready workflows. Native <strong>Ansible</strong> integration and auditing.</p>
+          <h3>MAST — DataPower Operations Toolkit</h3>
+          <p>Automation-first management for DataPower/APIC: <strong>policy deployment, configuration promotion, backup/restore</strong>, and <strong>environment provisioning</strong> via CI-ready workflows. Native Ansible integration and full audit logging.</p>
           <div class="cta-row">
-            <a class="btn btn-ghost" href="https://github.com/mcindi/mast3" target="_blank" rel="noopener noreferrer">Open Github Repo</a>
+            <a class="btn btn-ghost" href="https://github.com/mcindi/mast3" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
             <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=MAST%20Support%20Inquiry">Request Support Quote</a>
           </div>
         </article>
@@ -223,119 +257,128 @@
         <article class="card">
           <span class="badge">Data Workbench</span>
           <h3>Delve — Data Wrangling &amp; Search</h3>
-          <p>Pipeline‑based query language, dashboards, and API for ingestion and exploration. Ideal for data validation, rapid troubleshooting, and lightweight analytics.</p>
+          <p>Pipeline-based query language, dashboards, and API for data ingestion and exploration. Ideal for validation, rapid troubleshooting, and lightweight analytics without standing up a heavy analytics stack.</p>
           <div class="cta-row">
-            <a class="btn btn-ghost" href="https://github.com/McIndi/delve" target="_blank" rel="noopener noreferrer">Open Github Repo</a>
+            <a class="btn btn-ghost" href="https://github.com/McIndi/delve" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
             <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Delve%20Support%20Inquiry">Request Support Quote</a>
           </div>
         </article>
 
         <article class="card">
-          <span class="badge">Security Analytics</span>
+          <span class="badge">Security Analytics • Private Alpha</span>
           <h3>SIEMatic — Events, Dashboards &amp; Alerts</h3>
-          <p>Forthcoming security analytics platform built on Django/DRF. <strong>Agent/indexer architecture</strong>, interactive search and dashboards, modular command pipeline. <strong>McIndi is the official provider</strong> of commercial licenses and support. Currently in <strong>private alpha</strong>.</p>
+          <p>Security analytics platform built on Django/DRF. <strong>Agent/indexer architecture</strong>, interactive search, dashboards, and modular command pipeline. McIndi is the official provider of commercial licenses and support. Currently in <strong>private alpha</strong>.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=SIEMatic%20Private%20Alpha%20Inquiry">Request Access / Licensing Info</a>
+            <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=SIEMatic%20Private%20Alpha%20Inquiry">Request Access or Licensing</a>
           </div>
         </article>
 
         <article class="card">
-          <span class="badge">MIT • Client‑side</span>
-          <h3>LogSieve — In‑Browser Log Exploration</h3>
-          <p><strong>MIT‑licensed.</strong> Lightweight, client‑side log exploration and filtering. Runs fully in the browser with <strong>no backend</strong>. Perfect for offline analysis in secure or air‑gapped environments.</p>
+          <span class="badge">MIT • Client-Side</span>
+          <h3>LogSieve — In-Browser Log Exploration</h3>
+          <p><strong>MIT-licensed.</strong> Lightweight, client-side log exploration and filtering that runs completely in the browser with no backend. Built for offline analysis in secure and air-gapped environments where shipping logs offsite is not an option.</p>
           <div class="cta-row">
             <a class="btn btn-ghost" href="https://www.mcindi.com/logsieve" target="_blank" rel="noopener noreferrer">Open LogSieve</a>
             <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=LogSieve%20Support%20Inquiry">Request Support Quote</a>
           </div>
         </article>
 
-
         <article class="card">
-          <span class="badge">Automation</span>
+          <span class="badge">Ansible • DevOps</span>
           <h3>Ansible Dev Sandbox: Role + Playbook</h3>
-          <p>A reproducible Ansible development sandbox that pairs a GitHub-hosted role with a lightweight playbook harness. Built to validate role changes the way enterprise environments actually behave: environment-driven configuration, isolated execution, and CI-backed testing.</p>
+          <p>A reproducible Ansible development sandbox pairing a GitHub-hosted role with a lightweight playbook harness. Built to validate role changes the way enterprise environments actually behave: environment-driven config, isolated execution, and CI-backed testing.</p>
           <div class="cta-row">
-            <a class="btn btn-ghost" href="https://github.com/McIndi/ans_dev_sandbox_playbook" target="_blank" rel="noopener noreferrer">Open Github Repo</a>
-            <a class="btn btn-primary" href="https://github.com/McIndi/ans_dev_sandbox_playbook/wiki">Open Github Wiki</a>
+            <a class="btn btn-ghost" href="https://github.com/McIndi/ans_dev_sandbox_playbook" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            <a class="btn btn-primary" href="https://github.com/McIndi/ans_dev_sandbox_playbook/wiki">Wiki</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="process" class="faq">
+  <!-- ===== PROCESS ===== -->
+  <section id="process">
     <div class="container">
       <div class="section-head">
-        <h2>Our Process</h2>
-        <p>Phase‑gated, SOW‑backed delivery for predictability and auditability.</p>
+        <div>
+          <h2>How We Ship</h2>
+          <p>Phase-gated, SOW-backed delivery — predictable scope, auditable outcomes at every stage.</p>
+        </div>
       </div>
       <div class="grid">
         <article class="card">
           <h3>I. Kickoff</h3>
-          <p><strong>Objective:</strong> Formal alignment; scope and metrics set.<br/><strong>Deliverables:</strong> Project Plan (Schedule, WBS, Testing, Training, Transition).</p>
+          <p><strong>Objective:</strong> Align scope, success metrics, and delivery plan.<br/><strong>Deliverables:</strong> Project Plan with Schedule, WBS, Testing, Training, and Transition tracks.</p>
         </article>
         <article class="card">
           <h3>II. Design</h3>
-          <p><strong>Objective:</strong> Requirements and blueprint.<br/><strong>Deliverables:</strong> Requirements, Site/Solution Design, Established Metrics.</p>
+          <p><strong>Objective:</strong> Define requirements and produce the solution blueprint.<br/><strong>Deliverables:</strong> Requirements doc, Site/Solution Design, Established Metrics baseline.</p>
         </article>
         <article class="card">
           <h3>III. Build</h3>
-          <p><strong>Objective:</strong> Development &amp; integration.<br/><strong>Deliverables:</strong> Completed code, Detailed Testing Plan, Lab &amp; Beta Testing Report.</p>
+          <p><strong>Objective:</strong> Code, integrate, and test against acceptance criteria.<br/><strong>Deliverables:</strong> Completed code, Detailed Testing Plan, Lab &amp; Beta Testing Report.</p>
         </article>
         <article class="card">
-          <h3>IV. Implementation</h3>
-          <p><strong>Objective:</strong> Production deployment and 24×7 support to closure.<br/><strong>Deliverables:</strong> Deployed on client servers; hypercare.</p>
+          <h3>IV. Deploy</h3>
+          <p><strong>Objective:</strong> Production deployment with 24×7 hypercare support.<br/><strong>Deliverables:</strong> Running production system; documented rollback plan; incident support.</p>
         </article>
         <article class="card">
-          <h3>V. Training</h3>
-          <p><strong>Objective:</strong> Client proficiency.<br/><strong>Deliverables:</strong> Training per approved plan.</p>
+          <h3>V. Enable</h3>
+          <p><strong>Objective:</strong> Transfer knowledge and build team proficiency.<br/><strong>Deliverables:</strong> Training per approved plan; runbooks and operational documentation.</p>
         </article>
         <article class="card">
-          <h3>VI. Handoff/Closure</h3>
-          <p><strong>Objective:</strong> Formal completion.<br/><strong>Deliverables:</strong> Documentation archive; Closure Report; Requirements Checklist.</p>
+          <h3>VI. Closure</h3>
+          <p><strong>Objective:</strong> Formal completion and sign-off.<br/><strong>Deliverables:</strong> Documentation archive; Closure Report; Requirements Checklist.</p>
         </article>
       </div>
-      <div class="card">
+      <div class="card card-spaced">
         <h3>Security &amp; Change Governance</h3>
         <ul>
-          <li>Isolated testing environments; production data masked when required.</li>
-          <li>Vulnerability scans and penetration testing with 30/60/90‑day SLAs by severity.</li>
-          <li>Formal change management with approvals and back‑out procedures.</li>
+          <li>Isolated testing environments; production data masked where required.</li>
+          <li>Vulnerability scanning and penetration testing with 30/60/90-day SLAs by severity.</li>
+          <li>Formal change management with approvals, rollback plans, and full audit trails.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="container split">
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section-alt">
+    <div class="container">
+      <div class="grid">
       <div class="card">
-        <h3>Partner &amp; CTO: Authority</h3>
-        <p>Led by a Senior Technology Leader with <strong>20+ years</strong> designing, implementing, and optimizing mission‑critical systems across <strong>Healthcare</strong> and <strong>Financial Services</strong>. Proven at enterprise scale under regulatory scrutiny.</p>
-        <p><strong>Industries &amp; Scales:</strong> We serve large and complex organizations across healthcare, financial services, public sector, and upper mid-market.</p>
+        <h3>Who We Are</h3>
+        <p>Senior technology practitioners with <strong>20+ years</strong> delivering critical systems across Healthcare and Financial Services. We're hands-on — from architecture design to production deployment. We don't hand off to junior resources.</p>
+        <p><strong>Industries we serve:</strong> Healthcare, Financial Services, Public Sector, Upper Mid-Market.</p>
       </div>
       <div class="card">
         <h3>At a Glance</h3>
         <ul>
-          <li>Headquarters: USA (remote‑first)</li>
-          <li>Engagements: projects, advisory retainers, augmentation</li>
-          <li>Focus: Regulated, mission-critical modernization, gateways, automation</li>
+          <li><strong>Headquarters:</strong> USA (remote-first)</li>
+          <li><strong>Engagements:</strong> Projects, advisory retainers, staff augmentation</li>
+          <li><strong>Focus:</strong> Security gateways, automation, cloud modernization</li>
+          <li><strong>Delivery style:</strong> Hands-on, SOW-backed, phase-gated</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Leaders</h3>
-        <p><strong>Brian Kearney</strong> — Senior technology leader across cloud infrastructure, automation engineering, secure API design, and enterprise integration. Comfortable from C‑suite to command line.</p>
-        <p><strong>Clifford Bressette</strong> — Specialist in IBM DataPower, Splunk, and Python. 13+ years of DataPower architecture and administration; automation, performance tuning, and reliable services.</p>
+        <h3>The Team</h3>
+        <p><strong>Brian Kearney</strong> — Senior technology practitioner across cloud infrastructure, automation engineering, secure API design, and enterprise integration. Comfortable from C-suite to command line.</p>
+        <p><strong>Clifford Bressette</strong> — IBM DataPower specialist and Python engineer. 13+ years designing and operating DataPower environments; automation, performance tuning, and production reliability at scale.</p>
+      </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== CONTACT ===== -->
   <section id="contact">
-    <div class="container card">
-      <h3>Accelerate Your Modernization</h3>
-      <p>Request an assessment or book a briefing. We’ll respond with recommended next steps and availability.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Executive%20Briefing%20Request">Contact Our Team</a>
-        <a class="btn btn-ghost" href="#top">Back to top</a>
+    <div class="container">
+      <div class="card">
+        <h3>Ready to Build Something?</h3>
+        <p>Tell us what you're working on. We'll respond with a clear path forward and what we'd recommend as a starting point.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Project%20Inquiry">Start the Conversation</a>
+          <a class="btn btn-ghost" href="#top">Back to top</a>
+        </div>
       </div>
     </div>
   </section>
@@ -349,7 +392,7 @@
     "@type": "ProfessionalService",
     "name": "McIndi Solutions LLC",
     "url": "https://www.mcindi.com/",
-    "description": "Enterprise security gateways (IBM DataPower/APIC), governed Dev/Ops and automation (Ansible/Python), and cloud/container modernization (OpenShift/AWS/Azure/GCP).",
+    "description": "Hands-on engineering for critical infrastructure: enterprise security gateways (IBM DataPower/APIC), automation pipelines (Ansible/Python), and cloud modernization (OpenShift/AWS/Azure/GCP) for healthcare, financial services, and high-security environments.",
     "areaServed": "US",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

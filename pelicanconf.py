@@ -1,10 +1,10 @@
 AUTHOR = 'Cliff'
 SITENAME = 'McIndi Solutions LLC'
-SITESUBTITLE = 'Senior Technology Leadership for Regulated, Mission-Critical Environments'
+SITESUBTITLE = 'Hands-On Engineering for Critical Infrastructure'
 SITEDESCRIPTION = (
-    'Enterprise security gateways (IBM DataPower/APIC), governed Dev/Ops and automation '
-    '(Ansible/Python), and cloud/container modernization (OpenShift/AWS/Azure/GCP). '
-    'Predictable outcomes with quantifiable ROI.'
+    'We design, build, and operate enterprise security gateways, automation pipelines, '
+    'and cloud platforms for healthcare, financial services, and high-security environments. '
+    '20+ years of hands-on delivery — from architecture through production.'
 )
 SITEURL = ""
 
@@ -22,11 +22,11 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 # Custom menu items (the main site sections)
 MENUITEMS = (
-    ('Services', '/#services'),
-    ('Expertise', '/#pillars'),
+    ('What We Build', '/#services'),
+    ('Outcomes', '/#pillars'),
     ('Case Studies', '/#case-studies'),
     ('Software', '/#software'),
-    ('Our Process', '/#process'),
+    ('How We Ship', '/#process'),
     ('About', '/#about'),
     ('Contact', '/#contact'),
     ('Blog', '/blog/'),
