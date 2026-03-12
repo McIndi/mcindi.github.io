@@ -73,6 +73,11 @@ url: software/logsieve/
         <h3>MIT Licensed</h3>
         <p>Free to use, fork, and redistribute. Audit the source yourself to verify the zero-exfiltration guarantee.</p>
       </article>
+      <article class="card">
+        <span class="badge">Performance</span>
+        <h3>Multi-MB Log Files</h3>
+        <p>Optimized for large log files with efficient in-memory data structures, lazy processing and background workers. Analyze without waiting for a SIEM query to return.</p>
+      </article>
     </div>
   </div>
 </section>
