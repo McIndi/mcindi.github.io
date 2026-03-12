@@ -28,14 +28,25 @@
         {% for label, url in MENUITEMS %}
           <li><a href="{{ SITEURL }}{{ url }}">{{ label }}</a></li>
         {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for page in pages %}
-            <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-          {% endfor %}
-        {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
           <li><a href="{{ SITEURL }}/categories.html">Categories</a></li>
         {% endif %}
+
+        <!-- Software dropdown — auto-populated from hidden pages under software/ -->
+        <li class="nav-dropdown">
+          <a href="{{ SITEURL }}/#software" class="nav-dropdown-toggle">
+            Software <span class="dropdown-caret" aria-hidden="true">▾</span>
+          </a>
+          <ul class="nav-dropdown-menu" aria-label="Software products">
+            {% for page in hidden_pages | sort(attribute='title') %}
+              {% if page.url.startswith('software/') %}
+                <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title.split('—')[0].strip() }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+
+        <li><a href="{{ SITEURL }}/blog/">Blog</a></li>
       </ul>
     </div>
   </header>

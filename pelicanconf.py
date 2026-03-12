@@ -25,11 +25,9 @@ MENUITEMS = (
     ('What We Build', '/#services'),
     ('Outcomes', '/#pillars'),
     ('Case Studies', '/#case-studies'),
-    ('Software', '/#software'),
     ('How We Ship', '/#process'),
     ('About', '/#about'),
     ('Contact', '/#contact'),
-    ('Blog', '/blog/'),
 )
 
 # Ensure custom domain and Pages metadata get copied into output
