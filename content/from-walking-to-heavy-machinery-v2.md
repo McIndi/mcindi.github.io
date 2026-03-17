@@ -49,8 +49,6 @@ Right now, many authors and builders are creating frameworks to establish those 
 
 I have ideas in this area too, but I want to keep this article focused on the underlying shift.
 
-Maintenance at TheGym
-
 When machines took over work that used to be manual, people went to the gym to maintain strength they no longer build in daily life.
 
 That is why I built TheGym, a single-file browser app. No servers. No accounts. No analytics. Just a private space to keep your technical muscles from going soft. It focuses on three high-intensity drills:
