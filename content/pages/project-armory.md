@@ -1,8 +1,8 @@
-Title: Project Armory — Secure AI Agent Platform for Regulated Enterprises
+Title: Project Armory: Secure AI Agent Platform for Regulated Enterprises
 Slug: project-armory
 Template: product
 Status: hidden
-Summary: An open reference architecture for deploying AI agents inside regulated enterprises. An auditable Kubernetes platform with Keycloak OIDC, OpenBao secrets and PKI, TLS everywhere, and the BeeAI agent runtime — provisioned end to end with Ansible and OpenTofu.
+Summary: An open reference architecture for deploying AI agents inside regulated enterprises. An auditable Kubernetes platform with Keycloak OIDC, OpenBao secrets and PKI, TLS everywhere, and the BeeAI agent runtime provisioned end to end with Ansible and OpenTofu.
 save_as: software/project-armory/index.html
 url: software/project-armory/
 
@@ -12,7 +12,7 @@ url: software/project-armory/
       <div class="hero-content">
         <div class="eyebrow">Reference Architecture &bull; Kubernetes &bull; Preview</div>
         <h1>Project Armory</h1>
-        <p>An open reference architecture for running AI agents inside regulated enterprises. A complete, auditable Kubernetes platform — Keycloak OIDC across the stack, OpenBao for secrets and PKI, TLS-everywhere ingress, and the BeeAI agent runtime — provisioned end to end with Ansible and OpenTofu.</p>
+        <p>An open reference architecture for running AI agents inside regulated enterprises. A complete, auditable Kubernetes platform: Keycloak OIDC across the stack, OpenBao for secrets and PKI, TLS-everywhere ingress, and the BeeAI agent runtime provisioned end to end with Ansible and OpenTofu.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/McIndi/project-armory" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=Project%20Armory%20Inquiry">Talk to an Engineer</a>
@@ -39,7 +39,7 @@ url: software/project-armory/
 <section>
   <div class="container">
     <div class="notice">
-      <strong>Reference Architecture:</strong> Project Armory is a working blueprint for secure agent deployment, intended for evaluation and as a foundation to adapt to your environment. Production hardening — secret backends, network policy, and security review against your own controls — is expected before production use.
+      <strong>Reference Architecture:</strong> Project Armory is a working blueprint for secure agent deployment, intended for evaluation and as a foundation to adapt to your environment. Production hardening (secret backends, network policy, and security review against your own controls) is expected before production use.
     </div>
   </div>
 </section>
@@ -48,7 +48,7 @@ url: software/project-armory/
   <div class="container">
     <div class="section-head">
       <h2>Security-First by Construction</h2>
-      <p>Every layer is wired for identity, encryption, and auditability — not bolted on after the fact.</p>
+      <p>Every layer is wired for identity, encryption, and auditability.</p>
     </div>
     <div class="grid">
       <article class="card">
@@ -59,7 +59,7 @@ url: software/project-armory/
       <article class="card">
         <span class="badge">Secrets &amp; PKI</span>
         <h3>OpenBao Secret Management</h3>
-        <p>OpenBao manages secrets and PKI, integrated with the Vault Secrets Operator and cert-manager. Credentials are generated and rotated automatically — including hands-off realm admin password cycling.</p>
+        <p>OpenBao manages secrets and PKI, integrated with the Vault Secrets Operator and cert-manager. Credentials are generated and rotated automatically including hands-off realm admin password cycling.</p>
       </article>
       <article class="card">
         <span class="badge">Encryption</span>
@@ -69,7 +69,7 @@ url: software/project-armory/
       <article class="card">
         <span class="badge">Agent Runtime</span>
         <h3>BeeAI Agent Stack</h3>
-        <p>Agents run on the BeeAI Agent Stack, a Linux Foundation project, deployed onto the secured k3s platform — giving AI workloads a runtime that inherits the platform's identity and secret controls.</p>
+        <p>Agents run on the BeeAI Agent Stack, a Linux Foundation project, deployed onto the secured k3s platform giving AI workloads a runtime that inherits the platform's identity and secret controls.</p>
       </article>
       <article class="card">
         <span class="badge">Infrastructure as Code</span>
@@ -94,11 +94,11 @@ url: software/project-armory/
     <div class="grid">
       <article class="card">
         <h3>Regulated AI Adopters</h3>
-        <p>Healthcare, financial services, and high-security teams that need agentic AI to run under the same identity, secret, and audit controls as the rest of their estate — not as an exception to them.</p>
+        <p>Healthcare, financial services, and high-security teams that need agentic AI to run under the same identity, secret, and audit controls as the rest of their estate.</p>
       </article>
       <article class="card">
         <h3>Security &amp; Platform Teams</h3>
-        <p>Engineers who want a vetted, auditable starting point for a Kubernetes AI platform — OIDC, PKI, and TLS already integrated — instead of assembling and securing the pieces from scratch.</p>
+        <p>Engineers who want a vetted, auditable starting point for a Kubernetes AI platform (OIDC, PKI, and TLS already integrated).</p>
       </article>
       <article class="card">
         <h3>Air-Gap &amp; Data-Sovereign Environments</h3>
