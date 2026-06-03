@@ -2,6 +2,7 @@
 
 {% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
 {% block description %}{{ (page.summary or page.content)|striptags|truncate(180) }}{% endblock %}
+{% block canonical %}{{ SITEURL }}/{{ page.url }}{% endblock %}
 {% block main_class %}article{% endblock %}
 
 {% block content %}

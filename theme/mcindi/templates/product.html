@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
 {% block description %}{{ page.summary or page.content|striptags|truncate(180) }}{% endblock %}
+{% block canonical %}{{ SITEURL }}/{{ page.url }}{% endblock %}
 {% block main_class %}stack{% endblock %}
 {% block content %}{{ page.content }}{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": {{ page.title.split('—')[0].strip()|tojson }},
+    "url": "{{ SITEURL }}/{{ page.url }}",
+    "description": {{ (page.summary or page.content|striptags|truncate(180))|tojson }},
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cross-platform",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ SITENAME }}",
+      "url": "{{ SITEURL }}/"
+    }
+  }
+  </script>
+{% endblock %}

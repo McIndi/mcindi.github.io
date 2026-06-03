@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ SITEURL }}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ SITEURL }}/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{% for page in (pages + hidden_pages)|sort(attribute='url') %}
+  <url>
+    <loc>{{ SITEURL }}/{{ page.url }}</loc>
+    {% if page.modified %}<lastmod>{{ page.modified.strftime('%Y-%m-%d') }}</lastmod>{% elif page.date %}<lastmod>{{ page.date.strftime('%Y-%m-%d') }}</lastmod>{% endif %}
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+{% endfor %}
+{% for article in articles %}
+  <url>
+    <loc>{{ SITEURL }}/{{ article.url }}</loc>
+    <lastmod>{{ (article.modified or article.date).strftime('%Y-%m-%d') }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{% endfor %}
+{% for cat, _ in categories %}
+  <url>
+    <loc>{{ SITEURL }}/{{ cat.url }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+{% endfor %}
+{% for tag, _ in tags %}
+  <url>
+    <loc>{{ SITEURL }}/{{ tag.url }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+{% endfor %}
+</urlset>

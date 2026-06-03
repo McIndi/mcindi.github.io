@@ -15,7 +15,8 @@ TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
 
 THEME = "theme/mcindi"
-DIRECT_TEMPLATES = ["index", "blog", "archives", "categories", "authors", "tags"]
+DIRECT_TEMPLATES = ["index", "blog", "archives", "categories", "authors", "tags", "sitemap"]
+SITEMAP_SAVE_AS = "sitemap.xml"
 BLOG_SAVE_AS = "blog/index.html"
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -31,10 +32,11 @@ MENUITEMS = (
 )
 
 # Ensure custom domain and Pages metadata get copied into output
-STATIC_PATHS = ["static", "extra/CNAME", "extra/.nojekyll"]
+STATIC_PATHS = ["static", "extra/CNAME", "extra/.nojekyll", "extra/robots.txt"]
 EXTRA_PATH_METADATA = {
     "extra/CNAME": {"path": "CNAME"},
     "extra/.nojekyll": {"path": ".nojekyll"},
+    "extra/robots.txt": {"path": "robots.txt"},
 }
 
 # Feed generation is usually not desired when developing

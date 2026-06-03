@@ -3,6 +3,7 @@ Author: Cliff
 Date: 2026-01-27 10:00
 Category: Programming
 Tags: Python, Django, Development, SaaS, Web Development, Security, Code Review, Production, Best Practices, Tutorial
+Summary: Production-hardening changes applied to our Django SaaS app after a code review: security headers and HSTS, safer proxy and X-Forwarded-For handling, and a less revealing health check endpoint.
 Slug: django-saas-tut-005.1
 Status: published
 
