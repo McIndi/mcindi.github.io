@@ -1,4 +1,4 @@
-Title: Project Armory: Secure AI Agent Platform for Regulated Enterprises
+Title: Project Armory — Secure AI Agent Platform for Regulated Enterprises
 Slug: project-armory
 Template: product
 Status: hidden
