@@ -20,7 +20,7 @@ url: software/webutils/
       </div>
       <div class="hero-stats">
         <div class="stat-box">
-          <span class="stat-num">6</span>
+          <span class="stat-num">9</span>
           <span class="stat-label">Standalone tools included</span>
         </div>
         <div class="stat-box">
@@ -40,7 +40,7 @@ url: software/webutils/
   <div class="container">
     <div class="section-head">
       <h2>What&rsquo;s Included</h2>
-      <p>Six purpose-built tools, each delivered as a self-contained HTML file.</p>
+      <p>Nine purpose-built tools, each delivered as a self-contained HTML file.</p>
     </div>
     <div class="grid">
       <article class="card">
@@ -72,6 +72,21 @@ url: software/webutils/
         <span class="badge">Publishing</span>
         <h3>Static Page Generator</h3>
         <p>Convert Markdown drafts into standalone HTML pages ready to host anywhere. No build tool or framework required.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Security</span>
+        <h3>Secret Share</h3>
+        <p>Exchange encrypted, signed secrets with no backend. Uses browser-native crypto and link-based sharing for one-way secret delivery.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Writing</span>
+        <h3>Content Studio</h3>
+        <p>Plan messaging, draft content, run publishing checklists, and track publication history in a local-first workspace.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Practice</span>
+        <h3>TheGym</h3>
+        <p>Run structured coding drills with custom exercises, progress tracking, and exportable local data.</p>
       </article>
     </div>
   </div>
