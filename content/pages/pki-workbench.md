@@ -1,8 +1,8 @@
-Title: PKI Workbench — Private Certificate Authority Management
+Title: PKI Workbench - Private Certificate Authority Management
 Slug: pki-workbench
 Template: product
 Status: hidden
-Summary: A Django-based certificate authority management tool for building and operating private PKI workflows. Root and intermediate CAs, end-entity issuance, certificate profiles, and a REST API — without the OpenSSL scripting.
+Summary: A Django-based certificate authority management tool for building and operating private PKI workflows. Root and intermediate CAs, validated end-entity issuance, certificate profiles, and a REST API without the OpenSSL scripting.
 save_as: software/pki-workbench/index.html
 url: software/pki-workbench/
 
@@ -12,7 +12,7 @@ url: software/pki-workbench/
       <div class="hero-content">
         <div class="eyebrow">GPLv3 &bull; Django &bull; Development Preview</div>
         <h1>PKI Workbench</h1>
-        <p>A Django-based certificate authority management tool for building and operating private PKI workflows. Root and intermediate CAs, end-entity issuance, certificate profiles, and a REST API — without OpenSSL scripting or commercial CA overhead.</p>
+        <p>A Django-based certificate authority management tool for building and operating private PKI workflows. Root and intermediate CAs, validated end-entity issuance, certificate profiles, and a REST API give teams a cleaner path to operating internal PKI without OpenSSL scripting or commercial CA overhead.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/McIndi/pki_workbench" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=PKI%20Workbench%20Inquiry">Talk to an Engineer</a>
@@ -39,7 +39,7 @@ url: software/pki-workbench/
 <section>
   <div class="container">
     <div class="notice">
-      <strong>Development Preview:</strong> PKI Workbench is actively developed and suitable for evaluation and internal prototyping. Production hardening — secret management, strict TLS config, production database, and security review — is required before production deployment.
+      <strong>Development Preview:</strong> PKI Workbench is actively developed and suitable for evaluation and internal prototyping. Production hardening (secret management, strict TLS config, production database, and security review) is required before production deployment.
     </div>
   </div>
 </section>
@@ -54,27 +54,32 @@ url: software/pki-workbench/
       <article class="card">
         <span class="badge">CA Management</span>
         <h3>Root &amp; Intermediate CAs</h3>
-        <p>Create root CAs with configurable key algorithm and certification depth. Issue intermediate CAs with depth validation enforced against root policy.</p>
+        <p>Create root CAs with configurable key algorithm and certification depth. Issue intermediate CAs with depth validation enforced against root policy, with management flows that make CA scope and impact explicit.</p>
       </article>
       <article class="card">
         <span class="badge">Issuance</span>
         <h3>End-Entity Certificate Issuance</h3>
-        <p>Issue end-entity certificates with full control over key algorithm, key size, curve, SAN DNS entries, Key Usage, and Extended Key Usage.</p>
+        <p>Issue end-entity certificates with full control over key algorithm, key size, curve, SAN DNS entries, Key Usage, and Extended Key Usage. Built-in validation and reset helpers reduce bad requests before they become bad certificates.</p>
       </article>
       <article class="card">
         <span class="badge">Policy</span>
         <h3>Certificate Profiles</h3>
-        <p>Define reusable issuance policies with key and extension defaults, optional subject constraints, and auto-fill on the issue form. Derive a profile directly from an existing certificate.</p>
+        <p>Define reusable issuance policies with key and extension defaults, optional subject constraints, and auto-fill on the issue form. Derive a profile directly from an existing certificate and keep issuance behavior consistent across teams.</p>
       </article>
       <article class="card">
         <span class="badge">Artifacts</span>
-        <h3>Certificate Artifact Downloads</h3>
-        <p>Download public cert, cert chain, CSR, and cert/key bundle ZIP from a dedicated certificate detail page. Consistent filename conventions across all artifacts.</p>
+        <h3>Certificate Detail &amp; Artifact Downloads</h3>
+        <p>Download public cert, cert chain, CSR, and cert/key bundle ZIP from a dedicated certificate detail page. Extension summaries surface what was actually issued before you hand artifacts to downstream teams.</p>
       </article>
       <article class="card">
         <span class="badge">Integration</span>
         <h3>REST API &amp; OpenAPI Schema</h3>
         <p>Full REST API covering CAs, certificates, profiles, and workflows. OpenAPI schema at <code>/api/schema/</code> for integration with CI/CD pipelines and automation tooling.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Lifecycle</span>
+        <h3>Safer Management Workflows</h3>
+        <p>Delete flows, redirects, and refreshed workbench state keep operators oriented while making destructive actions more deliberate. The UI favors clarity over guesswork.</p>
       </article>
       <article class="card">
         <span class="badge">Visibility</span>
@@ -94,7 +99,7 @@ url: software/pki-workbench/
     <div class="grid">
       <article class="card">
         <h3>Security &amp; Infrastructure Teams</h3>
-        <p>Stand up a private CA for internal TLS, mutual authentication, and service-to-service trust — without maintaining a tangle of OpenSSL commands or purchasing a commercial CA platform.</p>
+        <p>Stand up a private CA for internal TLS, mutual authentication, and service-to-service trust without maintaining a tangle of OpenSSL commands or purchasing a commercial CA platform.</p>
       </article>
       <article class="card">
         <h3>DevOps &amp; Platform Engineering</h3>

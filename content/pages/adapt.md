@@ -1,8 +1,8 @@
-Title: Adapt — Turn a Folder Into a Secure API Server
+Title: Adapt - Turn a Folder Into a Secure API Server
 Slug: adapt
 Template: product
 Status: hidden
-Summary: A FastAPI server that turns files in a directory into APIs, UIs, and streaming endpoints. Authentication, RBAC, and an admin interface built in. Point it at a folder and go.
+Summary: A FastAPI server that turns files in a directory into APIs, searchable resources, UIs, and streaming endpoints. Authentication, RBAC, full-text search, and an admin interface built in. Point it at a folder and go.
 save_as: software/adapt/index.html
 url: software/adapt/
 
@@ -12,7 +12,7 @@ url: software/adapt/
       <div class="hero-content">
         <div class="eyebrow">MIT &bull; Python &bull; FastAPI</div>
         <h1>Adapt</h1>
-        <p>A FastAPI server that turns files in a directory into APIs, UIs, and streaming endpoints. Point it at a folder — datasets become CRUD APIs, documents become browsable pages, media files become streaming players. Authentication, RBAC, and an admin interface are built in from the start.</p>
+        <p>A FastAPI server that turns files in a directory into APIs, searchable resources, UIs, and streaming endpoints. Point it at a folder and datasets become CRUD APIs, documents become browsable pages, media files become streaming players, and the whole tree becomes discoverable through permission-aware search and automation-friendly resource exposure.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/McIndi/adapt" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=Adapt%20Support%20Inquiry">Request Support Quote</a>
@@ -40,23 +40,33 @@ url: software/adapt/
   <div class="container">
     <div class="section-head">
       <h2>Your Folder Is Already a Server</h2>
-      <p>Adapt auto-discovers resources and mounts routes. Drop files in, get APIs and UIs out.</p>
+      <p>Adapt auto-discovers resources and mounts routes. Drop files in, get APIs, search, and UIs out.</p>
     </div>
     <div class="grid">
       <article class="card">
         <span class="badge">Data</span>
         <h3>Dataset CRUD APIs</h3>
-        <p>CSV, XLSX, and Parquet files become full CRUD endpoints with schema exposure, caching, and atomic writes. DataTables UI included at no extra configuration.</p>
+        <p>CSV, XLSX, and Parquet files become full CRUD endpoints with schema exposure, caching, atomic writes, and sortable tables. DataTables UI is included at no extra configuration.</p>
       </article>
       <article class="card">
         <span class="badge">Documents</span>
         <h3>Document Browser</h3>
-        <p>Markdown and HTML files are rendered and served as formatted pages. Adapt generates a landing page that adapts to what each user is permitted to see.</p>
+        <p>Markdown and HTML files are rendered and served as formatted pages. Adapt generates a landing page that adapts to what each user is permitted to see and makes large document trees easier to navigate as content grows.</p>
       </article>
       <article class="card">
         <span class="badge">Media</span>
         <h3>Streaming Media</h3>
         <p>Video and audio files become streaming endpoints with built-in player and gallery UIs. Meeting recordings, training walkthroughs, and Zoom exports are one link away.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Discovery</span>
+        <h3>Permission-Aware Search</h3>
+        <p>Index datasets, documents, and other mounted resources for full-text search while still respecting the same permissions used everywhere else. Users find what they are allowed to see without exposing what they are not.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Integration</span>
+        <h3>MCP Resource Exposure</h3>
+        <p>Expose the same folder through an MCP interface for AI agents and automation tooling. Resource ordering and discovery controls make large collections easier to consume programmatically.</p>
       </article>
       <article class="card">
         <span class="badge">Extensibility</span>
@@ -66,12 +76,12 @@ url: software/adapt/
       <article class="card">
         <span class="badge">Security</span>
         <h3>Auth &amp; RBAC Built In</h3>
-        <p>Session cookies, API keys, PBKDF2 password hashing, CSRF protection, CSP, HSTS, and RBAC with users, groups, and permissions — all included and enforced by default.</p>
+        <p>Session cookies, API keys, PBKDF2 password hashing, CSRF protection, CSP, HSTS, and RBAC with users, groups, and permissions &mdash; all included and enforced by default.</p>
       </article>
       <article class="card">
         <span class="badge">Operations</span>
         <h3>Admin UI &amp; Audit Logs</h3>
-        <p>A full admin interface for managing users, groups, permissions, API keys, cache, and locks. Security-relevant actions are logged for auditability.</p>
+        <p>A full admin interface for managing users, groups, permissions, API keys, cache, and locks. Smarter lock handling and security-relevant audit logs help shared environments stay predictable under load.</p>
       </article>
     </div>
   </div>
@@ -86,7 +96,7 @@ url: software/adapt/
     <div class="grid">
       <article class="card">
         <h3>Client Deliverable Portals</h3>
-        <p>Share data exports, analysis results, and recorded walkthroughs with clients. Control exactly who can see what — without building a custom portal or using a cloud storage service.</p>
+        <p>Share data exports, analysis results, and recorded walkthroughs with clients. Control exactly who can see what &mdash; without building a custom portal or using a cloud storage service.</p>
       </article>
       <article class="card">
         <h3>Internal Data APIs</h3>
