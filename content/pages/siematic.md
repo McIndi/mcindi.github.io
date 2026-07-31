@@ -15,6 +15,7 @@ url: software/siematic/
         <p>A purpose-built security analytics platform with agent/indexer architecture, interactive event search, and modular alert pipelines. Designed for regulated industries where data residency and auditability are non-negotiable.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=SIEMatic%20Private%20Alpha%20Inquiry">Request Alpha Access</a>
+          <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=SIEMatic%20Support%20Contract%20Inquiry">Support Contract</a>
           <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=SIEMatic%20Licensing%20Inquiry">Licensing Inquiry</a>
         </div>
       </div>
@@ -104,9 +105,11 @@ url: software/siematic/
   <div class="container">
     <div class="card">
       <h3>Join the Private Alpha</h3>
-      <p>SIEMatic is currently in private alpha. McIndi is selectively onboarding design partners for early access. If you&rsquo;re evaluating security analytics for a regulated environment, we&rsquo;d like to talk.</p>
+      <p>SIEMatic is currently in an early-release private alpha. McIndi is selectively onboarding design partners for early access. If you&rsquo;re evaluating security analytics for a regulated environment, we&rsquo;d like to talk.</p>
+      <p><strong>Need to rely on it in production?</strong> The alpha ships as-is and may change without notice. If you need production stability, guaranteed response times, or an SLA, contact us for a paid support contract.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=SIEMatic%20Private%20Alpha%20Inquiry">Request Alpha Access</a>
+        <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=SIEMatic%20Support%20Contract%20Inquiry">Support Contract</a>
         <a class="btn btn-ghost" href="/#software">&larr; All Software</a>
       </div>
     </div>
