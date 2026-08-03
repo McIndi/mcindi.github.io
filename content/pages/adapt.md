@@ -76,7 +76,7 @@ url: software/adapt/
       <article class="card">
         <span class="badge">Security</span>
         <h3>Auth &amp; RBAC Built In</h3>
-        <p>Session cookies, API keys, PBKDF2 password hashing, CSRF protection, CSP, HSTS, and RBAC with users, groups, and permissions &mdash; all included and enforced by default.</p>
+        <p>Session cookies, API keys, PBKDF2 password hashing, CSRF protection, CSP, HSTS, and RBAC with users, groups, and permissions are all included and enforced by default.</p>
       </article>
       <article class="card">
         <span class="badge">Operations</span>
@@ -96,7 +96,7 @@ url: software/adapt/
     <div class="grid">
       <article class="card">
         <h3>Client Deliverable Portals</h3>
-        <p>Share data exports, analysis results, and recorded walkthroughs with clients. Control exactly who can see what &mdash; without building a custom portal or using a cloud storage service.</p>
+        <p>Share data exports, analysis results, and recorded walkthroughs with clients. Control exactly who can see what without building a custom portal or using a cloud storage service.</p>
       </article>
       <article class="card">
         <h3>Internal Data APIs</h3>
@@ -121,6 +121,35 @@ adapt addsuperuser --username admin /path/to/docroot
 adapt serve /path/to/docroot</code></pre>
     </div>
     <p style="margin-top:1rem;color:var(--muted);">Then visit <code>http://localhost:8000/admin/</code> to configure users, groups, and permissions.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>Adapt covers the folder-to-API layer. These tools cover what surrounds it.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">GPLv3 &bull; Dev Preview</span>
+        <h3>PKI Workbench</h3>
+        <p>Bring your own CA. Adapt enforces TLS and RBAC out of the box. Issue its server certificate from PKI Workbench to keep the whole trust chain under your control.</p>
+        <a class="btn btn-ghost" href="/software/pki-workbench/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">Reference Arch &bull; Preview</span>
+        <h3>Project Armory</h3>
+        <p>Both speak MCP. Adapt exposes a folder&rsquo;s resources over MCP for agent tooling; Project Armory is a reference architecture for running agents like that under enterprise identity, secrets, and audit controls.</p>
+        <a class="btn btn-ghost" href="/software/project-armory/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">Ansible &bull; DevOps</span>
+        <h3>Ansible Dev Sandbox</h3>
+        <p>Deploying Adapt with Ansible? Test the roles that provision it in a container-isolated, CI-ready harness before they touch a real environment.</p>
+        <a class="btn btn-ghost" href="/software/ansible-dev-sandbox/">Learn More &rarr;</a>
+      </article>
+    </div>
   </div>
 </section>
 

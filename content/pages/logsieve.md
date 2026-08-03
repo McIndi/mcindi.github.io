@@ -119,6 +119,27 @@ url: software/logsieve/
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>LogSieve is often the offline starting point. Here are good next steps when you need more.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Delve &amp; SIEMatic</h3>
+        <p>Outgrew a single HTML file? When you need central indexing, scheduled alerting, and retention across many hosts, graduate to <a href="/software/delve/">Delve</a> or <a href="/software/siematic/">SIEMatic</a>.</p>
+      </article>
+      <article class="card">
+        <span class="badge">MIT &bull; Browser-Native</span>
+        <h3>WebUtils</h3>
+        <p>It follows the same offline, single-file approach. See the rest of the toolkit including Kanban, Secret Share, Regex Workbench, and more, all zero-telemetry and local-first.</p>
+        <a class="btn btn-ghost" href="/software/webutils/">Learn More &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="card">

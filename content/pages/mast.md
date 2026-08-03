@@ -1,4 +1,4 @@
-Title: MAST — DataPower Operations Toolkit
+Title: MAST - DataPower Operations Toolkit
 Slug: mast
 Template: product
 Status: hidden
@@ -13,7 +13,7 @@ url: software/mast/
         <div class="eyebrow">IBM DataPower &bull; API Connect &bull; GPLv3</div>
         <h1>MAST</h1>
         <p class="subtitle" style="color:#94a3b8;font-size:1.05rem;font-weight:500;margin-bottom:.25rem;">McIndi&rsquo;s Automated Solutions Tool</p>
-        <p>Automation-first management for IBM DataPower appliance estates. Deploy, back up, promote configuration, and manage environments with CI-ready workflows — at any scale.</p>
+        <p>Automation-first management for IBM DataPower appliance estates. Deploy, back up, promote configuration, and manage environments with CI-ready workflows at any scale.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=MAST%20Support%20Inquiry">Request Support Quote</a>
           <a class="btn btn-ghost" href="https://github.com/mcindi/mast3" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -41,7 +41,7 @@ url: software/mast/
   <div class="container">
     <div class="section-head">
       <h2>What MAST Automates</h2>
-      <p>Every routine — and not-so-routine — DataPower operation, scripted and repeatable.</p>
+      <p>Every routine and not-so-routine DataPower operation, scripted and repeatable.</p>
     </div>
     <div class="grid">
       <article class="card">
@@ -96,6 +96,33 @@ url: software/mast/
       <article class="card">
         <h3>Compliance &amp; Audit Teams</h3>
         <p>Every MAST operation is logged and auditable. Password enforcement, configuration drift detection, and backup verification all produce records your auditors can use.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>MAST manages the estate. Here is where the data and certificates it produces can go.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>SIEMatic &amp; Delve</h3>
+        <p>Send DataPower events somewhere useful. <a href="/software/siematic/">SIEMatic</a> and <a href="/software/delve/">Delve</a> both ingest, search, and alert on the security events and config-drift records your appliances produce.</p>
+      </article>
+      <article class="card">
+        <span class="badge">GPLv3 &bull; Dev Preview</span>
+        <h3>PKI Workbench</h3>
+        <p>DataPower front-side handlers need certs too. Issue and rotate them from a private CA you operate instead of hand-rolled OpenSSL scripts.</p>
+        <a class="btn btn-ghost" href="/software/pki-workbench/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">Ansible &bull; DevOps</span>
+        <h3>Ansible Dev Sandbox</h3>
+        <p>MAST already integrates with Ansible and CI/CD. Test the roles that drive it in a container-isolated, CI-ready harness before they touch a real appliance estate.</p>
+        <a class="btn btn-ghost" href="/software/ansible-dev-sandbox/">Learn More &rarr;</a>
       </article>
     </div>
   </div>

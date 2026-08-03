@@ -146,6 +146,29 @@ url: software/webutils/
   </div>
 </section>
 
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>Part of a growing set of practitioner tools that share the same offline, zero-telemetry model.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">MIT &bull; Client-Side</span>
+        <h3>LogSieve</h3>
+        <p>Same offline, single-file philosophy, aimed at log triage instead of code, text, or secrets. Outgrew a single file? Both point back here to the rest of the suite.</p>
+        <a class="btn btn-ghost" href="/software/logsieve/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">MIT &bull; CLI + HTTP API</span>
+        <h3>Trailhead</h3>
+        <p>Repo2Prompt packages a codebase for LLM prompt contexts entirely in the browser. Trailhead is the deeper local option, with a persistent queryable graph and semantic search over the same code.</p>
+        <a class="btn btn-ghost" href="/software/trailhead/">Learn More &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="card">

@@ -113,6 +113,35 @@ url: software/pki-workbench/
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>Already running one of these? Here&rsquo;s what to issue certs for.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">Private Alpha &bull; Commercial</span>
+        <h3>SIEMatic</h3>
+        <p>Already running SIEMatic? Ship PKI Workbench&rsquo;s issuance and expiry events to a real audit sink instead of scrolling through admin logs by hand.</p>
+        <a class="btn btn-ghost" href="/software/siematic/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">MIT &bull; FastAPI</span>
+        <h3>Adapt</h3>
+        <p>Adapt supports <code>--tls-cert</code> / <code>--tls-key</code> out of the box. Issue its server certificate from your own CA to keep the whole trust chain under your control.</p>
+        <a class="btn btn-ghost" href="/software/adapt/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">Reference Arch &bull; Preview</span>
+        <h3>Project Armory</h3>
+        <p>Need a standalone dev CA without adopting the full OpenBao/Kubernetes stack? PKI Workbench gives platform teams a lighter, Django-based alternative for issuing and inspecting private certs.</p>
+        <a class="btn btn-ghost" href="/software/project-armory/">Learn More &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="card">

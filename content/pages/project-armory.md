@@ -1,4 +1,4 @@
-Title: Project Armory — Secure AI Agent Platform for Regulated Enterprises
+Title: Project Armory - Secure AI Agent Platform for Regulated Enterprises
 Slug: project-armory
 Template: product
 Status: hidden
@@ -44,7 +44,7 @@ url: software/project-armory/
     </div>
     <p>Every vendor has a slide deck about enterprise AI agents. The moment you try to actually deploy one inside a regulated environment, you hit a wall the demos never mention. An agent wants to reach the open internet, call whichever model provider it likes, pull whatever data it can read, and act on it autonomously. That is precisely the behavior your security, compliance, and audit functions exist to prevent.</p>
     <p>So most teams stall. They either spend months hand-building identity, secrets, certificate, and egress plumbing around an agent before it can do anything useful, or they wait for a SaaS vendor to clear a security review that may never come while the business keeps asking why the AI everyone else is using isn&rsquo;t running yet.</p>
-    <p>Project Armory closes that gap. It is a working reference implementation (not a slide deck) that wires the controls a regulated enterprise actually requires around a modern agent runtime, using only open-source components you can run, inspect, and audit yourself. Clone it, stand it up in a VM, and you have a concrete blueprint for what a hardened enterprise agent stack really looks like.</p>
+    <p>Project Armory closes that gap. It is a working reference implementation that wires the controls a regulated enterprise actually requires around a modern agent runtime, using open-source components you can run, inspect, and audit yourself. Clone it, stand it up in a VM, and you have a concrete blueprint for a hardened enterprise agent stack.</p>
   </div>
 </section>
 
@@ -167,7 +167,7 @@ url: software/project-armory/
     <!-- Keycloak -->
     <rect x="300" y="102" width="280" height="58" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.8"/>
     <text x="440" y="128" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="700">Keycloak</text>
-    <text x="440" y="146" text-anchor="middle" fill="#475569" font-size="11.5">single OIDC issuer &#8212; identity</text>
+    <text x="440" y="146" text-anchor="middle" fill="#475569" font-size="11.5">single OIDC issuer for identity</text>
     <path d="M440,160 L440,192" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#pa-arrow)"/>
     <text x="450" y="180" fill="#64748b" font-size="11" font-style="italic">OIDC token</text>
 
@@ -293,6 +293,35 @@ url: software/project-armory/
       <article class="card">
         <h3>Air-Gap &amp; Data-Sovereign Environments</h3>
         <p>Deployments that must stay on-premises and self-hosted. Identity, secrets, certificates, and agent runtime all run inside infrastructure you control, with no external dependency.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>Armory handles core platform controls. These tools round out the surrounding pieces.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">GPLv3 &bull; Dev Preview</span>
+        <h3>PKI Workbench</h3>
+        <p>Need a standalone dev CA without standing up the full OpenBao/Kubernetes stack? PKI Workbench gives platform teams a lighter, Django-based alternative for issuing and inspecting private certs.</p>
+        <a class="btn btn-ghost" href="/software/pki-workbench/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">Ansible &bull; DevOps</span>
+        <h3>Ansible Dev Sandbox</h3>
+        <p>Armory is provisioned end-to-end with Ansible and OpenTofu. The Dev Sandbox is exactly the harness for testing those roles in isolation before they touch the cluster.</p>
+        <a class="btn btn-ghost" href="/software/ansible-dev-sandbox/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">MIT &bull; FastAPI</span>
+        <h3>Adapt</h3>
+        <p>Both speak MCP. Adapt turns a folder into an MCP-exposed set of resources and tools, which gives the agents running on this platform something concrete to call.</p>
+        <a class="btn btn-ghost" href="/software/adapt/">Learn More &rarr;</a>
       </article>
     </div>
   </div>

@@ -1,8 +1,8 @@
-Title: Ansible Dev Sandbox — Enterprise-Grade Role Testing
+Title: Ansible Dev Sandbox - Enterprise-Grade Role Testing
 Slug: ansible-dev-sandbox
 Template: product
 Status: hidden
-Summary: A reproducible testing harness for Ansible role development that mirrors how enterprise environments actually behave — container-isolated, environment-variable configured, and CI-ready.
+Summary: A reproducible testing harness for Ansible role development that mirrors how enterprise environments actually behave: container-isolated, environment-variable configured, and CI-ready.
 save_as: software/ansible-dev-sandbox/index.html
 url: software/ansible-dev-sandbox/
 
@@ -12,7 +12,7 @@ url: software/ansible-dev-sandbox/
       <div class="hero-content">
         <div class="eyebrow">Ansible &bull; DevOps &bull; Enterprise CI/CD</div>
         <h1>Ansible Dev Sandbox</h1>
-        <p>A reproducible testing harness for Ansible role development that mirrors how enterprise environments actually behave. Environment-variable configuration, Molecule test scenarios, and container-based execution — without committing sensitive files.</p>
+        <p>A reproducible testing harness for Ansible role development that mirrors how enterprise environments actually behave. Environment-variable configuration, Molecule test scenarios, and container-based execution without committing sensitive files.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/McIndi/ans_dev_sandbox_playbook" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
           <a class="btn btn-ghost" href="https://github.com/McIndi/ans_dev_sandbox_playbook/wiki" target="_blank" rel="noopener noreferrer">Documentation</a>
@@ -56,7 +56,7 @@ url: software/ansible-dev-sandbox/
       <article class="card">
         <span class="badge">Isolation</span>
         <h3>Container-Based Execution</h3>
-        <p>Fedora-based container with ephemeral SSH keys generated per run. The sandbox manages container lifecycle automatically — no manual container management.</p>
+        <p>Fedora-based container with ephemeral SSH keys generated per run. The sandbox manages container lifecycle automatically, with no manual container management.</p>
       </article>
       <article class="card">
         <span class="badge">Security</span>
@@ -94,7 +94,36 @@ url: software/ansible-dev-sandbox/
       </article>
       <article class="card">
         <h3>The Testing Gap</h3>
-        <p>Molecule is the right tool for role testing, but setup is complex. The Dev Sandbox provides three working scenarios out of the box — ready to extend or use as-is.</p>
+        <p>Molecule is the right tool for role testing, but setup is complex. The Dev Sandbox provides three working scenarios out of the box, ready to extend or use as-is.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Works Well With</h2>
+      <p>Testing the roles that deploy these? That&rsquo;s exactly what this harness is for.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">Reference Arch &bull; Preview</span>
+        <h3>Project Armory</h3>
+        <p>Armory provisions its entire platform with Ansible and OpenTofu. Test those roles here first in a container-isolated, ephemeral-key, CI-ready workflow.</p>
+        <a class="btn btn-ghost" href="/software/project-armory/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">GPLv3 &bull; Open Source</span>
+        <h3>MAST</h3>
+        <p>MAST integrates natively with Ansible and CI/CD. This is the harness for testing the roles that drive it before they touch a real appliance estate.</p>
+        <a class="btn btn-ghost" href="/software/mast/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
+        <span class="badge">Private Alpha &bull; Commercial</span>
+        <h3>SIEMatic</h3>
+        <p>Deploying SIEMatic with Ansible? Validate the roles here before they touch production agents and indexers.</p>
+        <a class="btn btn-ghost" href="/software/siematic/">Learn More &rarr;</a>
       </article>
     </div>
   </div>
