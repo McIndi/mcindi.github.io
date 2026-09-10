@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
+{% block description %}{{ (page.summary or page.content)|striptags|truncate(180)|trim }}{% endblock %}
+{% block canonical %}{{ SITEURL }}/{{ page.url }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block main_class %}stack{% endblock %}
+
+{% block head_extra %}
+  <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/briefing.css" />
+{% endblock %}
+
+{% block content %}{{ page.content }}{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ page.title|tojson }},
+    "url": "{{ SITEURL }}/{{ page.url }}",
+    "description": {{ (page.summary or page.content)|striptags|truncate(180)|trim|tojson }},
+    {% if page.date %}"datePublished": "{{ page.date.isoformat() }}",{% endif %}
+    "author": {
+      "@type": "Organization",
+      "name": "{{ SITENAME }}",
+      "url": "{{ SITEURL }}/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ SITENAME }}",
+      "url": "{{ SITEURL }}/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.png"
+      }
+    }
+  }
+  </script>
+{% endblock %}
