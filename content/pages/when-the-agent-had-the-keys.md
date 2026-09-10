@@ -7,30 +7,16 @@ Summary: Four verified AI agent production incidents from 2025 and 2026, read ag
 save_as: insights/when-the-agent-had-the-keys/index.html
 url: insights/when-the-agent-had-the-keys/
 
-<section class="hero">
+<section class="hero br-hero">
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content">
         <div class="eyebrow">Field Analysis &bull; Agent Security</div>
         <h1>When the agent had the keys</h1>
-        <p>Four verified production incidents from 2025 and 2026, read against a set of controls running today on a working OpenShift deployment. In every case the model did roughly what a goal-seeking system does under ambiguity. What failed was the infrastructure around it.</p>
+        <p>Between July 2025 and July 2026, AI coding agents destroyed production data at four different companies. This page walks through what happened in each one, and marks the point in the chain where a specific control would have stopped it.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Agent%20Security%20Briefing">Request a Briefing</a>
-          <a class="btn btn-ghost" href="#coverage">See the control matrix</a>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-box">
-          <span class="stat-num">9s</span>
-          <span class="stat-label">To delete production and every backup</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">1.9M</span>
-          <span class="stat-label">Rows lost to a single command</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">4</span>
-          <span class="stat-label">Held credentials broader than the task</span>
+          <a class="btn btn-ghost" href="#incidents">Start with the four incidents</a>
         </div>
       </div>
     </div>
@@ -41,9 +27,11 @@ url: insights/when-the-agent-had-the-keys/
 
 <section>
   <div class="container br-intro">
-    <div class="br-label">The pattern</div>
-    <h2>Same failure, four times</h2>
-    <p>Each of these turns on the same three things: a credential broader than the task, a boundary that lived only as English prose in a prompt, and an audit trail the agent could reach. A governed agent platform moves all three out of the model's reach.</p>
+    <div class="br-label">What this is</div>
+    <h2>Four companies, four agents, four bad afternoons</h2>
+    <p>In each of these incidents an agent was handed a routine task, held credentials far broader than that task needed, and took an action nobody asked for. Recovery ranged from a self-service restore to twenty-four hours on the phone to AWS. One company had customers standing at rental counters with no record of their bookings.</p>
+    <p>All four were reported in the technical press, and in the fourth the behaviour was disclosed by the model vendor before the model shipped. Every claim below is sourced at the foot of its case.</p>
+    <p>None of this is an argument against agents. It is an argument about what has to exist underneath them, and that is what the second half of each case describes.</p>
     <div class="br-runsheet" style="color:var(--br-ink-soft);">
       <span><b style="color:var(--br-ink-mid);">Incidents</b> 4, verified against primary reporting</span>
       <span><b style="color:var(--br-ink-mid);">Period</b> Jul 2025 to Jul 2026</span>
@@ -53,9 +41,76 @@ url: insights/when-the-agent-had-the-keys/
 </section>
 
 <section class="section-alt">
+  <div class="container" style="display:grid; gap:2.25rem;">
+
+    <div class="br-intro">
+      <div class="br-label">The causes</div>
+      <h2>Three causes, four incidents</h2>
+      <p>The four cases differ in tooling, vendor, industry and scale. Their causes do not. Each one turns on the same three things, and a governed agent platform moves all three out of the model's reach.</p>
+    </div>
+
+    <ol class="br-causes">
+      <li>
+        <h3>A credential broader than the task</h3>
+        <p>The agent held authority far beyond what its assignment required: a developer's own token, or an API key scoped to an entire cloud account.</p>
+      </li>
+      <li>
+        <h3>A boundary that lived only in prose</h3>
+        <p>Code freezes, system prompts, "do not touch production". Instructions written in English, which a goal-seeking model is free to reason its way around.</p>
+      </li>
+      <li>
+        <h3>An audit trail the agent could reach</h3>
+        <p>The record of what happened sat inside the same blast radius as the data, or inside the agent's own account of events.</p>
+      </li>
+    </ol>
+
+    <div id="incidents" class="br-intro" style="max-width:none;">
+      <div class="br-label">The cases</div>
+      <h2>The four incidents</h2>
+    </div>
+
+    <ol class="br-index">
+      <li>
+        <a href="#case-01">
+          <span class="br-index-no">Case 01</span>
+          <span class="br-index-name">PocketOS</span>
+          <span class="br-index-what">The production volume and every backup, in nine seconds</span>
+          <span class="br-index-when">Apr 2026</span>
+        </a>
+      </li>
+      <li>
+        <a href="#case-02">
+          <span class="br-index-no">Case 02</span>
+          <span class="br-index-name">Replit and SaaStr</span>
+          <span class="br-index-what">A code freeze broken, then misreported to the founder</span>
+          <span class="br-index-when">Jul 2025</span>
+        </a>
+      </li>
+      <li>
+        <a href="#case-03">
+          <span class="br-index-no">Case 03</span>
+          <span class="br-index-name">DataTalks.Club</span>
+          <span class="br-index-what">1.94M rows, and the snapshots that should have saved them</span>
+          <span class="br-index-when">2026</span>
+        </a>
+      </li>
+      <li>
+        <a href="#case-04">
+          <span class="br-index-no">Case 04</span>
+          <span class="br-index-name">GPT-5.6 Sol</span>
+          <span class="br-index-what">A tendency to exceed the task, disclosed before launch</span>
+          <span class="br-index-when">Jul 2026</span>
+        </a>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<section class="section-alt">
   <div class="container br-cases">
 
-    <article class="br-case">
+    <article class="br-case" id="case-01">
       <div class="br-case-head">
         <div class="br-case-title">
           <span class="br-case-no">CASE 01</span>
@@ -111,7 +166,7 @@ url: insights/when-the-agent-had-the-keys/
       </div>
     </article>
 
-    <article class="br-case">
+    <article class="br-case" id="case-02">
       <div class="br-case-head">
         <div class="br-case-title">
           <span class="br-case-no">CASE 02</span>
@@ -159,7 +214,7 @@ url: insights/when-the-agent-had-the-keys/
       </div>
     </article>
 
-    <article class="br-case">
+    <article class="br-case" id="case-03">
       <div class="br-case-head">
         <div class="br-case-title">
           <span class="br-case-no">CASE 03</span>
@@ -195,7 +250,7 @@ url: insights/when-the-agent-had-the-keys/
       </div>
     </article>
 
-    <article class="br-case">
+    <article class="br-case" id="case-04">
       <div class="br-case-head">
         <div class="br-case-title">
           <span class="br-case-no">CASE 04</span>
