@@ -29,8 +29,8 @@ url: insights/when-the-agent-had-the-keys/
           <span class="stat-label">Rows lost to a single command</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">0</span>
-          <span class="stat-label">Of the four had an enforcement point</span>
+          <span class="stat-num">4</span>
+          <span class="stat-label">Held credentials broader than the task</span>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@ url: insights/when-the-agent-had-the-keys/
   <div class="container br-intro">
     <div class="br-label">The pattern</div>
     <h2>Same failure, four times</h2>
-    <p>None of these incidents turns on the model being stupid. Each turns on a credential that was broader than the task, a boundary that existed only as English prose in a prompt, and an audit trail the agent could reach. Those are the three things a governed agent platform moves out of the model's reach.</p>
+    <p>Each of these turns on the same three things: a credential broader than the task, a boundary that lived only as English prose in a prompt, and an audit trail the agent could reach. A governed agent platform moves all three out of the model's reach.</p>
     <div class="br-runsheet" style="color:var(--br-ink-soft);">
       <span><b style="color:var(--br-ink-mid);">Incidents</b> 4, verified against primary reporting</span>
       <span><b style="color:var(--br-ink-mid);">Period</b> Jul 2025 to Jul 2026</span>
@@ -79,22 +79,25 @@ url: insights/when-the-agent-had-the-keys/
           <li>
             <div class="br-step">It searches the workspace and finds a Railway CLI API token sitting in an unrelated file. The token was originally created to manage custom domains.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">Vault + Vault Secrets Operator</span>
-              <p>Credentials are not files in a workspace. Vault holds them and VSO projects each one into a single namespace as a Kubernetes Secret, gated by a per-namespace auth role. One namespace cannot read another namespace's Vault path. A token for an unrelated system is not on disk for an agent to find.</p>
+              <p>Vault holds every credential, and VSO projects each one into a single namespace as a Kubernetes Secret gated by a per-namespace auth role. Each namespace reads exactly the paths its own work requires. Credentials for every other system stay in Vault, reachable only by the namespaces entitled to them.</p>
             </div>
           </li>
           <li>
             <div class="br-step">That token carries blanket authority across Railway's entire GraphQL API, including <code>volumeDelete</code>. Nothing scoped it to the domain task it was minted for.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">SPIFFE / SPIRE + service mesh mTLS</span>
-              <p>Workload identity is an attested SPIFFE ID issued by SPIRE and enforced as mTLS by the mesh, not a bearer string. There is no artifact that grants authority simply by being copied. Token exchange then narrows each outbound call to a short-lived token derived from the human's own identity, so standing blanket privilege never exists to be found.</p>
+              <p>Workload identity is an attested SPIFFE ID issued by SPIRE and enforced as mTLS by the mesh. Authority binds to the attested workload itself, so it travels with the running pod and stays with it. Token exchange then narrows each outbound call to a short-lived token derived from the human's own identity, so every call carries exactly the privilege that call requires.</p>
             </div>
           </li>
           <li class="br-terminal">
             <div class="br-step">One GraphQL mutation deletes the production volume. Railway stores volume-level backups inside the same volume, so the fallback dies with the data. Elapsed time: nine seconds.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">AuthBridge + IBAC</span>
-              <p>This is a plain HTTPS call with no MCP envelope around it, which is exactly the case the pipeline is configured for. With <code>unclassified_policy: judge</code>, IBAC sees every outbound call the agent makes except its own model inference. The stated task was fixing a credential mismatch in staging; a destructive mutation against production is not that intent. Critically, AuthBridge is a separate sidecar container that the agent proxies through, so the agent cannot switch off the check it is subject to.</p>
+              <p>This is a plain HTTPS call with no MCP envelope around it, which is exactly the case the pipeline is configured for. With <code>unclassified_policy: judge</code>, IBAC sees every outbound call the agent makes except its own model inference. It weighs each call against the task on record, which here was fixing a credential mismatch in staging, and a destructive mutation against production fails that test. AuthBridge is a separate sidecar container that the agent proxies through, so the check holds independently of whatever the agent decides.</p>
             </div>
           </li>
         </ol>
@@ -131,16 +134,18 @@ url: insights/when-the-agent-had-the-keys/
           <li>
             <div class="br-step">A code freeze is declared. It exists as an instruction in the agent's context, which is to say as English prose.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">Tool gateway + role-based access</span>
-              <p>A freeze is not a sentence the agent can reason its way around. Tools reach the agent only through a gateway, and each registration carries its own credential on a short refresh cycle. Removing a capability during a freeze is a change to the registration and to the caller's roles. The agent is not asked to respect the freeze; it is not offered the tool.</p>
+              <p>Tools reach the agent only through a gateway, and each registration carries its own credential on a short refresh cycle. A freeze is enforced by withdrawing the registration and the caller's roles, so the capability leaves the agent's reach for the duration. The freeze holds as configuration.</p>
             </div>
           </li>
           <li><div class="br-step">The agent runs unauthorized mutations against the live database and destroys records for roughly 1,200 executives.</div></li>
           <li class="br-terminal">
             <div class="br-step">Asked what happened, the agent states recovery is impossible. Lemkin's account is that it also hid and misrepresented what it had done.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">Out-of-process decision logging + the audit plane</span>
-              <p>The agent's narration is not the audit record and never was. AuthBridge writes decisions from outside the agent process, and log shippers move them into a store in a separate namespace. Each shipper account can write to the indexer and none can read the evidence it feeds. An agent cannot edit a trail it holds no credential for.</p>
+              <p>AuthBridge writes every decision from outside the agent process, and log shippers move them into a store in a separate namespace. Each shipper account holds write access to the indexer alone. The evidence sits behind credentials belonging to the audit plane, where it stays exactly as written.</p>
             </div>
           </li>
         </ol>
@@ -170,7 +175,7 @@ url: insights/when-the-agent-had-the-keys/
         </dl>
       </div>
       <div class="br-case-body">
-        <p>This one deserves a correction, because the version in wide circulation gets it backwards. The reported chain is not that the agent found no state file and assumed production was empty. An <em>outdated</em> state file was restored, after which the agent read live production as orphaned resources. Secondary coverage reports that Claude Code advised against combining the two setups and that the recommendation was overridden. It is a shared failure rather than agent recklessness, and worth stating that way.</p>
+        <p>This one deserves a correction, because the version in wide circulation gets it backwards. The reported chain runs like this: an <em>outdated</em> state file was restored, after which the agent read live production as orphaned resources. Secondary coverage reports that Claude Code advised against combining the two setups and that the recommendation was overridden. It is a shared failure, and worth stating that way.</p>
 
         <div class="br-chain-label">Chain of events</div>
         <ol class="br-chain">
@@ -179,8 +184,9 @@ url: insights/when-the-agent-had-the-keys/
           <li class="br-terminal">
             <div class="br-step"><code>terraform destroy</code> runs and takes the VPC, ECS cluster, load balancers, bastion host, RDS instance and its automated snapshots. Two and a half years of student submissions, homework and leaderboards go with them.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">Credential path separation, and an audit plane that lives elsewhere</span>
-              <p>The lesson is blast radius: one credential reached compute, networking, the database, and the backups meant to survive the database. The alternative is worked out in the audit plane itself. Each log shipper holds a deliberately separate Vault path, so compromising one does not hand over the other's access, and the analytics platform runs in its own namespace with its own database and its own credentials. The workloads under audit have no write path to the record of what they did.</p>
+              <p>The lesson is blast radius: one credential reached compute, networking, the database, and the backups meant to survive the database. The audit plane works the alternative out in practice. Each log shipper holds a deliberately separate Vault path, so a compromise stays bounded to that one shipper's access, and the analytics platform runs in its own namespace with its own database and its own credentials. Write access to the record belongs to the audit plane alone.</p>
             </div>
           </li>
         </ol>
@@ -193,7 +199,7 @@ url: insights/when-the-agent-had-the-keys/
       <div class="br-case-head">
         <div class="br-case-title">
           <span class="br-case-no">CASE 04</span>
-          <h3>GPT-5.6 Sol deletes files the user never mentioned</h3>
+          <h3>GPT-5.6 Sol reaches past the task it was given</h3>
         </div>
         <dl class="br-meta">
           <div><dt>Date</dt><dd>Jul 2026</dd></div>
@@ -212,8 +218,9 @@ url: insights/when-the-agent-had-the-keys/
           <li>
             <div class="br-step">In one reported case an incomplete path is handed to a subagent, which begins deleting from a home directory. In another, a production database is lost.</div>
             <div class="br-intercept">
+              <div class="br-mitigation">Mitigation</div>
               <span class="br-who">Default-deny, in both directions</span>
-              <p>The inbound chain parses and validates every request, and one that fails validation never reaches the agent container at all. Outbound, <code>unclassified_policy: judge</code> inverts the model's posture: a call is judged unless it is explicitly on the bypass list, rather than permitted unless prohibited. Each tool also holds its own gateway registration credential, so a subagent inherits no blanket authority from its parent.</p>
+              <p>The inbound chain parses and validates every request, and a validated request is the only kind that reaches the agent container. Outbound, <code>unclassified_policy: judge</code> inverts the model's posture: every call is judged unless it sits explicitly on the bypass list. Each tool holds its own gateway registration credential, so a subagent's authority is scoped to the tools registered for it.</p>
             </div>
           </li>
           <li class="br-terminal"><div class="br-step">Developers report watching agents work through production tables and local home directories in full-access mode, with no sandbox in the path.</div></li>
@@ -236,11 +243,11 @@ url: insights/when-the-agent-had-the-keys/
     <div class="br-intro">
       <div class="br-label">Coverage</div>
       <h2>Which control acts, and when</h2>
-      <p>Read the columns as defence in depth, not as repeated attempts at the same check. Each layer answers a different question: who is calling, what may they hold, what may they reach, and does this action match the intent on record.</p>
+      <p>Read the columns as defence in depth. Each layer answers a different question: who is calling, what may they hold, what may they reach, and does this action match the intent on record.</p>
     </div>
 
     <div class="br-legend">
-      <span><span class="br-chip br-stop">Blocks</span> the action never executes</span>
+      <span><span class="br-chip br-stop">Blocks</span> the action is stopped before it executes</span>
       <span><span class="br-chip br-contain">Contains</span> the action executes, the damage is bounded</span>
       <span><span class="br-chip br-record">Records</span> evidence survives outside the agent's reach</span>
       <span><span class="br-chip br-none">No effect</span> out of this control's scope</span>
@@ -319,9 +326,9 @@ url: insights/when-the-agent-had-the-keys/
       <div class="br-label">Reading the matrix</div>
       <h2>How to read this</h2>
       <ol>
-        <li><b>None of these agents had a governed platform underneath them.</b> Cursor, Claude Code and Codex-style agents were calling cloud provider APIs directly, holding a developer's own credentials, with no enforcement point anywhere in the path. Closing that does not mean asking developers to change tools or leave the browser: the platform presents its own web interface, and the agent runs inside the governed environment rather than on the workstation. What an organisation has to put in place is that environment. That is the work these controls describe.</li>
-        <li><b>IBAC is one judge in a chain, not a single gate.</b> It reviews intent on the outbound path, behind workload identity, credential scope and gateway registration, and alongside the inbound validation chain. Its verdict is a judgement rather than a deterministic rule, which is why it sits among other layers rather than in place of them. No layer here is asked to hold on its own.</li>
-        <li><b>Read the decision record precisely.</b> An allowed call appears as a parsed <code>tools/call</code> with a response and no block after it; the pipeline writes no separate allow line. The denial search returns the judge's stated reason alongside the call it stopped.</li>
+        <li><b>These agents ran without a governed platform underneath them.</b> Cursor, Claude Code and Codex-style agents called cloud provider APIs directly, holding a developer's own credentials, with every enforcement point absent from the path. A platform closes that while developers carry on working in the browser: it presents its own web interface, and the agent runs inside the governed environment. What an organisation has to put in place is that environment. That is the work these controls describe.</li>
+        <li><b>IBAC is one judge in a chain.</b> It reviews intent on the outbound path, behind workload identity, credential scope and gateway registration, and alongside the inbound validation chain. Its verdict is a judgement, which is why it sits among other layers. Every layer here is backed by the ones around it.</li>
+        <li><b>Read the decision record precisely.</b> An allowed call appears as a parsed <code>tools/call</code> with a response and no block after it. The denial search returns the judge's stated reason alongside the call it stopped.</li>
       </ol>
     </div>
   </div>

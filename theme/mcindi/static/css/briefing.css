@@ -394,3 +394,30 @@ table.br-matrix tbody tr:last-child td { border-bottom: none; }
     transition: none !important;
   }
 }
+
+/* ---------- mitigation heading ---------- */
+.br-mitigation {
+  justify-self: start;   /* grid item: keep the pill to its own width */
+  display: inline-block;
+  background: var(--br-control);
+  color: #ffffff;
+  font-family: var(--br-mono);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  margin-bottom: .1rem;
+}
+
+/* The control name now sits under the badge, so give it title weight. */
+.br-intercept .br-who {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--br-control-ink);
+  line-height: 1.35;
+}

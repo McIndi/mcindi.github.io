@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
-{% block description %}{{ page.summary or page.content|striptags|truncate(180) }}{% endblock %}
+{% block description %}{{ (page.summary or page.content)|striptags|truncate(180)|trim }}{% endblock %}
 {% block canonical %}{{ SITEURL }}/{{ page.url }}{% endblock %}
 {% block main_class %}stack{% endblock %}
 {% block content %}{{ page.content }}{% endblock %}
@@ -13,7 +13,7 @@
     "@type": "SoftwareApplication",
     "name": {{ page.title.split('—')[0].strip()|tojson }},
     "url": "{{ SITEURL }}/{{ page.url }}",
-    "description": {{ (page.summary or page.content|striptags|truncate(180))|tojson }},
+    "description": {{ (page.summary or page.content)|striptags|truncate(180)|trim|tojson }},
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Cross-platform",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
