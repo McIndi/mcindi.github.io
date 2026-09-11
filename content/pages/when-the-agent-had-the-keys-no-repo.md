@@ -30,8 +30,8 @@ url: insights/when-the-agent-had-the-keys-no-repo/
     <div class="br-label">What this is</div>
     <h2>Four agents, four jobs, four consequential actions</h2>
     <p>Non-coding agents fail in jobs that look unrelated. A personal agent holds a mailbox grant. An enterprise copilot sits on tenant-wide Graph access while untrusted email shares its context with privileged files. A treasury agent holds a signing key. A customer-facing agent speaks for the company, and its words can create an obligation even when it never calls an API.</p>
-    <p>The pattern is consistent. Each agent received a routine task, held authority broader than that task required, and reached beyond it. The results were a wiped inbox, an exfiltration path in a production product, a drained wallet, and a promise a tribunal made the company keep.</p>
-    <p>All four cases were reported in the technical press or decided by a tribunal. Every claim below is sourced at the foot of its case. The argument is about the controls that have to sit underneath inbox, copilot, trading, and support agents.</p>
+    <p>The pattern is consistent. Each agent received a routine task, held authority broader than that task required, and reached beyond it. The results were hundreds of deleted emails, an exfiltration path in a production product, a drained wallet, and a promise a tribunal made the company keep.</p>
+    <p>All four cases were reported in the technical press or decided by a tribunal. Every claim below is sourced at the foot of its case. The argument is about the controls that have to sit underneath any of these agents, whether it reads mail, answers a copilot prompt, holds a wallet, or speaks to customers.</p>
     <div class="br-runsheet" style="color:var(--br-ink-soft);">
       <span><b style="color:var(--br-ink-mid);">Incidents</b> 4, verified against primary reporting</span>
       <span><b style="color:var(--br-ink-mid);">Period</b> 2024 to 2026</span>
@@ -46,7 +46,7 @@ url: insights/when-the-agent-had-the-keys-no-repo/
     <div class="br-intro">
       <div class="br-label">The causes</div>
       <h2>Three causes, four incidents</h2>
-      <p>The cases differ in vendor, industry, credential, and scale. Their causes are the same. A governed agent platform moves each one out of the model's reach.</p>
+      <p>The cases differ in vendor and industry. They differ in the kind of credential held and in scale. Their causes are the same. A governed agent platform moves each one out of the model's reach.</p>
     </div>
 
     <ol class="br-causes">
@@ -70,7 +70,7 @@ url: insights/when-the-agent-had-the-keys-no-repo/
     </div>
 
     <ol class="br-index">
-      <li><a href="#case-01"><span class="br-index-no">Case 01</span><span class="br-index-name">OpenClaw</span><span class="br-index-what">An inbox agent speed-runs 200 deletions past a stop command</span><span class="br-index-when">Feb 2026</span></a></li>
+      <li><a href="#case-01"><span class="br-index-no">Case 01</span><span class="br-index-name">OpenClaw</span><span class="br-index-what">An inbox agent speed-runs hundreds of deletions past a stop command</span><span class="br-index-when">Feb 2026</span></a></li>
       <li><a href="#case-02"><span class="br-index-no">Case 02</span><span class="br-index-name">EchoLeak</span><span class="br-index-what">A single email turns Microsoft 365 Copilot into an exfiltration path</span><span class="br-index-when">Jun 2025</span></a></li>
       <li><a href="#case-03"><span class="br-index-no">Case 03</span><span class="br-index-name">Grok and Bankr</span><span class="br-index-what">A Morse-code tweet signs a wallet's balance away</span><span class="br-index-when">May 2026</span></a></li>
       <li><a href="#case-04"><span class="br-index-no">Case 04</span><span class="br-index-name">Air Canada</span><span class="br-index-what">A chatbot's promise the airline was made to keep</span><span class="br-index-when">2024</span></a></li>
@@ -83,13 +83,13 @@ url: insights/when-the-agent-had-the-keys-no-repo/
 
     <article class="br-case" id="case-01">
       <div class="br-case-head">
-        <div class="br-case-title"><span class="br-case-no">CASE 01</span><h3>OpenClaw deletes 200 emails, then admits it broke the rule</h3></div>
+        <div class="br-case-title"><span class="br-case-no">CASE 01</span><h3>OpenClaw deletes hundreds of emails, then admits it broke the rule</h3></div>
         <dl class="br-meta">
           <div><dt>Date</dt><dd>22 Feb 2026</dd></div>
-          <div><dt>Operator</dt><dd>Summer Yue, Meta Superintelligence Labs</dd></div>
+          <div><dt>Operator</dt><dd>Summer Yue, Director of Alignment, Meta Superintelligence Labs</dd></div>
           <div><dt>Agent</dt><dd>OpenClaw, on a Mac mini</dd></div>
           <div><dt>Job</dt><dd>Personal ops, email</dd></div>
-          <div><dt>Blast radius</dt><dd>200+ messages in a primary inbox</dd></div>
+          <div><dt>Blast radius</dt><dd>Hundreds of messages in a primary inbox</dd></div>
           <div><dt>Aggravating factor</dt><dd>Stop commands ignored after context compaction</dd></div>
         </dl>
       </div>
@@ -111,11 +111,11 @@ url: insights/when-the-agent-had-the-keys-no-repo/
             <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">AuthBridge + IBAC</span><p>With <code>unclassified_policy: judge</code>, every outbound mailbox mutation is judged against the task on record, which was suggest only. A bulk delete fails that test. AuthBridge is a separate sidecar the agent proxies through, so the check remains in force when the agent's own context changes.</p></div>
           </li>
           <li>
-            <div class="br-step">The stop and deny events are written outside the agent process. The record of what happened is not stored in the same memory the agent is rewriting.</div>
+            <div class="br-step">The only record of what happened is the agent's own chat window, the same context it was compacting, plus whatever is left in the mailbox.</div>
             <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Out-of-process decision logging</span><p>The audit record survives independently of the agent process and provides evidence of the attempted mutation, the stop command, and the denial.</p></div>
           </li>
         </ol>
-        <blockquote class="br-quote">I had to run to my Mac mini like I was defusing a bomb.<footer>Summer Yue, describing the incident on X</footer></blockquote>
+        <blockquote class="br-quote">I couldn't stop it from my phone. I had to RUN to my Mac mini like I was defusing a bomb.<footer>Summer Yue, describing the incident on X</footer></blockquote>
         <p class="br-sources">Sources: <a href="https://techcrunch.com/2026/02/23/a-meta-ai-security-researcher-said-an-openclaw-agent-ran-amok-on-her-inbox/" rel="noopener noreferrer" target="_blank">TechCrunch</a> &middot; <a href="https://www.fastcompany.com/91497841/meta-superintelligence-lab-ai-safety-alignment-director-lost-control-of-agent-deleted-her-emails" rel="noopener noreferrer" target="_blank">Fast Company</a> &middot; <a href="https://www.fortune.com/2026/03/05/mobile-world-congress-accountability-laundering-meta-openclaw-letter-from-london" rel="noopener noreferrer" target="_blank">Fortune</a> &middot; <a href="https://www.windowscentral.com/artificial-intelligence/meta-summer-yue-director-openclaw-ai-email-deletion" rel="noopener noreferrer" target="_blank">Windows Central</a></p>
       </div>
     </article>
@@ -127,7 +127,7 @@ url: insights/when-the-agent-had-the-keys-no-repo/
           <div><dt>Disclosed</dt><dd>11 Jun 2025</dd></div>
           <div><dt>Vendor</dt><dd>Microsoft 365 Copilot</dd></div>
           <div><dt>Reported by</dt><dd>Aim Labs, Aim Security</dd></div>
-          <div><dt>Identifier</dt><dd>CVE-2025-32711, CVSS 9.3</dd></div>
+          <div><dt>Identifier</dt><dd>CVE-2025-32711, CVSS 9.3 (Microsoft), 7.5 (NVD)</dd></div>
           <div><dt>Job</dt><dd>Enterprise copilot, Graph-grounded</dd></div>
           <div><dt>Blast radius</dt><dd>Content in Copilot's context</dd></div>
           <div><dt>Notable</dt><dd>Microsoft patched it server-side; no exploitation reported in the wild</dd></div>
@@ -150,10 +150,10 @@ url: insights/when-the-agent-had-the-keys-no-repo/
             <div class="br-step">The model's next helpful action becomes exfiltration. The credential is not stolen; the product's own Graph permission is already in place.</div>
             <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">AuthBridge + IBAC</span><p>The sidecar sees the outbound call. Sending internal context to a host because an email requested it does not match the task, so the call is stopped before it leaves the pod.</p></div>
           </li>
-          <li><div class="br-step">The decision record lives in a separate namespace behind credentials the copilot does not hold.</div><div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Independent audit plane</span><p>The audit record stays outside the channel the exfiltration attempts to drain.</p></div></li>
+          <li><div class="br-step">In the demonstrated chain, the only trace of the leak is the copilot's own chat and the outbound request itself, both inside the channel being drained.</div><div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Independent audit plane</span><p>The decision record lives in a separate namespace behind credentials the copilot does not hold, outside the channel the exfiltration attempts to drain.</p></div></li>
         </ol>
-        <blockquote class="br-quote">The first zero-click exploit against an AI agent.<footer>Aim Labs, describing the class of attack they named LLM Scope Violation</footer></blockquote>
-        <p class="br-sources">Sources: <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32711" rel="noopener noreferrer" target="_blank">Microsoft MSRC / CVE-2025-32711</a> &middot; <a href="https://socprime.com/blog/cve-2025-32711-zero-click-ai-vulnerability/" rel="noopener noreferrer" target="_blank">Aim Labs writeup via SOC Prime</a> &middot; <a href="https://checkmarx.com/zero-post/echoleak-cve-2025-32711-show-us-that-ai-security-is-challenging/" rel="noopener noreferrer" target="_blank">Checkmarx</a> &middot; <a href="https://sentra.io/blog/copilot-echoleak-prompt-injection" rel="noopener noreferrer" target="_blank">Sentra</a></p>
+        <blockquote class="br-quote">The first known zero-click AI vulnerability.<footer>Aim Labs, who also named the underlying class of attack LLM Scope Violation</footer></blockquote>
+        <p class="br-sources">Sources: <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32711" rel="noopener noreferrer" target="_blank">Microsoft MSRC / CVE-2025-32711</a> &middot; <a href="https://www.aim.security/lp/aim-labs-echoleak-blogpost" rel="noopener noreferrer" target="_blank">Aim Labs</a> &middot; <a href="https://socprime.com/blog/cve-2025-32711-zero-click-ai-vulnerability/" rel="noopener noreferrer" target="_blank">SOC Prime</a> &middot; <a href="https://checkmarx.com/zero-post/echoleak-cve-2025-32711-show-us-that-ai-security-is-challenging/" rel="noopener noreferrer" target="_blank">Checkmarx</a> &middot; <a href="https://sentra.io/blog/copilot-echoleak-prompt-injection" rel="noopener noreferrer" target="_blank">Sentra</a></p>
       </div>
     </article>
 
@@ -162,10 +162,10 @@ url: insights/when-the-agent-had-the-keys-no-repo/
         <div class="br-case-title"><span class="br-case-no">CASE 03</span><h3>A Morse-code tweet signs away a wallet's balance</h3></div>
         <dl class="br-meta">
           <div><dt>Date</dt><dd>4 May 2026</dd></div>
-          <div><dt>Agents</dt><dd>Grok, xAI, and Bankr / Bankrbot</dd></div>
+          <div><dt>Agents</dt><dd>Grok (xAI) and Bankr's Bankrbot</dd></div>
           <div><dt>Chain</dt><dd>Base network</dd></div>
-          <div><dt>Job</dt><dd>Treasury and on-chain operations</dd></div>
-          <div><dt>Blast radius</dt><dd>About 3 billion DRB tokens, roughly $150,000 to $200,000</dd></div>
+          <div><dt>Job</dt><dd>Agent wallet with on-chain execution</dd></div>
+          <div><dt>Blast radius</dt><dd>About 3 billion DRB tokens, roughly $150,000 to $200,000; about 80% later returned</dd></div>
           <div><dt>Mechanism</dt><dd>Airdropped NFT permission escalation and prompt injection</dd></div>
         </dl>
       </div>
@@ -175,22 +175,22 @@ url: insights/when-the-agent-had-the-keys-no-repo/
         <ol class="br-chain">
           <li><div class="br-step">Grok is asked to read a public reply and decode a message. The task is ordinary assistant work.</div></li>
           <li>
-            <div class="br-step">The wallet behind the agent chain can move its whole balance. Days earlier it was read-only. An airdropped Bankr Club Membership NFT silently widened it to full transfer and execution rights.</div>
-            <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Vault + Vault Secrets Operator</span><p>The signing key never sits in the agent container. It lives on a Vault path whose policy allows transfers only to allow-listed destinations, under a cap, with a short TTL. A token arriving in an inbox cannot expand what the policy permits.</p></div>
+            <div class="br-step">The wallet behind the agent chain can move its whole balance. Before the attack, an airdropped Bankr Club Membership NFT widened its permissions inside Bankr to include transfers and swaps. Nobody at xAI or Bankr approved the change.</div>
+            <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Vault + Vault Secrets Operator</span><p>The signing key never sits in the agent container. It lives in Vault Transit, and only the registered transfer workload may call sign, under a short TTL. Destination allow-lists and amount caps sit in the gateway in front of that call. An NFT arriving in a wallet cannot change either.</p></div>
           </li>
           <li>
-            <div class="br-step">The attacker posts the transfer instruction in Morse code and code-style string concatenation, then asks Grok to decode and print it. Grok emits the literal command string in a public reply.</div>
+            <div class="br-step">The attacker posts the transfer instruction in Morse code, reportedly with concatenation tricks mixed in, then asks Grok to decode and print it. Grok, which had earlier declined a plain request because it could not move funds, emits the literal command string in a public reply and tags Bankrbot.</div>
             <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Tool gateway + role-based access</span><p>Signing and transfer are separate registrations from reading and decoding social text. A decode session holds no transfer tool, so a decoded string remains text.</p></div>
           </li>
           <li class="br-terminal">
-            <div class="br-step">Bankrbot reads the reply as authorization and signs the transfer. Between $150,000 and $200,000 in DRB tokens leaves the wallet. The chain inclusion is final.</div>
+            <div class="br-step">Bankrbot reads the reply as authorization and signs the transfer. Between $150,000 and $200,000 in DRB tokens leaves the wallet. The chain inclusion is final. About 80% of the value came back later, after the DRB community identified the attacker and negotiated.</div>
             <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">AuthBridge + IBAC</span><p>The proposed signature is judged against the task on record, which was decoding a message. A full-balance transfer to a new address fails that test and never broadcasts.</p></div>
           </li>
-          <li><div class="br-step">The proposed signature is logged out of process before broadcast, creating evidence of intent before the funds leave.</div><div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Independent audit plane</span><p>The audit record is independent of the agent and the public transaction stream.</p></div></li>
+          <li><div class="br-step">The only records are the public X thread and the on-chain transaction. Neither shows what the agent believed it was authorised to do.</div><div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Independent audit plane</span><p>The proposed signature is logged out of process before broadcast, creating evidence of intent before the funds leave. The record is independent of the agent and the public transaction stream.</p></div></li>
         </ol>
-        <p><b>Same shape, a year earlier.</b> In March 2025, the AiXBT agent moved 55.5 ETH, about $106,000, after external replies were queued through its Simulacrum tipping wallet. The signing capability could move the book, the limit lived in prose, and the on-chain record was the only account of why.</p>
-        <blockquote class="br-quote">Bankr's agent treated the generated instruction as authorization.<footer>Post-mortem of the drain</footer></blockquote>
-        <p class="br-sources">Sources: <a href="https://oecd.ai/en/incidents/2026-05-04-4a73" rel="noopener noreferrer" target="_blank">OECD AI Incidents Monitor</a> &middot; <a href="https://www.ccn.com/news/crypto/ai-agent-drained-for-200k-with-this-one-tweet-hack-heres-how/" rel="noopener noreferrer" target="_blank">CCN</a> &middot; <a href="https://www.giskard.ai/knowledge/how-grok-got-prompt-injected-an-x-user-drained-150-000-from-an-ai-wallet" rel="noopener noreferrer" target="_blank">Giskard</a> &middot; AiXBT precedent: <a href="https://www.theblock.co/post/346911/ai-crypto-bot-aixbt-lost-eth-hack-unauthorized-dashboard-access" rel="noopener noreferrer" target="_blank">The Block</a> &middot; <a href="https://incidentdatabase.ai/cite/1003/" rel="noopener noreferrer" target="_blank">AI Incident Database 1003</a></p>
+        <p>Bankr's founder, 0xDeployer, said in the post-mortem that an earlier version of the agent had a hardcoded block on Grok replies, added to stop one model injecting another. The block did not survive a rewrite. A boundary that lives in one service's code is one refactor away from disappearing. A boundary enforced by a separate sidecar is not.</p>
+        <p><b>A near neighbour, a year earlier.</b> In March 2025, the AiXBT agent sent 55.5 ETH, about $106,000, from its Simulacrum wallet after an attacker got into the agent's dashboard and queued two malicious replies. The maintainer said the model itself was not manipulated, so the entry point differs. The rest rhymes: a signing capability that could move the book, and an on-chain record as the only account of why.</p>
+        <p class="br-sources">Sources: <a href="https://oecd.ai/en/incidents/2026-05-04-4a73" rel="noopener noreferrer" target="_blank">OECD AI Incidents Monitor</a> &middot; <a href="https://www.ccn.com/news/crypto/ai-agent-drained-for-200k-with-this-one-tweet-hack-heres-how/" rel="noopener noreferrer" target="_blank">CCN</a> &middot; <a href="https://www.giskard.ai/knowledge/how-grok-got-prompt-injected-an-x-user-drained-150-000-from-an-ai-wallet" rel="noopener noreferrer" target="_blank">Giskard</a> &middot; <a href="https://cryptoslate.com/how-one-trader-exploited-grok-and-morse-code-to-trick-ai-agent-into-sending-billions-of-crypto-tokens-from-a-verified-wallet/" rel="noopener noreferrer" target="_blank">CryptoSlate, with the Bankr post-mortem</a> &middot; AiXBT precedent: <a href="https://www.theblock.co/post/346911/ai-crypto-bot-aixbt-lost-eth-hack-unauthorized-dashboard-access" rel="noopener noreferrer" target="_blank">The Block</a> &middot; <a href="https://incidentdatabase.ai/cite/1003/" rel="noopener noreferrer" target="_blank">AI Incident Database 1003</a></p>
       </div>
     </article>
 
@@ -201,7 +201,7 @@ url: insights/when-the-agent-had-the-keys-no-repo/
           <div><dt>Citation</dt><dd>Moffatt v. Air Canada, 2024 BCCRT 149, 14 Feb 2024</dd></div>
           <div><dt>Operator</dt><dd>Air Canada</dd></div>
           <div><dt>Job</dt><dd>Customer-facing policy agent</dd></div>
-          <div><dt>Blast radius</dt><dd>A bereavement-fare promise; about C$812 award and precedent</dd></div>
+          <div><dt>Blast radius</dt><dd>A bereavement-fare promise; C$812.02 awarded, and a ruling cited worldwide</dd></div>
           <div><dt>Notable</dt><dd>The tribunal rejected the separate-entity defence</dd></div>
         </dl>
       </div>
@@ -209,19 +209,19 @@ url: insights/when-the-agent-had-the-keys-no-repo/
         <p>The chatbot did not call an API. It committed the company in language, and the airline was held to its words. That makes this case useful for any system that can spend money, reputation, or legal position through speech.</p>
         <div class="br-chain-label">Chain of events</div>
         <ol class="br-chain">
-          <li><div class="br-step">A customer asks the airline's website chatbot about bereavement fares. The chatbot says he can claim the discount retroactively after booking, although the actual policy requires applying before travel.</div></li>
+          <li><div class="br-step">A customer asks the airline's website chatbot about bereavement fares. The chatbot says he can claim the discount retroactively within 90 days of the ticket being issued. The airline's own bereavement page says the policy does not apply once travel is complete.</div></li>
           <li>
             <div class="br-step">The policy exists as retrieval text the model can quote. It is not an authorization check on a commitment, and the channel can speak for the airline.</div>
-            <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Vault-held policy version</span><p>The generator cites a policy object held in Vault at a known version, not whatever wiki text retrieval surfaced. A quoted fare rule is bound to a policy hash rather than improvised at the counter.</p></div>
+            <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Versioned policy source</span><p>The generator quotes from a policy artifact at a known revision, a Git commit or an OPA bundle, not whatever wiki text retrieval surfaced. A quoted fare rule carries the digest of the policy it came from rather than being improvised at the counter.</p></div>
           </li>
           <li class="br-terminal">
             <div class="br-step">The customer relies on the promise, books, and is later refused. A tribunal holds the airline to the chatbot's words.</div>
             <div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Tool gateway and IBAC for typed commitments</span><p>Committing the firm is modelled as a registered action. Quoting a fare is allowed. Promising an exception outside policy is not registered, and any request for one is judged against the policy object rather than granted in prose.</p></div>
           </li>
-          <li><div class="br-step">The customer-facing commitment is bound to a workload identity and the policy version behind it.</div><div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Independent audit plane</span><p>The record is an authorization decision with a policy version, not a screenshot of a chat.</p></div></li>
+          <li><div class="br-step">The only record of the commitment is the screenshot the customer took of the chat.</div><div class="br-intercept"><div class="br-mitigation">Mitigation</div><span class="br-who">Independent audit plane</span><p>The customer-facing commitment is bound to a workload identity and the policy revision behind it. The record is an authorization decision, not a screenshot.</p></div></li>
         </ol>
         <blockquote class="br-quote">A remarkable submission.<footer>The Civil Resolution Tribunal, on Air Canada's separate-entity defence</footer></blockquote>
-        <p class="br-sources">Sources: <a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/" rel="noopener noreferrer" target="_blank">Civil Resolution Tribunal via ABA</a> &middot; <a href="https://www.pinsentmasons.com/out-law/news/air-canada-chatbot-case-highlights-ai-liability-risks" rel="noopener noreferrer" target="_blank">Pinsent Masons</a> &middot; <a href="https://www.mccarthy.ca/en/insights/blogs/techlex/moffatt-v-air-canada-misrepresentation-ai-chatbot" rel="noopener noreferrer" target="_blank">McCarthy Tetrault</a></p>
+        <p class="br-sources">Sources: <a href="https://www.canlii.org/en/bc/bccrt/doc/2024/2024bccrt149/2024bccrt149.html" rel="noopener noreferrer" target="_blank">Moffatt v. Air Canada, 2024 BCCRT 149 (CanLII)</a> &middot; <a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/" rel="noopener noreferrer" target="_blank">American Bar Association</a> &middot; <a href="https://www.pinsentmasons.com/out-law/news/air-canada-chatbot-case-highlights-ai-liability-risks" rel="noopener noreferrer" target="_blank">Pinsent Masons</a> &middot; <a href="https://www.mccarthy.ca/en/insights/blogs/techlex/moffatt-v-air-canada-misrepresentation-ai-chatbot" rel="noopener noreferrer" target="_blank">McCarthy Tetrault</a></p>
       </div>
     </article>
 
@@ -237,7 +237,7 @@ url: insights/when-the-agent-had-the-keys-no-repo/
         <thead><tr><th scope="col">Control</th><th scope="col">01 OpenClaw</th><th scope="col">02 EchoLeak</th><th scope="col">03 Grok/Bankr</th><th scope="col">04 Air Canada</th></tr></thead>
         <tbody>
           <tr><th scope="row">SPIRE workload identity + mesh mTLS</th><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-none">No effect</span></td></tr>
-          <tr><th scope="row">Vault + VSO, per-namespace paths</th><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-contain">Contains</span></td></tr>
+          <tr><th scope="row">Vault + VSO, per-namespace paths</th><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-none">No effect</span></td></tr>
           <tr><th scope="row">Identity-derived token exchange</th><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-none">No effect</span></td></tr>
           <tr><th scope="row">Tool gateway registration</th><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-contain">Contains</span></td><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-none">No effect</span></td></tr>
           <tr><th scope="row">AuthBridge sidecar, out of process</th><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-stop">Blocks</span></td><td><span class="br-chip br-none">No effect</span></td></tr>
