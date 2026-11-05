@@ -1,10 +1,10 @@
 AUTHOR = 'Cliff'
 SITENAME = 'McIndi Solutions LLC'
-SITESUBTITLE = 'Hands-On Engineering for Critical Infrastructure'
+SITESUBTITLE = 'Gateway, PKI and Agent Security Engineering'
 SITEDESCRIPTION = (
-    'We design, build, and operate enterprise security gateways, automation pipelines, '
-    'and cloud platforms for healthcare, financial services, and high-security environments. '
-    '20+ years of hands-on delivery — from architecture through production.'
+    'Hands-on engineering for IBM DataPower and API Connect estates: certificate '
+    'inventory and rotation, post-quantum readiness, and identity for AI agents, '
+    'for banks, insurers, and healthcare organizations.'
 )
 SITEURL = ""
 
@@ -23,12 +23,9 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 # Custom menu items (the main site sections)
 MENUITEMS = (
-    ('What We Build', '/#services'),
-    ('Outcomes', '/#pillars'),
-    ('Case Studies', '/#case-studies'),
-    ('How We Ship', '/#process'),
-    ('About', '/#about'),
-    ('Contact', '/#contact'),
+    ('Engagements', '/#offers'),
+    ('Proof', '/#case-studies'),
+    ('Team', '/#about'),
 )
 
 # Ensure custom domain and Pages metadata get copied into output

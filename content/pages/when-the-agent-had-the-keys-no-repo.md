@@ -1,4 +1,4 @@
-Title: When the Agent Had the Keys, and Never Opened a Repo
+Title: No Repo Required: Four Non-Coding Agent Incidents
 Slug: when-the-agent-had-the-keys-no-repo
 Template: briefing
 Status: hidden
@@ -12,7 +12,7 @@ url: insights/when-the-agent-had-the-keys-no-repo/
     <div class="hero-inner">
       <div class="hero-content">
         <div class="eyebrow">Field Analysis &bull; Agent Security</div>
-        <h1>When the agent had the keys, and never opened a repo</h1>
+        <h1>No repo required: four non-coding agent incidents</h1>
         <p>The companion page to this one examined four coding agents that destroyed production data. The agents here never wrote code. One managed an inbox, one sat inside Microsoft 365, one held a crypto wallet, and one answered customers for an airline. Between 2024 and 2026, each took an action nobody requested. This page follows each chain and marks the control that would have stopped it.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Agent%20Security%20Briefing">Request a Briefing</a>

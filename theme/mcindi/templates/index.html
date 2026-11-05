@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}McIndi Solutions LLC - Hands-On Engineering for Critical Infrastructure{% endblock %}
-{% block description %}We design, build, and operate enterprise security gateways, automation pipelines, and cloud platforms for healthcare, financial services, and high-security environments. 20+ years of hands-on delivery.{% endblock %}
+{% block title %}McIndi Solutions LLC - Gateway, PKI and Agent Security Engineering{% endblock %}
+{% block description %}Hands-on engineering for IBM DataPower and API Connect estates facing shorter certificate lifetimes, post-quantum deadlines, and AI agents that need their own identities. Fixed-scope engagements from senior practitioners.{% endblock %}
 
 {% block content %}
   <!-- ===== HERO ===== -->
@@ -9,26 +9,26 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="eyebrow">Healthcare • Financial Services • High-Security Platforms</div>
-          <h1>Hands-On Engineering for Critical Infrastructure</h1>
-          <p>We design, build, and operate enterprise security gateways, automation pipelines, and cloud platforms for large, regulated organizations. From architecture through production: we deliver working systems, not just recommendations.</p>
+          <div class="eyebrow">API Gateways &bull; PKI &amp; Post-Quantum &bull; Agent Security</div>
+          <h1>Get your gateway tier ready for the next certificate and cryptography deadlines</h1>
+          <p>We automate and secure IBM DataPower and API Connect estates for banks, insurers, and healthcare organizations: certificate inventory and rotation, post-quantum readiness, and identity for AI agents. Senior engineers do the work, from first inventory to running pilot.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Start%20a%20Project">Start a Project</a>
-            <a class="btn btn-ghost" href="#case-studies">See Our Work</a>
+            <a class="btn btn-primary" href="https://calendar.app.google/GY86CEC7KL7qvVaCA" target="_blank" rel="noopener noreferrer">Book a Technical Session</a>
+            <a class="btn btn-ghost" href="#offers">See Engagements</a>
           </div>
         </div>
         <div class="hero-stats">
           <div class="stat-box">
-            <span class="stat-num">20+</span>
-            <span class="stat-label">Years of enterprise delivery</span>
+            <span class="stat-num">300+</span>
+            <span class="stat-label">DataPower appliances brought under automation</span>
           </div>
           <div class="stat-box">
             <span class="stat-num">50%</span>
-            <span class="stat-label">Reduction in deployment cycle time</span>
+            <span class="stat-label">Faster deployments after moving DataPower and API Connect to OpenShift</span>
           </div>
           <div class="stat-box">
-            <span class="stat-num">80%</span>
-            <span class="stat-label">Less manual security intervention</span>
+            <span class="stat-num">TEC-2557</span>
+            <span class="stat-label">Agent security session at IBM TechXchange 2026</span>
           </div>
         </div>
       </div>
@@ -38,349 +38,267 @@
   <!-- ===== TECH STACK ===== -->
   <section class="trust">
     <div class="container">
-      <div class="row" aria-label="Technologies we deploy">
+      <div class="row" aria-label="Technologies we work in">
         <div class="pill">IBM DataPower &amp; API Connect</div>
-        <div class="pill">RedHat OpenShift</div>
-        <div class="pill">Ansible &amp; Jenkins</div>
-        <div class="pill">Python &amp; Django</div>
-        <div class="pill">AWS • Azure • GCP</div>
-        <div class="pill">Security Architecture</div>
+        <div class="pill">Red Hat OpenShift</div>
+        <div class="pill">HashiCorp Vault &amp; PKI</div>
+        <div class="pill">Post-Quantum Cryptography</div>
+        <div class="pill">Keycloak &amp; SPIFFE</div>
+        <div class="pill">Ansible &amp; Python</div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHAT WE BUILD ===== -->
-  <section id="services">
+  <!-- ===== WHY NOW ===== -->
+  <section id="why-now">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>What We Build &amp; Deliver</h2>
-          <p>From security gateways to cloud pipelines, we design, implement, and hand off production-ready systems.</p>
+          <h2>Dates You Can't Move</h2>
+          <p>The gateway is where partner TLS, message signing, and API credentials live. Each of these deadlines lands there first.</p>
         </div>
       </div>
-      <div class="grid">
-        <article class="card">
-          <span class="badge">IBM DataPower • API Connect</span>
-          <h3>Enterprise Security Gateways</h3>
-          <p>We implement hardened security gateways that enforce authentication, authorization, and policy at the enterprise perimeter. Full DataPower &amp; APIC deployments are configured, tested, and operational in your environment.</p>
+      <div class="deadlines">
+        <article class="deadline">
+          <span class="deadline-date">Mar 15, 2027</span>
+          <h3>100-day TLS certificates</h3>
+          <p>Public TLS certificates drop from a 200-day maximum to 100 days, then to 47 days in 2029. Certificates renewed by hand twice a year will need renewing about four times a year.</p>
         </article>
-        <article class="card">
-          <span class="badge">OpenShift • AWS • Azure • GCP</span>
-          <h3>Cloud &amp; Container Platforms</h3>
-          <p>We migrate services to container platforms, build resilient CI/CD pipelines, and operate OpenShift environments. You get running production systems, not migration plans that stop at the handoff slide.</p>
+        <article class="deadline">
+          <span class="deadline-date">Jan 1, 2027</span>
+          <h3>CNSA 2.0 for new acquisitions</h3>
+          <p>New National Security System purchases are expected to support NSA's quantum-resistant algorithm suite.</p>
         </article>
-        <article class="card">
-          <span class="badge">Ansible • Jenkins • Python</span>
-          <h3>Automation &amp; CI/CD Engineering</h3>
-          <p>We write the Ansible playbooks, Jenkins pipelines, and Python frameworks that eliminate manual toil. Production-proven automation, peer-reviewed, and built to scale across large and complex environments.</p>
+        <article class="deadline">
+          <span class="deadline-date">Dec 31, 2030</span>
+          <h3>Federal post-quantum migration</h3>
+          <p>Executive Order 14412 moves high-value federal systems to post-quantum key establishment by the end of 2030 and post-quantum signatures by 2031. Their suppliers and partners follow.</p>
         </article>
-        <article class="card">
-          <span class="badge">Architecture • Strategy</span>
-          <h3>Architecture &amp; Technical Roadmaps</h3>
-          <p>We translate complex technical requirements into concrete implementation plans, technology roadmaps, and team requirements. Executive-ready documentation backed by hands-on implementation experience.</p>
-        </article>
-        <article class="card">
-          <span class="badge">Python • Django • FastAPI</span>
-          <h3>Custom Software Development</h3>
-          <p>We build production-grade software tailored to your operational environment. REST APIs, automation frameworks, management tooling, and browser-native utilities. Designed for regulated industries: air-gap deployable, data-sovereign, and built to enterprise standards from day one.</p>
+        <article class="deadline">
+          <span class="deadline-date">Oct 2026</span>
+          <h3>Agents get their own identities</h3>
+          <p>IBM Agent Identity and HashiCorp Vault 2.2 are generally available. Agents moving past pilot now need workload identity, short-lived credentials, and egress control.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== DELIVERED OUTCOMES ===== -->
-  <section id="pillars" class="work section-alt">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Delivered Outcomes</h2>
-          <p>Measured impact from systems we've built and operations we've optimized.</p>
-        </div>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <span class="outcome-num">300+</span>
-          <span class="outcome-sub">appliances monitored</span>
-          <h3>Gateway Fleet Management</h3>
-          <p>Built custom Python frameworks to monitor, manage, and maintain large IBM DataPower estates across healthcare and financial services environments at global scale.</p>
-        </article>
-        <article class="card">
-          <span class="outcome-num">50%</span>
-          <span class="outcome-sub">faster deployment cycles</span>
-          <h3>Containerization &amp; Migration</h3>
-          <p>Migrated from monolithic releases to OpenShift containers with Ansible-driven APIC/DataPower automation at a global health insurer and retail pharmacy.</p>
-        </article>
-        <article class="card">
-          <span class="outcome-num">80%</span>
-          <span class="outcome-sub">less manual security work</span>
-          <h3>Security Automation</h3>
-          <p>Built a Django/DRF API to automate encryption updates across DataPower environments for an international financial services firm, eliminating manual governance cycles.</p>
-        </article>
-        <article class="card">
-          <span class="outcome-num">6mo→3wk</span>
-          <span class="outcome-sub">API integration timelines</span>
-          <h3>Integration Acceleration</h3>
-          <p>Delivered a low-code DataPower service framework that cut complex API integration timelines from six months to three weeks, applied across financial services integrations.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ENGAGEMENT OPTIONS ===== -->
+  <!-- ===== ENGAGEMENTS ===== -->
   <section id="offers" class="section-alt">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Work With Us</h2>
-          <p>Two ways to engage, both designed for speed and predictability.</p>
+          <h2>Engagements</h2>
+          <p>Fixed scope, fixed price, and a working result at the end. Each one feeds the next.</p>
         </div>
       </div>
-      <div class="grid">
+      <div class="grid grid-2">
         <article class="card">
-          <h3>One-Hour Technical Session</h3>
-          <p>A direct conversation with a hands-on practitioner. Bring your architectural challenge, active incident, or evaluation criteria, and we will dig in directly.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://calendar.app.google/GY86CEC7KL7qvVaCA" target="_blank" rel="noopener noreferrer">Book with Clifford Bressette</a>
-          </div>
+          <span class="badge">2 weeks &bull; Fixed scope</span>
+          <h3>Certificate-Lifetime Sprint</h3>
+          <p>We inventory every certificate and key across your DataPower domains and API Connect gateways, flag the public ones, and design automated issuance from Vault PKI or your own CA over ACME, pushed to DataPower through its REST management interface. Then we pilot it on one non-production domain.</p>
+          <p><strong>You get:</strong> a certificate and key inventory, a rotation design, a working pilot, and a runbook.</p>
         </article>
         <article class="card">
-          <h3>Two-Week Discovery Plan</h3>
-          <p><strong>$5,000 flat rate • 2 weeks.</strong> Stakeholder interviews, current-state review, and a practical implementation plan with <strong>budget, timeline, and risk register</strong>. Fixed scope. The implementation is quoted and contracted separately.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Start%20a%20Two-Week%20Discovery%20Plan">Start a Discovery Plan</a>
-          </div>
+          <span class="badge">3 weeks &bull; Fixed scope</span>
+          <h3>Quantum-Safe Gateway Readiness</h3>
+          <p>A cryptographic bill of materials (CBOM) for your gateway tier: DataPower, API Connect, Vault, and partner TLS. We identify which uses are quantum-vulnerable, which long-lived data is exposed to harvest-now-decrypt-later, and where version gaps block the new algorithms.</p>
+          <p><strong>You get:</strong> the CBOM, a crypto-agility design, and a roadmap to the dates your auditors will ask about.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Half-day workshop &bull; 2-week assessment</span>
+          <h3>Agent Runtime Identity</h3>
+          <p>We map your agents and the credentials they hold, then design the runtime layer most agent platforms assume but don't build: SPIFFE/SPIRE workload identity, just-in-time credentials from Vault, token exchange through Keycloak, Verify, or Entra, and egress control. The workshop includes a live walkthrough of the Project Catalyst demo.</p>
+          <p><strong>You get:</strong> an agent and credential map, a target architecture, and an implementation plan.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Hourly &bull; Subcontract</span>
+          <h3>Hands-On Engineering</h3>
+          <p>Senior capacity for the work in front of you: DataPower and API Connect, OpenShift migrations, Ansible automation, Vault and Terraform delivery, and the Python and Django tooling, APIs, and interfaces that make it usable by the rest of your team.</p>
+          <p><strong>For:</strong> platform teams and IBM partners who need experienced hands, not a bench.</p>
         </article>
       </div>
-
       <div class="card card-spaced">
-        <h3>What to Expect on Day One</h3>
-        <p>We align on access requirements at engagement start. Client onboarding may include laptop provisioning, VPN/Citrix, SSO, least-privilege accounts, and non-production environments, depending on scope. We also support secure, contractor-provided workstations for advisory engagements, subject to client policy.</p>
+        <h3>Not sure where to start?</h3>
+        <p>Book a one-hour technical session with a practitioner. Bring an expiring certificate, an audit question, or an agent pilot, and we'll tell you which engagement fits, if any.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://calendar.app.google/GY86CEC7KL7qvVaCA" target="_blank" rel="noopener noreferrer">Book with Clifford Bressette</a>
+          <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=Engagement%20Inquiry">Email Us</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CASE STUDIES ===== -->
+  <!-- ===== PROOF ===== -->
   <section id="case-studies" class="work">
     <div class="container">
       <div class="section-head">
         <div>
           <h2>Proven Delivery</h2>
-          <p>Real problems. Real systems built. Measurable outcomes.</p>
+          <p>Systems we've built and run in large, regulated environments.</p>
         </div>
       </div>
       <div class="grid">
         <article class="card">
-          <h3>IT Modernization &amp; Cloud Migration</h3>
-          <p><strong>Client:</strong> Global health insurer &amp; retail pharmacy.</p>
-          <p><strong>Problem:</strong> Monolithic releases and manual deployment processes blocked operational responsiveness.</p>
-          <p><strong>What we built:</strong> Containerized services on OpenShift; Ansible-driven APIC/DataPower config automation; Python framework monitoring 300+ appliances.</p>
-          <p><strong>Outcome:</strong> <strong>50% reduction</strong> in deployment cycle time. Improved uptime through automated health monitoring.</p>
+          <span class="badge">IBM TechXchange 2026</span>
+          <h3>Project Catalyst: Agent Guardrails on OpenShift</h3>
+          <p>Co-presented on stage in session TEC-2557 with IBM and partners. We built the deployment methodology, Helm charts, and integrations that run IBM Research's Rossoctl agent stack with SPIFFE/SPIRE identity, Vault just-in-time secrets, Keycloak OIDC, an Istio MCP gateway, and intent-based egress enforcement, audited in SIEMatic.</p>
         </article>
         <article class="card">
-          <h3>Security Automation &amp; API Integration</h3>
-          <p><strong>Client:</strong> International financial services firm.</p>
-          <p><strong>Problem:</strong> Manual encryption governance and slow API integration timelines across a complex banking environment.</p>
-          <p><strong>What we built:</strong> Django/DRF API to automate encryption updates; low-code DataPower service framework for rapid API integration.</p>
-          <p><strong>Outcome:</strong> <strong>80% reduction</strong> in manual security intervention. Integration timelines cut from <strong>6 months to 3 weeks</strong>.</p>
+          <span class="badge">Global health insurer &amp; retail pharmacy</span>
+          <h3>DataPower and API Connect on OpenShift</h3>
+          <p><strong>Problem:</strong> Monolithic releases and manual deployments slowed every change.</p>
+          <p><strong>What we built:</strong> Ansible automation deploying and configuring DataPower and API Connect on OpenShift across VMware, Azure, and GCP, plus a Python framework monitoring 300+ appliances.</p>
+          <p><strong>Outcome:</strong> <strong>50% faster</strong> deployments and <strong>40%+ lower</strong> mean time to repair.</p>
         </article>
         <article class="card">
-          <h3>Enterprise System Interoperability</h3>
-          <p><strong>Client:</strong> National automotive dealer services.</p>
-          <p><strong>Problem:</strong> Fragmented systems with fragile, undocumented data flows creating latent service risk.</p>
-          <p><strong>What we built:</strong> Defined integration requirements; introduced cloud-based monitoring for proactive health visibility across critical data flows.</p>
-          <p><strong>Outcome:</strong> Eliminated undetected service failures. Continuous uptime through proactive monitoring and alerting.</p>
+          <span class="badge">International financial services firm</span>
+          <h3>Encryption and Key Automation</h3>
+          <p><strong>Problem:</strong> Manual encryption-standard updates and Kerberos keytab handling across a large DataPower estate.</p>
+          <p><strong>What we built:</strong> A Django REST API for creating, testing, and deploying keytabs, and Python automation for encryption-standard updates and DataPower service deployment.</p>
+          <p><strong>Outcome:</strong> <strong>80% less</strong> manual intervention and <strong>60% fewer</strong> deployment errors.</p>
         </article>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Project%20Inquiry">Start a Project</a>
-        <a class="btn btn-ghost" href="#process">How We Deliver</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== SOFTWARE ===== -->
-  <section id="software" class="section-alt">
+  <!-- ===== HOW WE WORK ===== -->
+  <section id="process" class="section-alt">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>Tools We Build &amp; Maintain</h2>
-          <p>Production-grade tools we've built in-house, commercially supported and actively maintained.</p>
+          <h2>How We Work</h2>
         </div>
       </div>
-
-      <div class="grid">
+      <div class="grid grid-4">
         <article class="card">
-          <span class="badge">Browser-Native • OSS</span>
-          <h3>WebUtils</h3>
-          <p>Privacy-first browser utilities that run entirely offline with no backend, no accounts, and no telemetry.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/software/webutils/">Learn More</a>
-            <a class="btn btn-ghost" href="https://www.mcindi.com/webutils/index.html" target="_blank" rel="noopener noreferrer">Live App</a>
-          </div>
+          <h3>Senior hands only</h3>
+          <p>The people you talk to are the people who do the work. Nothing is handed to a junior team.</p>
         </article>
-
         <article class="card">
-          <span class="badge">DataPower • API Connect</span>
-          <h3>MAST - DataPower Operations</h3>
-          <p>Automation-first management for IBM DataPower estates: backup, deploy, promote, and govern at scale.</p>
+          <h3>Fixed scope up front</h3>
+          <p>A statement of work with deliverables and acceptance criteria before we start, and a deposit to begin.</p>
+        </article>
+        <article class="card">
+          <h3>Your environment, your rules</h3>
+          <p>Least-privilege access, your change process, and non-production first. Air-gapped and regulated environments are normal for us.</p>
+        </article>
+        <article class="card">
+          <h3>Built to hand over</h3>
+          <p>Every engagement ends with runbooks and a walkthrough, so your team can run it without us.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOOLS ===== -->
+  <section id="software">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Open-Source Tools Behind the Work</h2>
+          <p>We build our own tooling and publish it. These are the ones our engagements lean on.</p>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <span class="badge">DataPower &bull; GPLv3</span>
+          <h3>MAST for IBM DataPower</h3>
+          <p>Fleet automation for DataPower estates: backups, deployments, configuration promotion, certificate audits, and a web UI. Licensed by KPMG from 2015 to 2026, and the base for our certificate inventory.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="/software/mast/">Learn More</a>
-            <a class="btn btn-ghost" href="https://github.com/mcindi/mast3" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-ghost" href="https://github.com/McIndi/mast3" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </article>
-
         <article class="card">
-          <span class="badge">Data Workbench</span>
-          <h3>Delve - Data Search &amp; Analytics</h3>
-          <p>Pipeline-based data ingestion and search for operations teams. Lightweight, Docker-ready, air-gap deployable.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/software/delve/">Learn More</a>
-            <a class="btn btn-ghost" href="https://github.com/McIndi/delve" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="badge">Security Analytics • Private Alpha</span>
-          <h3>SIEMatic</h3>
-          <p>On-premises security analytics with agent/indexer architecture, interactive search, and modular alert pipelines.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/software/siematic/">Learn More</a>
-            <a class="btn btn-ghost" href="mailto:sales@mcindi.com?subject=SIEMatic%20Private%20Alpha%20Inquiry">Request Access</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="badge">MIT • Client-Side</span>
-          <h3>LogSieve - In-Browser Log Exploration</h3>
-          <p>Analyze logs entirely in the browser. Nothing leaves your device, and it is built for air-gapped and regulated environments.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/software/logsieve/">Learn More</a>
-            <a class="btn btn-ghost" href="https://www.mcindi.com/logsieve" target="_blank" rel="noopener noreferrer">Open LogSieve</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="badge">Ansible • DevOps</span>
-          <h3>Ansible Dev Sandbox</h3>
-          <p>Enterprise-grade Ansible role testing with container isolation, Molecule scenarios, and no committed ansible.cfg.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/software/ansible-dev-sandbox/">Learn More</a>
-            <a class="btn btn-ghost" href="https://github.com/McIndi/ans_dev_sandbox_playbook" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="badge">MIT • Python • FastAPI</span>
-          <h3>Adapt</h3>
-          <p>A FastAPI server that turns a directory into APIs, UIs, and streaming endpoints, with auth, RBAC, and an admin interface built in.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/software/adapt/">Learn More</a>
-            <a class="btn btn-ghost" href="https://github.com/McIndi/adapt" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="badge">GPLv3 • Django • Dev Preview</span>
+          <span class="badge">PKI &bull; Django &bull; Preview</span>
           <h3>PKI Workbench</h3>
-          <p>Private CA management for root and intermediate CAs, end-entity issuance, certificate profiles, and REST API integration.</p>
+          <p>Private CA management: root and intermediate CAs, validated end-entity issuance, certificate profiles, and a REST API, without OpenSSL scripting.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="/software/pki-workbench/">Learn More</a>
             <a class="btn btn-ghost" href="https://github.com/McIndi/pki_workbench" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </article>
-
         <article class="card">
-          <span class="badge">Reference Arch • Kubernetes • AI Agents</span>
+          <span class="badge">AI Agents &bull; Reference Architecture</span>
           <h3>Project Armory</h3>
-          <p>An auditable Kubernetes platform for deploying AI agents in regulated enterprises, with Keycloak OIDC, OpenBao secrets and PKI, TLS everywhere, and provisioning via Ansible and OpenTofu.</p>
+          <p>An auditable Kubernetes platform for running AI agents in regulated enterprises, with Keycloak OIDC, OpenBao secrets and PKI, and TLS everywhere, provisioned with Ansible and OpenTofu.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="/software/project-armory/">Learn More</a>
             <a class="btn btn-ghost" href="https://github.com/McIndi/project-armory" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </article>
-
         <article class="card">
-          <span class="badge">MIT • Python • CLI + HTTP API</span>
-          <h3>Trailhead</h3>
-          <p>Parses a codebase into a queryable property graph in SQLite, with tree-sitter parsing across 14 languages and semantic search over your own code.</p>
+          <span class="badge">Security Analytics &bull; Django</span>
+          <h3>SIEMatic</h3>
+          <p>Security observability with agents, an indexer, a pipeline search language, dashboards, and alerts. It provided the audit view for Project Catalyst.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="/software/trailhead/">Learn More</a>
-            <a class="btn btn-ghost" href="https://github.com/McIndi/trailhead" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-primary" href="/software/siematic/">Learn More</a>
+            <a class="btn btn-ghost" href="https://github.com/McIndi/SIEMatic" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </article>
+      </div>
+      <p class="section-foot">More tools, including WebUtils, LogSieve, Adapt, and Trailhead, are under <strong>Software</strong> in the menu and on <a href="https://github.com/McIndi" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+    </div>
+  </section>
+
+  <!-- ===== INSIGHTS ===== -->
+  <section id="insights" class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Insights</h2>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <span class="badge">Field Analysis &bull; Agent Security</span>
+          <h3>When the Agent Had the Keys</h3>
+          <p>Four verified AI agent production incidents from 2025 and 2026, read against the zero-trust controls that would have interrupted each chain.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/insights/when-the-agent-had-the-keys/">Read the Analysis</a>
+          </div>
+        </article>
+        <article class="card">
+          <span class="badge">Blog</span>
+          <h3>Engineering Notes</h3>
+          <p>Build logs, security hardening write-ups, and tutorials from the tools we maintain.</p>
+          <div class="cta-row">
+            <a class="btn btn-ghost" href="/blog/">Visit the Blog</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROCESS ===== -->
-  <section id="process">
+  <!-- ===== TEAM ===== -->
+  <section id="about">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>How We Ship</h2>
-          <p>Phase-gated, SOW-backed delivery with predictable scope and auditable outcomes at every stage.</p>
+          <h2>The Team</h2>
+          <p>McIndi is two senior practitioners, US-based and remote-first.</p>
         </div>
       </div>
-      <div class="grid">
+      <div class="grid grid-2">
         <article class="card">
-          <h3>I. Kickoff</h3>
-          <p><strong>Objective:</strong> Align scope, success metrics, and delivery plan.<br/><strong>Deliverables:</strong> Project Plan with Schedule, WBS, Testing, Training, and Transition tracks.</p>
+          <h3>Clifford Bressette</h3>
+          <p class="card-role">Senior Architect, Product Development Lead and Principal Consultant</p>
+          <p>13+ years automating and modernizing IBM DataPower and API Connect for Fortune 100 financial services and healthcare. Supported the automation of DataPower and API Connect onto OpenShift, helped build Python tooling that managed 300+ appliances, and wrote MAST. Now focused on PKI, post-quantum readiness, and agent security; built the Project Catalyst deployment shown at TechXchange 2026.</p>
+          <div class="cta-row">
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/cliffbressette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-ghost" href="{{ SITEURL }}/static/resume/Clifford-Bressette-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          </div>
         </article>
         <article class="card">
-          <h3>II. Design</h3>
-          <p><strong>Objective:</strong> Define requirements and produce the solution blueprint.<br/><strong>Deliverables:</strong> Requirements doc, Site/Solution Design, Established Metrics baseline.</p>
+          <h3>Brian Kearney</h3>
+          <p class="card-role">Owner &amp; Managing Member</p>
+          <p>20+ years building and running platform and integration infrastructure for Fortune 100 healthcare and financial services, going back to Medco and Express Scripts. Co-led the Ansible automation that moved DataPower and API Connect onto OpenShift across VMware, Azure, and GCP. Builds Project Armory and Project Garrison, presented the Project Catalyst demo in TechXchange 2026 session TEC-2557, and is currently delivering DevOps and integration work for a healthcare supply-chain platform. US Army veteran.</p>
+          <div class="cta-row">
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/brianpkearney/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-ghost" href="{{ SITEURL }}/static/resume/Brian-Kearney-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          </div>
         </article>
-        <article class="card">
-          <h3>III. Build</h3>
-          <p><strong>Objective:</strong> Code, integrate, and test against acceptance criteria.<br/><strong>Deliverables:</strong> Completed code, Detailed Testing Plan, Lab &amp; Beta Testing Report.</p>
-        </article>
-        <article class="card">
-          <h3>IV. Deploy</h3>
-          <p><strong>Objective:</strong> Production deployment with 24×7 hypercare support.<br/><strong>Deliverables:</strong> Running production system; documented rollback plan; incident support.</p>
-        </article>
-        <article class="card">
-          <h3>V. Enable</h3>
-          <p><strong>Objective:</strong> Transfer knowledge and build team proficiency.<br/><strong>Deliverables:</strong> Training per approved plan; runbooks and operational documentation.</p>
-        </article>
-        <article class="card">
-          <h3>VI. Closure</h3>
-          <p><strong>Objective:</strong> Formal completion and sign-off.<br/><strong>Deliverables:</strong> Documentation archive; Closure Report; Requirements Checklist.</p>
-        </article>
-      </div>
-      <div class="card card-spaced">
-        <h3>Security &amp; Change Governance</h3>
-        <ul>
-          <li>Isolated testing environments; production data masked where required.</li>
-          <li>Vulnerability scanning and penetration testing with 30/60/90-day SLAs by severity.</li>
-          <li>Formal change management with approvals, rollback plans, and full audit trails.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="section-alt">
-    <div class="container">
-      <div class="grid">
-      <div class="card">
-        <h3>Who We Are</h3>
-        <p>Senior technology practitioners with <strong>20+ years</strong> delivering critical systems across Healthcare and Financial Services. We're hands-on from architecture design to production deployment, and we do not hand off to junior resources.</p>
-        <p><strong>Industries we serve:</strong> Healthcare, Financial Services, Public Sector, Upper Mid-Market.</p>
-      </div>
-      <div class="card">
-        <h3>At a Glance</h3>
-        <ul>
-          <li><strong>Headquarters:</strong> USA (remote-first)</li>
-          <li><strong>Engagements:</strong> Projects, advisory retainers, staff augmentation</li>
-          <li><strong>Focus:</strong> Security gateways, automation, cloud modernization</li>
-          <li><strong>Delivery style:</strong> Hands-on, SOW-backed, phase-gated</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>The Team</h3>
-        <p><strong>Brian Kearney</strong> is a senior technology practitioner across cloud infrastructure, automation engineering, secure API design, and enterprise integration. Comfortable from C-suite to command line.</p>
-        <p><strong>Clifford Bressette</strong> is an IBM DataPower specialist and Python engineer with 13+ years designing and operating DataPower environments, including automation, performance tuning, and production reliability at scale.</p>
-      </div>
       </div>
     </div>
   </section>
@@ -389,8 +307,8 @@
   <section id="contact">
     <div class="container">
       <div class="card">
-        <h3>Ready to Build Something?</h3>
-        <p>Tell us what you're working on. We'll respond with a clear path forward and what we'd recommend as a starting point.</p>
+        <h3>Have a deadline coming?</h3>
+        <p>Tell us what's expiring, what's being audited, or which agents are about to reach production. We'll reply with a clear starting point.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:sales@mcindi.com?subject=Project%20Inquiry">Start the Conversation</a>
           <a class="btn btn-ghost" href="#top">Back to top</a>
@@ -408,20 +326,16 @@
     "@type": "ProfessionalService",
     "name": "McIndi Solutions LLC",
     "url": "https://www.mcindi.com/",
-    "description": "Hands-on engineering for critical infrastructure: enterprise security gateways (IBM DataPower/APIC), automation pipelines (Ansible/Python), and cloud modernization (OpenShift/AWS/Azure/GCP) for healthcare, financial services, and high-security environments.",
+    "description": "Hands-on engineering for IBM DataPower and API Connect estates: certificate inventory and rotation, post-quantum readiness, and identity for AI agents, for banks, insurers, and healthcare organizations.",
     "areaServed": "US",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Engagement Options",
+      "name": "Engagements",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Two-Week Discovery Plan",
-          "priceCurrency": "USD",
-          "price": "5000",
-          "category": "Consulting",
-          "url": "mailto:sales@mcindi.com?subject=Start%20a%20Two-Week%20Discovery%20Plan"
-        }
+        { "@type": "Offer", "name": "Certificate-Lifetime Sprint", "category": "Consulting" },
+        { "@type": "Offer", "name": "Quantum-Safe Gateway Readiness", "category": "Consulting" },
+        { "@type": "Offer", "name": "Agent Runtime Identity Workshop and Assessment", "category": "Consulting" },
+        { "@type": "Offer", "name": "Hands-On Engineering", "category": "Consulting" }
       ]
     }
   }

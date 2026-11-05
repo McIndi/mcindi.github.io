@@ -968,3 +968,126 @@ input, textarea {
     font-size: 1.05rem;
   }
 }
+
+/* ============================================
+   Homepage refresh (Nov 2026): deadlines, grid variants, team roles
+   ============================================ */
+.nav.container {
+  padding-inline: 24px;
+}
+
+.nav a {
+  white-space: nowrap;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .grid-2,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.deadlines {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .deadlines {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .deadlines {
+    grid-template-columns: 1fr;
+  }
+}
+
+.deadline {
+  background: var(--card);
+  border: 1px solid rgba(148, 163, 184, .15);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.deadline-date {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--brand);
+  line-height: 1.1;
+}
+
+.deadline h3 {
+  margin: 10px 0 6px;
+  font-size: 1rem;
+}
+
+.deadline p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.card-role {
+  margin-top: -6px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .85rem;
+}
+
+.section-foot {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.section-foot a {
+  color: var(--accent);
+}
+
+.work .card {
+  align-content: start;
+}
+
+.work .card .badge {
+  justify-self: start;
+}
+
+#offers .card p + p {
+  margin-top: .65rem;
+}
+
+@media (min-width: 861px) and (max-width: 1140px) {
+  .nav > ul {
+    gap: .7rem;
+  }
+
+  .nav a {
+    font-size: .84rem;
+  }
+
+  .brand-title {
+    font-size: .9rem;
+  }
+}
