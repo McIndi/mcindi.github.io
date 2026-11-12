@@ -109,6 +109,12 @@ url: software/siematic/
     </div>
     <div class="grid">
       <article class="card">
+        <span class="badge">AGPL-3.0 &bull; Open Source</span>
+        <h3>Delve</h3>
+        <p>Delve or SIEMatic? SIEMatic is built for security audit and detection. If you want a general data workbench instead, where a search can call HTTP APIs, run SQL, read files and send email, use Delve, the open-source sibling project.</p>
+        <a class="btn btn-ghost" href="/software/delve/">Learn More &rarr;</a>
+      </article>
+      <article class="card">
         <span class="badge">GPLv3 &bull; Dev Preview</span>
         <h3>PKI Workbench</h3>
         <p>SIEMatic runs TLS end to end, so every agent and the indexer need trusted certificates. PKI Workbench can stand up a private CA and issue them without OpenSSL scripting or commercial CA overhead.</p>
